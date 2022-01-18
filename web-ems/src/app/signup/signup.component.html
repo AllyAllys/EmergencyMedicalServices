@@ -1,0 +1,53 @@
+
+  <mat-card >
+  <mat-spinner *ngIf= "isLoading"></mat-spinner>
+  <form (submit)= "onSignUp(SignUpForm)" #SignUpForm="ngForm" *ngIf= "!isLoading">
+    <mat-form-field appearance="fill">
+      <input
+       matInput
+        type ="Username" name ="Username" ngModel #usernameInput = "ngModel"  placeholder="Username"  required Username>
+      <mat-error *ngIf= "usernameInput.invalid"> Please enter correct Username.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label >Userclass</mat-label>
+      <mat-select required #UserclassInput = "ngModel" ngModel name = "Userclass"  type = " Userclass" >
+        <mat-option value="one">Adminstrator</mat-option>
+        <mat-option value="two">Public User</mat-option>
+        <mat-option value="three">Volunteer User</mat-option>
+        <mat-option value="four">EMS Dispatcher User</mat-option>
+        <mat-option value="five">Emergency Responder</mat-option>
+        <mat-option value="six">First Responder</mat-option>
+        <mat-option value="seven">Disaster Manager</mat-option>
+        <mat-option value="eight">Law Enforcement User</mat-option>
+        <mat-option value="nine">Health Staff User</mat-option>
+      </mat-select>
+      <mat-error *ngIf= "UserclassInput.invalid"> Please enter correct Userclass.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'"  name = "Password" ngModel matInput placeholder ="Password" #PasswordInput= "ngModel" required Password >
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="PasswordInput.invalid"> Please enter valid password!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <input type ="Firstname" name="Firstname" ngModel matInput placeholder ="Firstname" #FirstnameInput= "ngModel" required >
+      <mat-error *ngIf="FirstnameInput.invalid"> Please enter Firstname!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <input type ="Lastname" name="Lastname" ngModel matInput placeholder ="Lastname" #LastnameInput= "ngModel" required >
+      <mat-error *ngIf="LastnameInput.invalid"> Please enter valid Lastname!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <input matInput name ="Email" ngModel type ="Email" placeholder="Email" #emailInput = "ngModel" required Email>
+      <mat-error *ngIf= "emailInput.invalid"> Please enter correct Email.</mat-error>
+    </mat-form-field>
+    <button mat-raised-button  type= "submit"> SignUp </button>
+  </form>
+  </mat-card>
