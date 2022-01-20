@@ -1,7 +1,7 @@
 const mongoose = require ('mongoose')
 const incidentDash= require('../DataModels/Incident_dashboard.model')
 
-exports.incidentdashboard_list = function(req, res, next) 
+exports.incidentdashboard_list = function(req, res, next)
 {
  incidentDash.find(function(err, incidentDashresponse){
       if(err)
@@ -14,7 +14,7 @@ exports.incidentdashboard_list = function(req, res, next)
 exports.incidentdashboard_get_one = function(req,res,next)
 {
     incidentDash.findOne({_id:req.params.id})
-    
+
     .then(function(dbuser)
     {
 

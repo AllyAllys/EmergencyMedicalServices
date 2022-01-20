@@ -3,7 +3,7 @@ const User_model= require('../DataModels/Users.model')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-exports.users_get_list = function(req, res, next) 
+exports.users_get_list = function(req, res, next)
 {
     User_model.find(function(err, usersresponse){
       if(err)
@@ -16,7 +16,7 @@ exports.users_get_list = function(req, res, next)
 exports.users_get_one = function(req,res,next)
 {
     User_model.findOne({_id:req.params.id})
-    
+
     .then(function(dbuser)
     {
 
@@ -29,7 +29,7 @@ exports.users_get_one = function(req,res,next)
 
 exports.users_signup = function(req,res,next)
 {
-    
+
     User_model.find({Email: req.body.Email})
     .exec()
     .then(users => {
@@ -45,7 +45,7 @@ exports.users_signup = function(req,res,next)
                         error:err
                     });
                 } else{
-                
+
             const newUsers = new User_model({
                  _id: mongoose.Types.ObjectId(),
                 Username:req.body.Username,
@@ -55,7 +55,7 @@ exports.users_signup = function(req,res,next)
                 Password:hash,
                 Email:req.body.Email,
                 DateJoined:req.body.DateJoined
-        
+
             });
 
            newUsers
@@ -66,14 +66,14 @@ exports.users_signup = function(req,res,next)
                    message:"New User created"
                });
            })
-           
+
            .catch(err=>{
                console.log(err);
                res.status(500).json({
                    error:err
                });
 
-               
+
            });
         }
     });
@@ -85,6 +85,7 @@ exports.users_login = (req,res,next)=>{
     User_model.find({Username: req.body.Username})
     .exec()
     .then(user=>{
+
         if (user.length<1){
             return res.status(401).json({
                 message:'Authorization failed'
@@ -104,10 +105,10 @@ exports.users_login = (req,res,next)=>{
                 },
                 "secret",
                 {
-                    expiresIn: "1h"
+                    expiresIn: "8h"
                 }
                 );
-            
+
                 return res.status(200).json({
                     message:"Authorization sucessful",
                     token:token
@@ -144,7 +145,7 @@ exports.users_put_update = function(req,res,next)
             error:err
         });
     });
-    
+
 }
 exports.users_delete_one = function(req,res,next)
 {

@@ -8,6 +8,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTableModule} from '@angular/material/table';
+
+
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,12 +21,23 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomepageComponent } from './homepage/homepage.component';
+import { IncidentdashboardComponent } from './incidentdashboard/incidentdashboard.component';
+import { MissingpersondashboardComponent } from './missingpersondashboard/missingpersondashboard.component';
+import { HealthstafftrackingdashboardComponent } from './healthstafftrackingdashboard/healthstafftrackingdashboard.component';
+import { VictimpatientdashboardComponent } from './victimpatientdashboard/victimpatientdashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomepageComponent,
+    IncidentdashboardComponent,
+    MissingpersondashboardComponent,
+    HealthstafftrackingdashboardComponent,
+    VictimpatientdashboardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -41,6 +55,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatIconModule,
     HttpClientModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

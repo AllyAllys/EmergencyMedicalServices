@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient} from "@angular/common/http";
 import {signUpData} from "./signup.model";
 import {Router} from '@angular/router';
+import {loginData} from "../login/login.model";
 
 @Injectable({ providedIn:"root"})
 export class  SignupService {
