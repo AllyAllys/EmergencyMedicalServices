@@ -5,6 +5,10 @@ const cors = require ('cors');
 const path = require ('path');
 const app = express()
 const bodyParser = require('body-parser');
+var morgan = require('morgan');
+
+
+
 
 //const socketio = require('socket.io');
 //const http = require('http')
@@ -106,6 +110,8 @@ app.set('views',__dirname + '/views')
 //Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use(morgan('dev'));
 /* Chat code
  io.on('connection',socket=>{
     console.log('New connection...')
@@ -165,4 +171,7 @@ app.use((req,res,next)=>{
   next();
 });
 
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 module.exports = app;

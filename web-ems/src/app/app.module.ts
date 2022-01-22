@@ -9,6 +9,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 
 import {MatTabsModule} from '@angular/material/tabs';
@@ -26,6 +28,7 @@ import { IncidentdashboardComponent } from './incidentdashboard/incidentdashboar
 import { MissingpersondashboardComponent } from './missingpersondashboard/missingpersondashboard.component';
 import { HealthstafftrackingdashboardComponent } from './healthstafftrackingdashboard/healthstafftrackingdashboard.component';
 import { VictimpatientdashboardComponent } from './victimpatientdashboard/victimpatientdashboard.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +59,8 @@ import { VictimpatientdashboardComponent } from './victimpatientdashboard/victim
     MatIconModule,
     HttpClientModule,
     MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

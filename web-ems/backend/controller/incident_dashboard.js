@@ -7,7 +7,9 @@ exports.incidentdashboard_list = function(req, res, next)
       if(err)
       res.send(err);
       else
-      res.send({status: 500, Count:   incidentDashresponse.length,   incidentDashUser: incidentDashresponse});
+      res.status(200).json,
+
+      res.send(incidentDashresponse);
     })
 }
 

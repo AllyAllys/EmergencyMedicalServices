@@ -1,5 +1,6 @@
 export interface incident {
 
+  LawID:string;
   PublicID:string;
   Subject: string;
   PhoneNo: string;

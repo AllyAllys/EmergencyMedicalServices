@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,AfterViewInit} from '@angular/core';
 import {IncidentService} from './incidentdashboard.service'
 import {incident} from './incidentdashboard.model'
+import { ActivatedRoute } from '@angular/router';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
 
 const ELEMENT_DATA: incident[] = [
 
@@ -9,25 +13,27 @@ const ELEMENT_DATA: incident[] = [
   selector: 'app-incidentdashboard',
   templateUrl: './incidentdashboard.component.html',
   styleUrls: ['./incidentdashboard.component.css'],
-  providers: [IncidentService]
+  providers: [IncidentService],
+
 })
 export class IncidentdashboardComponent implements OnInit {
 
 
-  displayedColumns: string[] = [ 'Subject', 'UploadDate'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['PublicID' ,'Subject', 'UploadDate','Actions'];
+  dataSource = new MatTableDataSource<incident>();
   listIncidents : incident[] = [];
+  Reports:any;
 
-  constructor(private incidentService: IncidentService) { }
+
+
+  constructor(private incidentService: IncidentService) {}
 
 
   ngOnInit(): void {
-    this.incidentService.listIncidents().subscribe(data => {
+    this.incidentService.listIncidents().subscribe((data)=> {
       this.listIncidents = data;
+      this.dataSource = new MatTableDataSource(this.Reports);
       console.log(data)
     })
   }
-
-
-
 }
