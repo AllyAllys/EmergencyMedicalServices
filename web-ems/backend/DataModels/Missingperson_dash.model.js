@@ -27,22 +27,23 @@ const MissingPersonSchema= new mongoose.Schema({
     },
     Age:Number,
     Height:String,
-    Address:{
-        Street:String,
-        City:String,
-        ZipCode:Number
-    },
+
+    Street:String,
+    City:String,
+    ZipCode:Number,
+
     Person_Descript:{
         type:String,
         required:true
-    
+
+
     },
     DateTime:{
         type:Date,
         default: () => Date.now(),
     },
     PersonPicture:Buffer
-   
+
 });
 
 module.exports=mongoose.model("missingperson_dash",MissingPersonSchema)

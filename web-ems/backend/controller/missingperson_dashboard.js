@@ -7,14 +7,14 @@ missingperson.find(function(err, missingpersonresponse){
      if(err)
      res.send(err);
      else
-     res.send({status: 500, Count:   missingpersonresponse.length,   missingpersonUser: missingpersonresponse});
+     res.send( missingpersonresponse);
    })
 }
 
 exports.missingperson_get_one = function(req,res,next)
 {
     missingperson.findOne({_id:req.params.id})
-    
+
     .then(function(dbuser)
     {
 
@@ -36,6 +36,9 @@ exports.missingperson_post_create = (req,res,next)=>
         Gender:req.body.Gender,
         Age:req.body.Age,
         Height:req.body.Height,
+        Street:req.body.Street,
+        City:req.body.City,
+        ZipCode:req.body.ZipCode,
         Person_Descript:req.body.Person_Descript,
         PersonPicture:req.body.PersonPicture
 
@@ -46,7 +49,8 @@ exports.missingperson_post_create = (req,res,next)=>
         console.log(result);
         res.status(201).json({
         message:"Missing Person form is successfully uploaded.",
-        
+
+
         })
     })
     .catch(err =>{
@@ -55,7 +59,7 @@ exports.missingperson_post_create = (req,res,next)=>
             error:err
         });
     });
-    
+
 
 }
 
@@ -75,11 +79,11 @@ exports.missingperson_put_update = function(req,res,next){
             error:err
         });
     });
-    
+
 }
 
 exports.missingperson_delete_one = function(req,res,next){
-    missingperson.deleteOne({_id:req.params.missingpersonID})
+    missingperson.deleteOne({_id:req.params.id})
        .exec()
        .then(result=>{
            console.log(result);

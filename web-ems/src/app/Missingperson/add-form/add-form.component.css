@@ -1,0 +1,47 @@
+mat-card{
+  width:50%;
+  height:700px;
+  background-color: rgb(238, 238, 238) ;
+  margin:auto;
+
+}
+mat-form-field,
+textarea{
+  width:100%
+}
+button{
+
+  margin-top: 10px;
+  width: 100%;
+  color: white;
+  height: 40px;
+  background-color: #3F51B5
+}
+
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+  margin-right: 100px;
+
+}
+
+.example-margin {
+  margin: 0 10px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}

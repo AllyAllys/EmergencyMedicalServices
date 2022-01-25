@@ -8,7 +8,7 @@ const missingpersonController = require ('../controller/missingperson_dashboard'
 //Get List of incident reports
 router.get('/list', missingpersonController.missingperson_get_list);
 
-//find one document of missing person 
+//find one document of missing person
 router.get("/:id",missingpersonController.missingperson_get_one);
 
 //Creating  a new document within the collection
@@ -18,7 +18,7 @@ router.post('/create',missingpersonController.missingperson_post_create);
 router.put('/:updateUser',checkAuth,missingpersonController.missingperson_put_update);
 
 //Delete missing person document
-router.delete('/:missingpersonID',checkAuth, missingpersonController.missingperson_delete_one);
+router.delete('/:id', missingpersonController.missingperson_delete_one);
 
 
 module.exports = router

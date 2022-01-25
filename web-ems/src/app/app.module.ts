@@ -25,9 +25,15 @@ import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomepageComponent } from './homepage/homepage.component';
 import { IncidentdashboardComponent } from './incidentdashboard/incidentdashboard.component';
-import { MissingpersondashboardComponent } from './missingpersondashboard/missingpersondashboard.component';
+import { MissingpersondashboardComponent } from './Missingperson/missingpersondashboard/missingpersondashboard.component';
 import { HealthstafftrackingdashboardComponent } from './healthstafftrackingdashboard/healthstafftrackingdashboard.component';
 import { VictimpatientdashboardComponent } from './victimpatientdashboard/victimpatientdashboard.component';
+import { AddFormComponent } from './Missingperson/add-form/add-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
+import { UpdateFormComponent } from './Missingperson/update-form/update-form.component';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +46,8 @@ import { VictimpatientdashboardComponent } from './victimpatientdashboard/victim
     MissingpersondashboardComponent,
     HealthstafftrackingdashboardComponent,
     VictimpatientdashboardComponent,
+    AddFormComponent,
+    UpdateFormComponent,
 
   ],
   imports: [
@@ -61,8 +69,12 @@ import { VictimpatientdashboardComponent } from './victimpatientdashboard/victim
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatSnackBarModule,
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,useValue:{duration:2000}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

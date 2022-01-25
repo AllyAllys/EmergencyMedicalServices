@@ -4,13 +4,19 @@ import {LoginComponent} from "./login/login.component";
 import { SignupComponent } from './signup/signup.component';
 import {HomepageComponent} from './homepage/homepage.component';
 import {IncidentdashboardComponent} from './incidentdashboard/incidentdashboard.component';
-//import {MissingpersonComponent} from './missingpersondashboard/missingpersondashboard.component';
-
+import {MissingpersondashboardComponent} from './Missingperson/missingpersondashboard/missingpersondashboard.component';
+import { AddFormComponent} from './Missingperson/add-form/add-form.component';
+import { VictimpatientdashboardComponent } from './victimpatientdashboard/victimpatientdashboard.component';
+import {UpdateFormComponent} from './Missingperson/update-form/update-form.component';
 const routes: Routes = [
   {path:"login",component: LoginComponent},
   {path:"signup",component:SignupComponent},
   {path:"homepage",component:HomepageComponent},
   {path:"incidentdashboard",component:IncidentdashboardComponent},
+  {path:"missingpersondashboard",component:MissingpersondashboardComponent},
+  {path: "addmissingpersonform",component:AddFormComponent},
+  {path: "delete/:id",component:UpdateFormComponent},
+
 
 ];
 
