@@ -65,7 +65,7 @@ exports.missingperson_post_create = (req,res,next)=>
 
 exports.missingperson_put_update = function(req,res,next){
     const id = req.params.updateUser;
-    missingperson.updateOne({_id: id},{$set:{Firstname:req.body.Firstname,Surname:req.body.Surname,Gender:req.body.Gender,Age:req.body.Age,Height:req.body.Height,Person_Descript:req.body.Person_Descript}})
+    missingperson.updateOne({_id: id},{$set:{Firstname:req.body.Firstname,Surname:req.body.Surname,Gender:req.body.Gender,Age:req.body.Age,Height:req.body.Height,Street:req.body.Street,City:req.body.City,ZipCode:req.body.ZipCode,Person_Descript:req.body.Person_Descript}})
     .exec()
     .then(result=>{
         console.log(result);
