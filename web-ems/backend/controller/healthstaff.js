@@ -1,9 +1,10 @@
 const mongoose = require ('mongoose')
 const  Healthstaff= require('../DataModels/Healthstaff.model')
 
-exports.healthstaff_get_list =function(req, res, next) 
+exports.healthstaff_get_list =function(req, res, next)
 {
-  Healthstaff.find(function(err,  Healthstaffresponse){
+  Healthstaff.find(function(err,  Healthstaffresponse)
+  {
       if(err)
       res.send(err);
       else
@@ -24,10 +25,10 @@ exports.healthstaff_create = function(req,res,next)
        res.send(err);
        else
        res.send({
-           status:500, message:'EMS Healthstaff created',Healthstaffdetail:newHealthstaff 
+           status:500, message:'EMS Healthstaff created',Healthstaffdetail:newHealthstaff
 
        })
-    
+
     })
 
 }

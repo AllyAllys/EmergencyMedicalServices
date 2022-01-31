@@ -1,7 +1,8 @@
 const items= require('../DataModels/Itemdescription.model')
 const requests= require('../DataModels/Medicalsupplies_itemrequest.model')
+const mongoose = require ('mongoose')
 
-exports.itemdescription_get_list = function(req, res, next) 
+exports.itemdescription_get_list = function(req, res, next)
 {
     items.find(function(err, descriptionresponse){
         if(err)
@@ -25,7 +26,7 @@ exports.itemdescription_post_create= function(req,res,next)
             ItemDescription:req.body.ItemDescription,
             ItemName:req.body.ItemName,
             OrderedItemID:req.body.OrderedItemID
-            
+
         });
         return item.save();
 
@@ -37,7 +38,7 @@ exports.itemdescription_post_create= function(req,res,next)
         })
 
     })
-    .catch(err=> 
+    .catch(err=>
         {
         console.log(err);
         res.status(500).json({
@@ -45,12 +46,12 @@ exports.itemdescription_post_create= function(req,res,next)
         });
     });
 
-    
+
 }
 
 exports.itemdescription_get_one = function(req,res,next){
     items.findOne({_id:req.params.id})
-    
+
     .then(function(dbitem)
     {
 
@@ -71,13 +72,13 @@ exports.itemdescription_put_update = function(req,res,next){
           message:"Item is Updated"
       })
     })
-    .catch(err=>{
-        console.log(err);
+    .catch(error=>{
+        console.log(error);
         res.status(500).json({
-            error:err
+            error:error
         });
     });
-    
+
 }
 exports.itemdescription_delete_one = function(req,res,next)
 {

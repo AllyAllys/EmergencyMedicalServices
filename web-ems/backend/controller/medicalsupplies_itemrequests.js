@@ -2,7 +2,7 @@ const mongoose = require ('mongoose')
 const item_model= require('../DataModels/Medicalsupplies_itemrequest.model')
 const order_model = require('../DataModels/Medicalsupplies_order.model')
 
-exports.itemrequest_get_list = function(req, res, next) 
+exports.itemrequest_get_list = function(req, res, next)
 {
     item_model.find(function(err, itemresponse){
         if(err)
@@ -38,7 +38,7 @@ exports.itemrequest_post_create = function(req,res,next)
         })
 
     })
-    .catch(err=> 
+    .catch(err=>
         {
         console.log(err);
         res.status(500).json({
@@ -46,12 +46,12 @@ exports.itemrequest_post_create = function(req,res,next)
         });
     });
 
-    
+
 }
 
 exports.itemrequest_get_one = function(req,res,next){
     item_model.findOne({_id:req.params.id})
-    
+
     .then(function(dbuser)
     {
 
@@ -79,7 +79,7 @@ exports.itemrequest_put_update= function(req,res,next)
             error:err
         });
     });
-    
+
 }
 
 exports.itemrequest_delete_one = function(req,res,next){

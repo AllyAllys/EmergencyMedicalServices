@@ -4,11 +4,19 @@ const mongoose = require("mongoose")
 
 const healthstafftrackingSchema= new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    Address:{
-        Street:String,
-        City:String,
-        ZipCode:Number
-    },
+
+    Street:{
+    type:String,
+  required:true
+  },
+
+    City:{
+     type:String,
+    required:true },
+
+     ZipCode:{
+     type: Number},
+
     Firstname:{
         type: String,
         required: true
@@ -30,13 +38,13 @@ const healthstafftrackingSchema= new mongoose.Schema({
     FirstID: {
         type: mongoose.SchemaTypes.ObjectId,
         ref:"first_responders",
-       
+
 
     },
     EmerID: {
         type: mongoose.SchemaTypes.ObjectId,
         ref:"emergency_responders",
-        
+
     }
 
 })

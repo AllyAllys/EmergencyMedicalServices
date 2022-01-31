@@ -11,7 +11,7 @@ export class  MissingpersonService {
   constructor(private http: HttpClient ){ }
 
   listIncidents(){
-    return this.http.get <missingperson[]> ("http://localhost:3000/api/Missingpersondashboard/list" )
+    return this.http.get <missingperson[]> ("http://localhost:3000/api/Missingpersondashboard/list")
 
   }
 

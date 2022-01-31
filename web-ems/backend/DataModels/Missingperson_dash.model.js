@@ -28,8 +28,16 @@ const MissingPersonSchema= new mongoose.Schema({
     Age:Number,
     Height:String,
 
-    Street:String,
-    City:String,
+    Street:{
+      type:String,
+      required:true
+    },
+
+    City:{
+      type:String,
+      required: true
+    },
+
     ZipCode:Number,
 
     Person_Descript:{

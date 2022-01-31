@@ -1,13 +1,12 @@
+<mat-card>
 
-<div>
   <mat-card-title>
     Missing Person Dashboard
     </mat-card-title>
-  <div>
-    <a mat-raised-button color ="primary" routerLink ="/addmissingpersonform" routerLinkActive = "mat-accent">Add Form</a>
-  </div>
-    <div class="mat-elevation-z8">
-      <table mat-table [dataSource] = "listMissing" class="mat-elevation-z8">
+
+    <button class ="add" mat-raised-button  routerLink ="/addmissingpersonform" routerLinkActive = "mat-accent" >Add Form</button>
+      <div>
+      <table mat-table [dataSource] = "listMissing" class=" data-table">
 
         <ng-container matColumnDef="PublicID"  >
           <th mat-header-cell *matHeaderCellDef> UserID </th>
@@ -21,7 +20,7 @@
 
         <ng-container matColumnDef="Address">
           <th mat-header-cell *matHeaderCellDef> Location Last Seen</th>
-          <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.City}} </td>
         </ng-container>
 
         <ng-container matColumnDef="Gender">
@@ -42,15 +41,12 @@
 
           <th mat-header-cell *matHeaderCellDef> Actions </th>
 
-          <td mat-cell *matCellDef= "let element">  <a [routerLink] ="['/delete', element._id]" routerLinkActive = "mat-accent"> Delete </a> </td>
+          <td mat-cell *matCellDef= "let element"> <button mat-raised-button  [routerLink] ="['/view', element._id]"> View </button> | <button mat-raised-button [routerLink] ="['/edit', element._id]"> Edit </button> |  <button mat-raised-button [routerLink] ="['/delete', element._id]" > Delete </button> </td>
 
         </ng-container>
-
       </table>
 
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-      showFirstLastButtons
-      aria-label="Select page of periodic elements">
-      </mat-paginator>
-      </div>
+
+    </div>
+    </mat-card>
 

@@ -9,13 +9,13 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-
-
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
@@ -33,6 +33,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
 import { UpdateFormComponent } from './Missingperson/update-form/update-form.component';
+import { UpdateComponent } from './Missingperson/update/update.component';
+import { HealthstaffComponent } from './healthstaff/healthstaff.component';
+import { HealthstaffPostListComponent } from './healthstaff-post-list/healthstaff-post-list.component';
+import { ViewComponent } from './Missingperson/view/view.component';
 
 
 @NgModule({
@@ -48,6 +52,10 @@ import { UpdateFormComponent } from './Missingperson/update-form/update-form.com
     VictimpatientdashboardComponent,
     AddFormComponent,
     UpdateFormComponent,
+    UpdateComponent,
+    HealthstaffComponent,
+    HealthstaffPostListComponent,
+    ViewComponent,
 
   ],
   imports: [
@@ -67,11 +75,11 @@ import { UpdateFormComponent } from './Missingperson/update-form/update-form.com
     MatIconModule,
     HttpClientModule,
     MatTableModule,
-    MatPaginatorModule,
     MatSortModule,
     ReactiveFormsModule,
     MatRadioModule,
     MatSnackBarModule,
+    MatPaginatorModule,
   ],
   providers: [
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,useValue:{duration:2000}}],

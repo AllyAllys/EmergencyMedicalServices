@@ -1,0 +1,23 @@
+
+
+<mat-card class = "formdetails" *ngIf= "userDetails">
+  <mat-card-title>
+    Missing Person Information
+    </mat-card-title>
+
+
+  <mat-card-subtitle > <span >Firstname : </span>  <h3>  {{userDetails.Firstname}} </h3></mat-card-subtitle>
+
+  <mat-card-subtitle> <span>Surname : </span><h3> {{userDetails.Surname}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>  Gender : </span><h3> {{userDetails.Gender}}</h3></mat-card-subtitle>
+  <mat-card-subtitle><span> Age : </span> <h3>{{userDetails.Age}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span> Height : </span><h3> {{userDetails.Height}}</h3></mat-card-subtitle>
+  <mat-card-subtitle><span> Street : </span> <h3>  {{userDetails.Street}}</h3></mat-card-subtitle>
+  <mat-card-subtitle><span> City : </span> <h3>  {{userDetails.City}}  </h3> </mat-card-subtitle>
+  <mat-card-subtitle> <span>Zipcode : </span> <h3> {{userDetails.ZipCode}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>Person Description : </span> <h3> {{userDetails.Person_Descript}} </h3></mat-card-subtitle>
+
+
+
+
+</mat-card>

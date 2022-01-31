@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup } from '@angular/forms';
-import {missingperson} from './missingpersondashboard.model'
+
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {missingperson} from './missingpersondashboard.model';
 import {MatTableDataSource} from '@angular/material/table';
 import { MissingpersonService } from './missingpersondashboard.service';
+import {MatPaginator} from '@angular/material/paginator';
 
-const ELEMENT_DATA: missingperson[] = [
-
-];
+const ELEMENT_DATA: missingperson[] = [];
 
 @Component({
   selector: 'app-missingpersondashboard',
@@ -17,15 +16,12 @@ const ELEMENT_DATA: missingperson[] = [
 
 export class MissingpersondashboardComponent implements OnInit {
 
-
   displayedColumns: string[] = ['PublicID' ,'Firstname','Gender','Address','DateTime','Action'];
   dataSource = new MatTableDataSource<missingperson>();
   listMissing : missingperson[] = [];
   Reports:any;
 
-
-
-  constructor(private missingpersonService: MissingpersonService) { }
+  constructor(private missingpersonService: MissingpersonService ) {}
 
   ngOnInit(): void {
 
@@ -38,3 +34,5 @@ export class MissingpersondashboardComponent implements OnInit {
   }
 
 }
+
+

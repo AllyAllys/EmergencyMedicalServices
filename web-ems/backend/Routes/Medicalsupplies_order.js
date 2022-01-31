@@ -7,8 +7,10 @@ const orderController = require ('../controller/medicalsupplies_order')
 //Get Orders
 router.get('/list', orderController.medicalsupplies_order_list);
 //Create new Order
+
 router.post('/create',orderController.medicalsupplies_order_create);
 //Find Order using ObjectId
+
 router.get("/:id",orderController.medicalsuppliesOrder_get_one);
 
 //Update Order

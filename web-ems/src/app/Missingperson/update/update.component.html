@@ -1,0 +1,14 @@
+<h3>Update Student</h3>
+<div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">
+
+
+</div>
+<form [formGroup]= "editform" (ngSubmit)= "UpdateData()">
+    <div class="mb-3">
+        <label class="form-label">Firstname</label>
+        <input type="Firstname" class="form-control" placeholder="Firstname" formControlName="Firstname">
+    </div>
+
+
+    <button type="submit" class= "btn btn-primary">Submit</button>
+</form>

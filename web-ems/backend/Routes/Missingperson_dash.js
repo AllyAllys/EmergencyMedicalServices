@@ -9,13 +9,13 @@ const missingpersonController = require ('../controller/missingperson_dashboard'
 router.get('/list', missingpersonController.missingperson_get_list);
 
 //find one document of missing person
-router.get("/:id",missingpersonController.missingperson_get_one);
+router.get('/:id',missingpersonController.missingperson_get_one);
 
 //Creating  a new document within the collection
 router.post('/create',missingpersonController.missingperson_post_create);
 
 //Update Missing person document
-router.put('/:updateUser',checkAuth,missingpersonController.missingperson_put_update);
+router.put('/:updateUser',missingpersonController.missingperson_put_update);
 
 //Delete missing person document
 router.delete('/:id', missingpersonController.missingperson_delete_one);

@@ -17,7 +17,9 @@ exports.health_create = (req,res,next)=>
         _id: mongoose.Types.ObjectId(),
         FirstID:req.body.FirstID,
         EmerID:req.body.EmerID,
-        Address:req.body.Address,
+        Street:req.body.Street,
+        City:req.body.City,
+        ZipCode:req.body.ZipCode,
         Firstname:req.body.Firstname,
         Surname:req.body.Surname,
         PhoneNo:req.body.PhoneNo
@@ -38,7 +40,7 @@ exports.health_create = (req,res,next)=>
 exports.health_get_one= function(req,res,next)
 {
     healthtracking.findOne({_id:req.params.id})
-    
+
     .then(function(dbuser)
     {
 
@@ -52,7 +54,7 @@ exports.health_get_one= function(req,res,next)
 exports.healthtracking_update =function(req,res,next)
 {
     const id = req.params.updateUser;
-    healthtracking.updateOne({_id: id},{$set:{Address:req.body.Address,PhoneNo:req.body.PhoneNo,Firstname:req.body.Firstname,Surname:req.body.Surname}})
+    healthtracking.updateOne({_id: id},{$set:{Street:req.body.Street,City:req.body.City,ZipCode:req.body.ZipCode,PhoneNo:req.body.PhoneNo,Firstname:req.body.Firstname,Surname:req.body.Surname}})
     .exec()
     .then(result=>{
         console.log(result);
@@ -66,7 +68,7 @@ exports.healthtracking_update =function(req,res,next)
             error:err
         });
     });
-    
+
 }
 
 exports.healthtracking_delete_one = function(req,res,next)

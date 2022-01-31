@@ -8,6 +8,10 @@ import {MissingpersondashboardComponent} from './Missingperson/missingpersondash
 import { AddFormComponent} from './Missingperson/add-form/add-form.component';
 import { VictimpatientdashboardComponent } from './victimpatientdashboard/victimpatientdashboard.component';
 import {UpdateFormComponent} from './Missingperson/update-form/update-form.component';
+import { UpdateComponent } from './Missingperson/update/update.component';
+import { HealthstaffComponent } from './healthstaff/healthstaff.component';
+import { ViewComponent } from './Missingperson/view/view.component';
+
 const routes: Routes = [
   {path:"login",component: LoginComponent},
   {path:"signup",component:SignupComponent},
@@ -16,8 +20,10 @@ const routes: Routes = [
   {path:"missingpersondashboard",component:MissingpersondashboardComponent},
   {path: "addmissingpersonform",component:AddFormComponent},
   {path: "delete/:id",component:UpdateFormComponent},
-
-
+  {path: "edit/:id",component:UpdateComponent},
+  {path:"healthstaff",component:HealthstaffComponent},
+  {path: "view/:id",component:ViewComponent},
+  {path:"victimpatient",component:VictimpatientdashboardComponent}
 ];
 
 @NgModule({

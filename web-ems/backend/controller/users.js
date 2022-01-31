@@ -29,7 +29,6 @@ exports.users_get_one = function(req,res,next)
 
 exports.users_signup = function(req,res,next)
 {
-
     User_model.find({Email: req.body.Email})
     .exec()
     .then(users => {
@@ -38,10 +37,15 @@ exports.users_signup = function(req,res,next)
             return res.status(409).json({
                 message: "Email Address is already taken"
             });
-        } else{
-            bcrypt.hash(req.body.Password,10,(err,hash)=>{
-                if(err){
-                    return res.status(500).json({
+        }
+        else
+        {
+            bcrypt.hash(req.body.Password,10,(err,hash)=>
+            {
+                if(err)
+                {
+                    return res.status(500).json
+                    ({
                         error:err
                     });
                 } else{

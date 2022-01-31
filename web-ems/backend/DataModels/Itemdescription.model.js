@@ -1,7 +1,7 @@
 const mongoose = require ("mongoose")
 
 const ItemDescriptionSchema= new mongoose.Schema({
-    
+
     _id: mongoose.Schema.Types.ObjectId,
 
     ItemDescription:String,
@@ -10,7 +10,10 @@ const ItemDescriptionSchema= new mongoose.Schema({
         ref:"medicalsupplies_itemrequests",
         required: true
     },
-    ItemName:String
+    ItemName:{
+      type:String,
+      required:true,
+    }
 })
 
 module.exports=mongoose.model("itemdescription",ItemDescriptionSchema)
