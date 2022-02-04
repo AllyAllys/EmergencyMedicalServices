@@ -6,6 +6,9 @@
   <mat-card-title>
     Incident Reports
     </mat-card-title>
+
+    <button class ="addd" mat-raised-button  routerLink  ="/addincidentform" routerLinkActive = "mat-accent" >Add Form</button>
+
     <div>
       <table mat-table [dataSource] = "listIncidents" class="data-table">
 
@@ -27,7 +30,8 @@
 
         <ng-container matColumnDef="Actions">
           <th mat-header-cell *matHeaderCellDef> Actions </th>
-          <td mat-cell *matCellDef="let element"> <a href ="#">View </a> |  <a href ="#"> Edit </a> | <a href ="#"> Delete </a> </td>
+          <td mat-cell *matCellDef= "let element"> <button mat-raised-button  [routerLink] ="['/viewincidentform', element._id]"> View </button> | <button mat-raised-button [routerLink] ="['/update', element._id]" > Edit </button> |  <button mat-raised-button [routerLink] ="['/delete', element._id]" > Delete </button> </td>
+
         </ng-container>
 
 

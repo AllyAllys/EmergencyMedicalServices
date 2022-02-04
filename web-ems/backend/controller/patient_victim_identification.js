@@ -1,20 +1,20 @@
 const mongoose = require ('mongoose')
 const   patient= require('../DataModels/Patient_victim_identification.model')
 
-exports.patientvictim_get_list = function(req, res, next) 
+exports.patientvictim_get_list = function(req, res, next)
 {
  patient.find(function(err, patientresponse){
       if(err)
       res.send(err);
       else
-      res.send({status: 500, Count:   patientresponse.length,   patientUser: patientresponse});
+      res.send( patientresponse);
     })
 }
 
 exports.patientvictim_get_one = function(req,res,next)
 {
     patient.findOne({_id:req.params.id})
-    
+
     .then(function(dbuser)
     {
 
@@ -37,8 +37,16 @@ exports.patientvictim_post_create = (req,res,next)=>{
         IDNumber:req.body.IDNumber,
         PhoneNo:req.body.PhoneNo,
         InjuryDescription:req.body.InjuryDescription,
-        Address:req.body.Address,
-        MedicalProviders:req.body.MedicalProviders
+        InjuryTreatment:req.body.InjuryTreatment,
+        Street:req.body.Street,
+        City:req.body.City,
+        ZipCode:req.body.ZipCode,
+        MedicalProviders:req.body.MedicalProviders,
+        Ambulance:req.body.Ambulance,
+        Contactfirstname:req.body.Contactfirstname,
+        Contactsurname:req.body.Contactsurname,
+        Relationship:req.body.Relationship,
+        Contact:req.body.Contact
 
     });
     tracking
@@ -47,7 +55,7 @@ exports.patientvictim_post_create = (req,res,next)=>{
         console.log(result);
         res.status(201).json({
         message:"Patient/Victim Form is Successfully Uploaded",
-        
+
         })
     })
     .catch(err =>{
@@ -56,14 +64,26 @@ exports.patientvictim_post_create = (req,res,next)=>{
             error:err
         });
     });
-    
+
 
 }
 
 exports.patientvictim_update = function(req,res,next)
 {
     const id = req.params.updateUser;
-    patient.updateOne({_id: id},{$set:{Firstname:req.body.Firstname,Surname:req.body.Surname,Gender:req.body.Gender,DOb:req.body.DOb,IDNumber:req.body.IDNumber,PhoneNo:req.body.PhoneNo,InjuryDescription:req.body.InjuryDescription,Address:req.body.Address,MedicalProviders:req.body.MedicalProviders}})
+    patient.updateOne({_id: id},{$set:{Firstname:req.body.Firstname,
+      Surname:req.body.Surname,Gender:req.body.Gender,
+      DOb:req.body.DOb,
+      Email:req.body.Email,
+      IDNumber:req.body.IDNumber,
+      PhoneNo:req.body.PhoneNo,
+      InjuryDescription:req.body.InjuryDescription,
+      InjuryTreatment:req.body.InjuryTreatment,
+      Street:req.body.Street,City:req.body.City,
+      ZipCode:req.body.ZipCode,
+      MedicalProviders:req.body.MedicalProviders,
+      Ambulance:req.body.Ambulance
+    }})
     .exec()
     .then(result=>{
         console.log(result);
@@ -77,7 +97,7 @@ exports.patientvictim_update = function(req,res,next)
             error:err
         });
     });
-    
+
 }
 
 exports.patientvictim_delete_one = function(req,res,next)

@@ -6,13 +6,14 @@ export interface missingperson {
   Firstname:string;
   Surname:string;
   Gender:String;
-  Age:number;
+  Age:string;
   Height:string;
-  Street?:string;
-  City?:string;
-  ZipCode?:number;
+  Street:string;
+  City:string;
+  ZipCode?:string;
   Person_Descript:string;
-  PersonPicture? :string;
+  productImage?:[];
   DateTime?:string;
+
 
 }

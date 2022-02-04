@@ -35,7 +35,9 @@ exports.incidentdashboard_create = (req,res,next)=>
         LawID:req.body.LawID,
         EventID:req.body.EventID,
         Subject:req.body.Subject,
-        Address:req.body.Address,
+        Street:req.body.Street,
+        City:req.body.City,
+        ZipCode:req.body.ZipCode,
         PhoneNo:req.body.PhoneNo,
         Incident_Des:req.body.Incident_Des,
         Incident_Date:req.body.Incident_Date,
@@ -54,6 +56,7 @@ exports.incidentdashboard_create = (req,res,next)=>
     })
 
 }
+
 
 exports.incidentdashboard_delete_one = function(req,res,next)
 {

@@ -1,36 +1,54 @@
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
+<mat-card>
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-    </ng-container>
+  <mat-card-title>
+    Victim Patient Dashboard
+    </mat-card-title>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
+    <button class ="add" mat-raised-button  routerLink  ="/addvictimpatientform" routerLinkActive = "mat-accent" >Add Form(Disaster Site)</button>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-    </ng-container>
+      <div>
+      <table mat-table [dataSource] = "listMissing" class=" data-table">
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-    </ng-container>
+        <ng-container matColumnDef="VolunteerID"  >
+          <th mat-header-cell *matHeaderCellDef> UserID </th>
+          <td mat-cell *matCellDef="let element"> {{element.VolunteerID}} {{element.HealthStaffID}} </td>
+        </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+        <ng-container matColumnDef="Firstname">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.Firstname}} {{element.Surname}} </td>
+        </ng-container>
 
-  <mat-paginator [pageSizeOptions]= "[5, 10, 20]"
-                 showFirstLastButtons
-                 aria-label="Select page of periodic elements">
-  </mat-paginator>
-</div>
+        <ng-container matColumnDef="Address">
+          <th mat-header-cell *matHeaderCellDef> Location Last Seen</th>
+          <td mat-cell *matCellDef="let element"> {{element.Street}},{{element.City}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Gender">
+          <th mat-header-cell *matHeaderCellDef> Gender</th>
+          <td mat-cell *matCellDef="let element"> {{element.Gender}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="DateTime">
+          <th mat-header-cell *matHeaderCellDef> Upload Date</th>
+          <td mat-cell *matCellDef="let element"> {{element.ModifiedDate}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef= "displayedColumns"></tr>
+        <tr mat-row *matRowDef= "let row; columns: displayedColumns;"></tr>
+
+        <ng-container matColumnDef="Action">
+
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+
+          <td mat-cell *matCellDef= "let element"> <button mat-raised-button  [routerLink] ="['/viewpatientform', element._id]"> View </button> | <button mat-raised-button [routerLink] ="['/updatepatientform', element._id]" > Edit </button> |  <button mat-raised-button [routerLink] ="['/delete', element._id]" > Delete </button> </td>
+
+        </ng-container>
+      </table>
+
+
+    </div>
+    </mat-card>
+

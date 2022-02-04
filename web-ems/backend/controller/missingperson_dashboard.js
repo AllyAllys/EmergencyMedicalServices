@@ -1,4 +1,5 @@
-const mongoose = require ('mongoose')
+const mongoose = require ('mongoose');
+const Missingperson_dashModel = require('../DataModels/Missingperson_dash.model');
 const   missingperson= require('../DataModels/Missingperson_dash.model')
 
 exports.missingperson_get_list = function(req, res, next)
@@ -25,7 +26,7 @@ exports.missingperson_get_one = function(req,res,next)
     });
 }
 
-exports.missingperson_post_create = (req,res,next)=>
+/*exports.missingperson_post_create = (req,res,next)=>
 {
     const tracking =  missingperson ({
         _id: mongoose.Types.ObjectId(),
@@ -40,7 +41,8 @@ exports.missingperson_post_create = (req,res,next)=>
         City:req.body.City,
         ZipCode:req.body.ZipCode,
         Person_Descript:req.body.Person_Descript,
-        PersonPicture:req.body.PersonPicture
+        PersonPicture: req.file.path,
+
 
     });
     tracking
@@ -59,6 +61,83 @@ exports.missingperson_post_create = (req,res,next)=>
             error:err
         });
     });
+
+
+}
+*/
+/*exports.missingperson_post_create = async (req,res)=>{
+
+  const{Firstname}=req.body;
+  const{Surname}=req.body;
+  const{Age}= req.body;
+  const{Gender}=req.body;
+  const{Height}= req.body;
+  const{Street}= req.body;
+  const{City}=req.body;
+  const{ZipCode}=req.body;
+  const{Person_Descript}=req.body;
+  const productImage = 'http://localhost:3000/images/' + req.file.filename;
+
+
+  const missingperson = new Missingperson_dashModel({
+    Firstname,
+    Surname,
+    Age,
+    Gender,
+    Height,
+    Street,
+    City,
+    ZipCode,
+    Person_Descript,
+    productImage,
+  });
+  const createdProfile = await missingperson.save();
+  res.status(201).json({
+    missingperson:{
+      ...createdProfile._doc,
+    },
+  });
+
+};
+*/
+
+exports.missingperson_post_create = (req,res,next)=>{
+  console.log(req.file);
+
+  const tracking =  missingperson ({
+    _id: mongoose.Types.ObjectId(),
+    PublicID:req.body.PublicID,
+    LawID:req.body.LawID,
+    Firstname:req.body.Firstname,
+    Surname:req.body.Surname,
+    Gender:req.body.Gender,
+    Age:req.body.Age,
+    Height:req.body.Height,
+    Street:req.body.Street,
+    City:req.body.City,
+    ZipCode:req.body.ZipCode,
+    Person_Descript:req.body.Person_Descript,
+   productImage:req.files.map(productImage=>productImage.path)
+
+
+
+});
+tracking
+.save()
+.then(result =>{
+    console.log(result);
+    res.status(201).json({
+    message:"Missing Person form is successfully uploaded.",
+
+
+    })
+})
+.catch(err =>{
+    console.log(err);
+    res.status(500).json({
+        error:err
+    });
+});
 
 
 }

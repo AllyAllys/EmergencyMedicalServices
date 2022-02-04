@@ -41,21 +41,55 @@ const PatientVictimIdentificationSchema= new mongoose.Schema({
         type:String,
         required:true,
 
-    
+
     },
     InjuryDescription:String,
     InjuryTreatment:String,
+
     ModifiedDate:{
         type:Date,
         default: () => Date.now(),
     },
-    Address:{
-        Street:String,
-        City:String,
-        ZipCode:Number
+
+    Street:{
+      type:String,
+      required:true
     },
-    MedicalProviders:[String]
-    
+    City:{
+      type:String,
+      required:true
+    },
+    ZipCode:{
+      type:Number
+    },
+
+    MedicalProviders:{
+    type:String,
+    //required:true
+    },
+
+    Ambulance:{
+      type:String,
+      //required:true
+    },
+
+    Contactfirstname:{
+      type:String,
+      //required:true
+    },
+    Contactsurname:{
+      type:String,
+      //required:true
+    },
+    Relationship:{
+      type:String,
+     // required:true
+    },
+    Contact:{
+      type:String,
+      //required:true
+    }
+
 });
 
 module.exports=mongoose.model("patient_victim_identifications",PatientVictimIdentificationSchema)

@@ -21,11 +21,20 @@ const IncidentDashboardSchema= new mongoose.Schema({
         required:true
 
     },
-    Address:{
-        Street:String,
-        City:String,
-        ZipCode:Number
+
+    Street:{
+      type:String,
+      required:true
     },
+
+     City:{
+        type:String,
+        required:true
+      },
+
+     ZipCode:{
+         type: Number},
+
     PhoneNo:{
         type:String,
         required:true

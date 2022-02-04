@@ -56,6 +56,7 @@ export class UpdateComponent implements OnInit {
   }
 
   UpdateData() {
+
     console.log(this.editform.value);
     this.putService.updateform(this.activatedroute.snapshot.params['id'],this.editform.value).subscribe((result)=>{
       console.log(result);

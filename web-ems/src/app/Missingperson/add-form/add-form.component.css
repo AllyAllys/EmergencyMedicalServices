@@ -1,6 +1,6 @@
 mat-card{
   width:50%;
-  height:760px;
+  height:840px;
   background-color: rgb(238, 238, 238) ;
   margin:auto;
 
@@ -11,13 +11,17 @@ textarea{
 }
 button{
 
-  margin-top: 10px;
-  width: 100%;
+  margin-top: 1px;
+  width: 50%;
   color: white;
   height: 40px;
-  background-color: #3F51B5
+  background-color: #3F51B5;
+  left:23%;
+  margin-bottom: 10px;
+
 }
-button{
+
+.Submit{
 
   margin-top: 10px;
   width: 50%;
@@ -76,4 +80,16 @@ mat-card-title{
   background:  rgb(75, 94, 206);
   margin-bottom: 2rem;
 
+}
+
+.Image{
+  visibility: hidden;
+
+}
+.image-preview{
+  height:5rem;
+  margin: 1rem 0;
+}
+.image-preview img{
+  height:10%;
 }

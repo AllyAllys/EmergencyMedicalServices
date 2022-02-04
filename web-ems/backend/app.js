@@ -6,7 +6,7 @@ const path = require ('path');
 const app = express()
 const bodyParser = require('body-parser');
 var morgan = require('morgan');
-
+//require('dotenv').config();
 
 
 
@@ -32,6 +32,8 @@ mongoose.connect("mongodb://localhost/EMS",()=>{
     console.log("Database Connected")
 },
 e=> console.error(e))
+app.use('/images', express.static('images'));
+app.use('/uploads',express.static('uploads'));
 
 //Mongoose Schema Models
 //const chatroom = require("./backend/DataModels/chatroom.model")
@@ -55,7 +57,7 @@ const missingperson_dash=require("./DataModels/Missingperson_dash.model")
 const patient_victim_identifications= require("./DataModels/Patient_victim_identification.model")
 const publics= require("./DataModels/Public.model")
 const volunteers= require("./DataModels/Volunteer.model")
-
+const onsitepatient_victim_identifications = require("./DataModels/Onsitevictimpatient.model")
 
 //Routes
 //const Chatrooms = require('./backend/Routes/chatroom')
@@ -78,6 +80,7 @@ const Order = require('./Routes/Medicalsupplies_order')
 const Items = require('./Routes/Medicalsupplies_itemrequest')
 const Itemdescription= require('./Routes/Itemdescription')
 const law = require('./Routes/Lawenforcement')
+const Onsitevictictimpatient = require('./Routes/onsitepatientvictim')
 
 //Http
 //app.use ('/Chat',Chatrooms)
@@ -92,7 +95,7 @@ app.use('/Healthstaff',staff)
 app.use('/api/incidentdashboard',incidentdash)
 app.use('/Event',event)
 app.use('/api/Missingpersondashboard',Missingperson)
-app.use('/Patientvictiminformation',patient)
+app.use('/api/Patientvictiminformation',patient)
 app.use('/PublicUser',public)
 app.use('/Lawenforcement',law)
 app.use('/VolunteerUser',volunteer)
@@ -100,6 +103,11 @@ app.use('/api/users',User)
 app.use('/Orders',Order)
 app.use('/Itemrequests',Items)
 app.use('/Itemdescriptions',Itemdescription)
+app.use('/api/onsitepatientvictiminformation',Onsitevictictimpatient)
+
+
+//app.use('/images', express.static(path.join('images')));
+
 
 
 // setup of the view engine

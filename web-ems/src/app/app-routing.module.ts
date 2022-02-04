@@ -11,7 +11,16 @@ import {UpdateFormComponent} from './Missingperson/update-form/update-form.compo
 import { UpdateComponent } from './Missingperson/update/update.component';
 import { HealthstaffComponent } from './healthstaff/healthstaff.component';
 import { ViewComponent } from './Missingperson/view/view.component';
-
+import {AddVictimpatientComponent} from './victimpatientdashboard/add-victimpatient/add-victimpatient.component'
+import {AddformComponent} from './victimpatientdashboard/addform/addform.component'
+import {OnsiteComponent } from './victimpatientdashboard/onsite/onsite.component'
+import {ViewPatientvictimComponent} from './victimpatientdashboard/view-patientvictim/view-patientvictim.component'
+import {ViewformComponent } from './victimpatientdashboard/viewform/viewform.component'
+import {UpdateVictimpatientComponent} from './victimpatientdashboard/update-victimpatient/update-victimpatient.component'
+import {OnsiteUPDATEComponent} from './victimpatientdashboard/onsite-update/onsite-update.component'
+import {AddincidentformComponent} from './incidentdashboard/addincidentform/addincidentform.component'
+import {ViewincidentformComponent } from './incidentdashboard/viewincidentform/viewincidentform.component'
+import {UpdateincidentformComponent} from './incidentdashboard/updateincidentform/updateincidentform.component'
 const routes: Routes = [
   {path:"login",component: LoginComponent},
   {path:"signup",component:SignupComponent},
@@ -23,7 +32,17 @@ const routes: Routes = [
   {path: "edit/:id",component:UpdateComponent},
   {path:"healthstaff",component:HealthstaffComponent},
   {path: "view/:id",component:ViewComponent},
-  {path:"victimpatient",component:VictimpatientdashboardComponent}
+  {path:"victimpatient",component:VictimpatientdashboardComponent},
+  {path:"addvictimpatientform",component:AddVictimpatientComponent},
+  {path:"addhospitalform",component:AddformComponent},
+  {path:"onsitedashboard",component:OnsiteComponent},
+  {path:"viewpatientform/:id",component:ViewPatientvictimComponent},
+  {path:"viewonsiteform/:id",component:ViewformComponent},
+  {path:"updatepatientform/:id",component:UpdateVictimpatientComponent},
+  {path:"onsiteupdate/:id",component:OnsiteUPDATEComponent},
+  {path:"addincidentform",component:AddincidentformComponent},
+  {path:"viewincidentform/:id", component:ViewincidentformComponent},
+  {path:"update/:id",component:UpdateincidentformComponent}
 ];
 
 @NgModule({

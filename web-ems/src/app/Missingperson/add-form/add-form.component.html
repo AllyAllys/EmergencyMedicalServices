@@ -1,80 +1,80 @@
-
-  <mat-card >
-    <mat-card-title> Missing Person Form </mat-card-title>
-    <mat-spinner *ngIf= "isLoading"></mat-spinner>
-    <form (submit)= "onForm(MissingForm)" #MissingForm="ngForm" *ngIf= "!isLoading">
-      <mat-form-field  class="example-full-width " appearance="fill">
-        <input
-         matInput
-          type ="Firstname" name ="Firstname" ngModel #firstInput = "ngModel"  placeholder="Firstname"  required Firstname>
-        <mat-error *ngIf= "firstInput.invalid"> Please enter correct firstname.</mat-error>
-      </mat-form-field>
+<mat-card>
+  <mat-card-title> Missing Person Form</mat-card-title>
 
 
-      <mat-form-field class="example-full-width "  appearance="fill">
-        <input type ="Surname" name="Surname" ngModel matInput placeholder ="Surname" #surnameInput= "ngModel" required >
-        <mat-error *ngIf="surnameInput.invalid"> Please enter Surname!</mat-error>
-      </mat-form-field>
+  <form [formGroup]= "form" (submit) ="SaveData()" >
 
+    <div>
+      <input type="file" name="productImage" (change)= "select($event)" />
+    </div>
+    <br>
+    <div>
+      <button type="submit" (click)= "SaveData()">Upload</button>
+    </div>
 
+        <mat-form-field appearance="fill">
+          <mat-label class="form-label">Firstname</mat-label>
+          <input matInput type="Firstname" class="form-control" placeholder="Firstname" formControlName="Firstname">
+          <mat-error *ngIf= "form.get('Firstname').invalid"> Please enter correct firstname.</mat-error>
+         </mat-form-field>
 
-      <section class="example-section">
-      <mat-label >Gender:</mat-label>
-      <mat-radio-group aria-label="Gender" #GenderInput = "ngModel" ngModel name = "Gender"  type = " Gender" required Gender>
-        <mat-radio-button class="example-margin" value="Male">Male</mat-radio-button>
-        <mat-radio-button class="example-margin" value="Female">Female</mat-radio-button>
-        <mat-radio-button class="example-margin" value="Other">Other</mat-radio-button>
-        <mat-error *ngIf= "GenderInput.invalid"> Please select an option</mat-error>
-      </mat-radio-group>
-    </section>
-
-
-
-      <mat-form-field  class="example-full-width " appearance="fill">
-        <input matInput name ="Age" ngModel type ="Age" placeholder="Age" #ageInput = "ngModel" required Age>
-        <mat-error *ngIf= "ageInput.invalid"> Please enter age.</mat-error>
-      </mat-form-field>
-
-
-
-      <mat-form-field  class="example-full-width " appearance="fill">
-        <input matInput name ="Height" ngModel type ="Height" placeholder="Height" #HeightInput = "ngModel"  >
-        <mat-error *ngIf= "HeightInput.invalid"> Please enter Height</mat-error>
-      </mat-form-field>
-
-      <p>
-        <mat-label>Address</mat-label>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Street Address</mat-label>
-          <input matInput name ="Street" ngModel type ="Street" placeholder="Ex. 120 Main St" #StreetInput = "ngModel" required >
-          <textarea matInput ></textarea>
-        <mat-error *ngIf= "StreetInput.invalid"> Please enter street address</mat-error>
+         <mat-form-field appearance="fill">
+          <mat-label class="form-label">Surname</mat-label>
+          <input matInput type= "Surname" class="form-control" placeholder="Surname" formControlName="Surname">
+          <mat-error *ngIf= "form.get('Surname').invalid"> Please enter Surname.</mat-error>
         </mat-form-field>
-      </p>
 
-      <table class="example-full-width" cellspacing="0"><tr>
-        <td><mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>City</mat-label>
-          <input matInput name ="City" ngModel type ="City" placeholder="City" #CityInput = "ngModel" required  >
-          <mat-error *ngIf= "CityInput.invalid"> Please enter City</mat-error>
-        </mat-form-field></td>
+         <section class="example-section">
+          <mat-label >Gender:</mat-label>
+          <mat-radio-group type="Gender" class="form-control" placeholder="Gender" formControlName="Gender">
+            <mat-radio-button class="example-margin" value="Male">Male</mat-radio-button>
+            <mat-radio-button class="example-margin" value="Female">Female</mat-radio-button>
+            <mat-radio-button class="example-margin" value="Other">Other</mat-radio-button>
+            <mat-error *ngIf= "form.get('Gender').invalid"> Please Select Gender.</mat-error>
 
-        <td><mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Postal Code</mat-label>
-          <input matInput name ="ZipCode" ngModel type ="ZipCode" placeholder="Postal Code" #ZipInput maxlength="5"   >
-          <mat-hint align="end">{{ZipInput.value.length}} / 5</mat-hint>
-        </mat-form-field></td>
-      </tr></table>
+          </mat-radio-group>
+        </section>
+
+        <mat-form-field appearance="fill">
+          <mat-label class="form-label">Age</mat-label>
+          <input matInput type="Age" class="form-control" placeholder="Age" formControlName="Age">
+        </mat-form-field>
+
+         <mat-form-field appearance="fill">
+          <mat-label class="form-label">Height</mat-label>
+          <input matInput type="Height" class="form-control" placeholder="Height" formControlName="Height">
+        </mat-form-field>
+
+         <p>
+          <mat-label>Address</mat-label>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Street</mat-label>
+            <input  matInput type="Street" class="form-control" placeholder="Street" formControlName="Street">
+            <textarea matInput ></textarea>
+          </mat-form-field>
+        </p>
+
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>City</mat-label>
+            <input  matInput type="City" class="form-control" placeholder="City" formControlName="City"  >
+          </mat-form-field></td>
+
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Postal Code</mat-label>
+            <input  matInput type="ZipCode" class="form-control" placeholder="ZipCode" formControlName="ZipCode" maxlength="5"   >
+          </mat-form-field></td>
+        </tr></table>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label >Person Description:</mat-label>
+          <input matInput type="Person_Descript" class="form-control" placeholder="Person_Descript" formControlName="Person_Descript" >
+          <textarea matInput ></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button  type= "submit"> Submit </button>
 
 
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label >Person Description:</mat-label>
-        <input matInput name ="Person_Descript" ngModel type ="Person_Descript" placeholder="Ex. Person was last seen wearing..." #descriptInput = "ngModel" required >
-        <textarea matInput ></textarea>
-        <mat-error *ngIf= "descriptInput.invalid"> Please enter description.</mat-error>
-      </mat-form-field>
+  </form>
 
-
-      <button mat-raised-button  type= "submit"> Submit </button>
-    </form>
-    </mat-card>
+  </mat-card>

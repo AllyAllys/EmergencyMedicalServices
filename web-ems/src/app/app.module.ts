@@ -30,6 +30,8 @@ import { HealthstafftrackingdashboardComponent } from './healthstafftrackingdash
 import { VictimpatientdashboardComponent } from './victimpatientdashboard/victimpatientdashboard.component';
 import { AddFormComponent } from './Missingperson/add-form/add-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+
+
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
 import { UpdateFormComponent } from './Missingperson/update-form/update-form.component';
@@ -37,6 +39,16 @@ import { UpdateComponent } from './Missingperson/update/update.component';
 import { HealthstaffComponent } from './healthstaff/healthstaff.component';
 import { HealthstaffPostListComponent } from './healthstaff-post-list/healthstaff-post-list.component';
 import { ViewComponent } from './Missingperson/view/view.component';
+import { AddVictimpatientComponent } from './victimpatientdashboard/add-victimpatient/add-victimpatient.component';
+import { UpdateVictimpatientComponent } from './victimpatientdashboard/update-victimpatient/update-victimpatient.component';
+import { AddformComponent } from './victimpatientdashboard/addform/addform.component';
+import { ViewformComponent } from './victimpatientdashboard/viewform/viewform.component';
+import { ViewPatientvictimComponent } from './victimpatientdashboard/view-patientvictim/view-patientvictim.component';
+import { OnsiteComponent } from './victimpatientdashboard/onsite/onsite.component';
+import { OnsiteUPDATEComponent } from './victimpatientdashboard/onsite-update/onsite-update.component';
+import { AddincidentformComponent } from './incidentdashboard/addincidentform/addincidentform.component';
+import { ViewincidentformComponent } from './incidentdashboard/viewincidentform/viewincidentform.component';
+import { UpdateincidentformComponent } from './incidentdashboard/updateincidentform/updateincidentform.component';
 
 
 @NgModule({
@@ -56,6 +68,16 @@ import { ViewComponent } from './Missingperson/view/view.component';
     HealthstaffComponent,
     HealthstaffPostListComponent,
     ViewComponent,
+    AddVictimpatientComponent,
+    UpdateVictimpatientComponent,
+    AddformComponent,
+    ViewformComponent,
+    ViewPatientvictimComponent,
+    OnsiteComponent,
+    OnsiteUPDATEComponent,
+    AddincidentformComponent,
+    ViewincidentformComponent,
+    UpdateincidentformComponent,
 
   ],
   imports: [

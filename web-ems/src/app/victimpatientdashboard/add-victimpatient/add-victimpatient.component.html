@@ -1,0 +1,125 @@
+<mat-card>
+  <mat-card-title> Patient/Victim Identification Form
+                on Disaster/Emergency Site</mat-card-title>
+
+
+  <form [formGroup]= "form" (submit) ="SaveData()" >
+
+
+
+        <mat-form-field appearance="fill">
+          <mat-label class="form-label">Firstname</mat-label>
+          <input matInput type="Firstname" class="form-control" placeholder="Firstname" formControlName="Firstname">
+          <mat-error *ngIf= "form.get('Firstname').invalid"> Please enter correct firstname.</mat-error>
+         </mat-form-field>
+
+         <mat-form-field appearance="fill">
+          <mat-label class="form-label">Surname</mat-label>
+          <input matInput type= "Surname" class="form-control" placeholder="Surname" formControlName="Surname">
+          <mat-error *ngIf= "form.get('Surname').invalid"> Please enter Surname.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field  class = "form-labell" appearance="fill">
+          <mat-label class="form-label">DOB</mat-label>
+          <input matInput type="DOb" class="form-control" placeholder="YY/MM/DD" formControlName="DOb">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label class="form-label">Email</mat-label>
+          <input matInput type= "Email" class="form-control" placeholder="Ex.mark@gmail.com" formControlName="Email">
+          <mat-icon matSuffix> mail_outline</mat-icon>
+          <mat-error *ngIf= "form.get('Email').invalid"> Please enter Email.</mat-error>
+        </mat-form-field>
+
+        <section class="example-section">
+          <mat-label >Gender:</mat-label>
+          <mat-radio-group type="Gender" class="form-control" placeholder="Gender" formControlName="Gender">
+            <mat-radio-button class="example-margin" value="Male">Male</mat-radio-button>
+            <mat-radio-button class="example-margin" value="Female">Female</mat-radio-button>
+            <mat-radio-button class="example-margin" value="Other">Other</mat-radio-button>
+            <mat-error *ngIf= "form.get('Gender').invalid"> Please Select Gender.</mat-error>
+
+          </mat-radio-group>
+        </section>
+
+        <mat-form-field class = "form-labell" appearance="fill">
+          <mat-label class="form-label">ID Number</mat-label>
+          <input matInput type= "IDNumber" class="form-control" placeholder="ID Number" formControlName="IDNumber"  #IDCode maxlength="10">
+          <mat-error *ngIf= "form.get('IDNumber').invalid"> Please enter ID Number.</mat-error>
+          <mat-hint align="end">{{IDCode.value.length}} / 10</mat-hint>
+        </mat-form-field>
+
+       <mat-form-field class = "form-labell" appearance="fill">
+          <mat-label class="form-label">Phone Number</mat-label>
+          <span matPrefix>+1(868) &nbsp;</span>
+          <input matInput type= "PhoneNo" class="form-control" placeholder="PhoneNo" formControlName="PhoneNo">
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-error *ngIf= "form.get('PhoneNo').invalid"> Please enter Phone Number.</mat-error>
+        </mat-form-field>
+
+
+
+        <mat-form-field appearance="fill">
+          <mat-label class="form-label">Injury Description</mat-label>
+          <input matInput type= "InjuryDescription" class="form-control" placeholder="Injury Description" formControlName="InjuryDescription">
+          <mat-error *ngIf= "form.get('InjuryDescription').invalid"> Please enter Injury Description.</mat-error>
+          <textarea matInput ></textarea>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label class="form-label">Injury Treatment</mat-label>
+          <input matInput type= "InjuryTreatment" class="form-control" placeholder="InjuryTreatment" formControlName="InjuryTreatment">
+          <mat-error *ngIf= "form.get('InjuryTreatment').invalid"> Please enter Injury Treatment.</mat-error>
+          <textarea matInput ></textarea>
+
+        </mat-form-field>
+
+         <p>
+          <mat-label>Address</mat-label>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Street</mat-label>
+            <input  matInput type="Street" class="form-control" placeholder="Street" formControlName="Street">
+            <mat-error *ngIf= "form.get('Street').invalid"> Please enter street address.</mat-error>
+
+            <textarea matInput ></textarea>
+          </mat-form-field>
+        </p>
+
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>City</mat-label>
+            <input  matInput type="City" class="form-control" placeholder="City" formControlName="City"  >
+            <mat-error *ngIf= "form.get('City').invalid"> Please enter city.</mat-error>
+
+          </mat-form-field></td>
+
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Postal Code</mat-label>
+            <input  matInput type="ZipCode" class="form-control" placeholder="ZipCode" formControlName="ZipCode" #postalCode maxlength="5"   >
+            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+          </mat-form-field></td>
+        </tr></table>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label >Medical Providers:</mat-label>
+          <input matInput type="MedicalProviders" class="form-control" placeholder="Medical Providers" formControlName="MedicalProviders" >
+          <textarea matInput ></textarea>
+        </mat-form-field>
+
+        <section class="example-section">
+          <mat-label >Was the person taken by Ambulance?:</mat-label>
+          <mat-radio-group type="Ambulance" class="form-control" placeholder="Ambulance" formControlName="Ambulance">
+            <mat-radio-button class="example-margin" value="Yes">Yes</mat-radio-button>
+            <mat-radio-button class="example-margin" value="No">No</mat-radio-button>
+            <mat-error *ngIf= "form.get('Ambulance').invalid"> Please Select An Option.</mat-error>
+
+          </mat-radio-group>
+        </section>
+
+        <button mat-raised-button  type= "submit"> Submit </button>
+
+
+  </form>
+
+  </mat-card>

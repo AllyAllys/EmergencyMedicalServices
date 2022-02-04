@@ -1,0 +1,26 @@
+<mat-card class = "formdetails" *ngIf= "userDetails">
+  <mat-card-title>
+    Patient Victim Information On Disaster/Emergency Site
+    </mat-card-title>
+
+
+  <mat-card-subtitle > <span >Firstname : </span>  <h3>  {{userDetails.Firstname}} </h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>Surname : </span><h3> {{userDetails.Surname}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span> DOB  : </span><h3> {{userDetails.DOb}}</h3></mat-card-subtitle>
+  <mat-card-subtitle><span> Email: </span> <h3>{{userDetails.Email}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span> Gender : </span><h3> {{userDetails.Gender}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>ID number: </span> <h3> {{userDetails.IDNumber}} </h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>Phone Number : </span> <h3> {{userDetails.PhoneNo}} </h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>Modified Date : </span> <h3> {{userDetails.ModifiedDate}} </h3></mat-card-subtitle>
+  <mat-card-subtitle><span> Street : </span> <h3>  {{userDetails.Street}}</h3></mat-card-subtitle>
+  <mat-card-subtitle><span> City : </span> <h3>  {{userDetails.City}}  </h3> </mat-card-subtitle>
+  <mat-card-subtitle> <span>Zipcode : </span> <h3> {{userDetails.ZipCode}}</h3></mat-card-subtitle>
+  <h2 align ="center">Next of Kin Emergency Contact</h2>
+  <mat-card-subtitle> <span>Firstname : </span> <h3> {{userDetails.Contactfirstname}} </h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>Surname : </span> <h3> {{userDetails.Contactsurname}} </h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>Relationship : </span> <h3> {{userDetails.Relationship}} </h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>Contact Number : </span> <h3> {{userDetails.Contact}} </h3></mat-card-subtitle>
+
+
+
+</mat-card>
