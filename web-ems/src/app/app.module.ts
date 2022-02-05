@@ -49,6 +49,16 @@ import { OnsiteUPDATEComponent } from './victimpatientdashboard/onsite-update/on
 import { AddincidentformComponent } from './incidentdashboard/addincidentform/addincidentform.component';
 import { ViewincidentformComponent } from './incidentdashboard/viewincidentform/viewincidentform.component';
 import { UpdateincidentformComponent } from './incidentdashboard/updateincidentform/updateincidentform.component';
+import { ViewHealthComponent } from './healthstafftrackingdashboard/view-health/view-health.component';
+import { UpdateHealthComponent } from './healthstafftrackingdashboard/update-health/update-health.component';
+import { OrdersComponent } from './orders/orders.component';
+import { UpdateorderComponent } from './orders/updateorder/updateorder.component';
+import { VieworderComponent } from './orders/vieworder/vieworder.component';
+import { OrdertableComponent } from './orders/ordertable/ordertable.component';
+import { UsersComponent } from './users/users.component';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { ViewuserComponent } from './viewuser/viewuser.component';
+import { CreateuserComponent } from './createuser/createuser.component';
 
 
 @NgModule({
@@ -78,6 +88,16 @@ import { UpdateincidentformComponent } from './incidentdashboard/updateincidentf
     AddincidentformComponent,
     ViewincidentformComponent,
     UpdateincidentformComponent,
+    ViewHealthComponent,
+    UpdateHealthComponent,
+    OrdersComponent,
+    UpdateorderComponent,
+    VieworderComponent,
+    OrdertableComponent,
+    UsersComponent,
+    UpdateuserComponent,
+    ViewuserComponent,
+    CreateuserComponent,
 
   ],
   imports: [

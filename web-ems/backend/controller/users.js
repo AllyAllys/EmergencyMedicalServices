@@ -9,7 +9,7 @@ exports.users_get_list = function(req, res, next)
       if(err)
       res.send(err);
       else
-      res.send({status: 500, Count: usersresponse.length, admin_users: usersresponse});
+      res.send(usersresponse);
     })
 }
 
@@ -135,7 +135,7 @@ exports.users_login = (req,res,next)=>{
 exports.users_put_update = function(req,res,next)
 {
     const id = req.params.updateUser;
-    User_model.updateOne({_id: id},{$set:{Username:req.body.Username,Email:req.body.Email}})
+    User_model.updateOne({_id: id},{$set:{Username:req.body.Username,Userclass:req.body.Userclass,Firstname:req.body.Firstname,Lastname:req.body.Lastname,Email:req.body.Email,Password:req.body.Password}})
     .exec()
     .then(result=>{
         console.log(result);

@@ -18,8 +18,6 @@ export class AddFormComponent implements OnInit {
   images:any;
   productImage=[];
 
-
-
   constructor(private missingService: MissingService,
               private _snackBar: MatSnackBar,
               public route: ActivatedRoute,
@@ -46,10 +44,23 @@ export class AddFormComponent implements OnInit {
 
 
 select(event:any){
-  if(event.target.files.length >0){
-    const productImage = event.target.files;
+  //if(event.target.files.length >0){
+    const productImage = event.target.files[0];
+    console.log(productImage)
 
-  }
+  //}
+
+  const formData = new FormData();
+
+  //for(let productImage of this.productImage){
+    formData.append('productImage', productImage);
+  //}
+
+    this.http.post<any>('http://localhost:3000/api/Missingpersondashboard/create', formData).subscribe((d)=>{
+      console.log(d);
+    }
+
+    );
 }
 
 
@@ -57,13 +68,14 @@ select(event:any){
 SaveData() {
   const formData = new FormData();
 
-  for(let img of this.productImage){
-    formData.append('productImage', img);
+  for(let productImage of this.productImage){
+    formData.append('productImage', productImage);
   }
 
-    this.http.post<any>('http://localhost:3000/api/Missingpersondashboard/create', formData).subscribe(
-      (res) => console.log(res),
-      (err) => console.log(err)
+    this.http.post<any>('http://localhost:3000/api/Missingpersondashboard/create', formData).subscribe((d)=>{
+      console.log(d);
+    }
+
     );
 
   //if (this.form.invalid) return;

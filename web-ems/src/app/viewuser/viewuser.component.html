@@ -1,0 +1,20 @@
+
+
+<mat-card class = "formdetails" *ngIf= "userDetails">
+  <mat-card-title>
+    User Information
+    </mat-card-title>
+
+
+  <mat-card-subtitle > <span >UserID : </span>  <h3>  {{userDetails._id}} </h3></mat-card-subtitle>
+  <mat-card-subtitle> <span> Username: </span><h3> {{userDetails.Username}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>Firstname : </span><h3> {{userDetails.Firstname}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>Surname : </span><h3> {{userDetails.Lastname}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>  Userclass : </span><h3> {{userDetails.Userclass}}</h3></mat-card-subtitle>
+  <mat-card-subtitle><span> Email : </span> <h3>{{userDetails.Email}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span> Password : </span><h3> {{userDetails.Password}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span> Modified Date: </span><h3> {{userDetails.DateJoined}}</h3></mat-card-subtitle>
+
+
+
+</mat-card>

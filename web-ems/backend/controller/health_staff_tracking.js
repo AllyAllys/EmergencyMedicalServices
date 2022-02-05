@@ -7,7 +7,7 @@ exports.health_get_list =  function(req, res, next)
      if(err)
      res.send(err);
      else
-     res.send({status: 500, Count:   healthtrackingresponse.length,   healthtrackingUser:  healthtrackingresponse});
+     res.send(  healthtrackingresponse);
    })
 }
 

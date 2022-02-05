@@ -21,6 +21,13 @@ import {OnsiteUPDATEComponent} from './victimpatientdashboard/onsite-update/onsi
 import {AddincidentformComponent} from './incidentdashboard/addincidentform/addincidentform.component'
 import {ViewincidentformComponent } from './incidentdashboard/viewincidentform/viewincidentform.component'
 import {UpdateincidentformComponent} from './incidentdashboard/updateincidentform/updateincidentform.component'
+import {HealthstafftrackingdashboardComponent} from './healthstafftrackingdashboard/healthstafftrackingdashboard.component'
+import {ViewHealthComponent} from './healthstafftrackingdashboard/view-health/view-health.component'
+import {UpdateHealthComponent} from './healthstafftrackingdashboard/update-health/update-health.component'
+import {UsersComponent} from './users/users.component'
+import{ViewuserComponent} from './viewuser/viewuser.component'
+import {UpdateuserComponent} from './updateuser/updateuser.component'
+import{CreateuserComponent} from './createuser/createuser.component'
 const routes: Routes = [
   {path:"login",component: LoginComponent},
   {path:"signup",component:SignupComponent},
@@ -30,7 +37,6 @@ const routes: Routes = [
   {path: "addmissingpersonform",component:AddFormComponent},
   {path: "delete/:id",component:UpdateFormComponent},
   {path: "edit/:id",component:UpdateComponent},
-  {path:"healthstaff",component:HealthstaffComponent},
   {path: "view/:id",component:ViewComponent},
   {path:"victimpatient",component:VictimpatientdashboardComponent},
   {path:"addvictimpatientform",component:AddVictimpatientComponent},
@@ -42,7 +48,15 @@ const routes: Routes = [
   {path:"onsiteupdate/:id",component:OnsiteUPDATEComponent},
   {path:"addincidentform",component:AddincidentformComponent},
   {path:"viewincidentform/:id", component:ViewincidentformComponent},
-  {path:"update/:id",component:UpdateincidentformComponent}
+  {path:"update/:id",component:UpdateincidentformComponent},
+  {path:"healthtrackingdashboard",component:HealthstafftrackingdashboardComponent},
+  {path:"viewhealthtrackingform/:id",component:ViewHealthComponent},
+  {path:"addhealthform",component:HealthstaffComponent},
+  {path:"updatehealthfrom/:id",component:UpdateHealthComponent},
+  {path:"users",component:UsersComponent},
+  {path:"ViewuserComponent/:id",component:ViewuserComponent},
+  {path:"updateusersform/:id",component:UpdateuserComponent},
+  {path:"create",component:CreateuserComponent}
 ];
 
 @NgModule({

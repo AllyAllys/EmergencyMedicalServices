@@ -1,0 +1,23 @@
+
+
+<mat-card class = "formdetails" *ngIf= "userDetails">
+  <mat-card-title>
+    Health Staff Tracking Form
+    </mat-card-title>
+
+
+  <mat-card-subtitle > <span >Firstname : </span>  <h3>  {{userDetails.Firstname}} </h3></mat-card-subtitle>
+
+  <mat-card-subtitle> <span>Surname : </span><h3> {{userDetails.Surname}}</h3></mat-card-subtitle>
+  <mat-card-subtitle><span> Phone Number : </span> <h3>{{userDetails.PhoneNo}}</h3></mat-card-subtitle>
+  <h2 class ="location" align="center">Assigned Location</h2>
+
+  <mat-card-subtitle><span> Street : </span> <h3>  {{userDetails.Street}}</h3></mat-card-subtitle>
+  <mat-card-subtitle><span> City : </span> <h3>  {{userDetails.City}}  </h3> </mat-card-subtitle>
+  <mat-card-subtitle> <span>Zipcode : </span> <h3> {{userDetails.ZipCode}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span> Modified Date: </span> <h3> {{userDetails.Entered_Date}} </h3></mat-card-subtitle>
+
+
+
+
+</mat-card>

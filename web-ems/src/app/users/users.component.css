@@ -22,22 +22,26 @@ mat-card-title{
 }
 
 .add{
+  margin-top: 15px;
+  margin-bottom: 10px;
   width: 15%;
   color: white;
   height: 40px;
-  background-color: #3F51B5;
-  left: 60%;
+  background-color: #167762;
+  left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 
 
 }
 .addd{
+  margin-top: 20px;
+  margin-bottom: 10px;
   width: 15%;
   color: white;
   height: 40px;
   background-color: #594bd4;
-  left: 80%;
+  left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }

@@ -1,1 +1,46 @@
-<p>healthstafftrackingdashboard works!</p>
+<mat-card>
+
+  <mat-card-title>
+    Health Staff Tracking Dashboard
+    </mat-card-title>
+
+    <button class ="add" mat-raised-button  routerLink ="/addhealthform" routerLinkActive = "mat-accent" >Add Form</button>
+      <div>
+      <table mat-table [dataSource] = "listMissing" class=" data-table">
+
+        <ng-container matColumnDef="FirstID"  >
+          <th mat-header-cell *matHeaderCellDef> UserID </th>
+          <td mat-cell *matCellDef="let element"> {{element.FirstID}} {{element.EmerID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Firstname">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.Firstname}} {{element.Surname}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Address">
+          <th mat-header-cell *matHeaderCellDef> Location Assigned</th>
+          <td mat-cell *matCellDef="let element"> {{element.Street}},{{element.City}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Date">
+          <th mat-header-cell *matHeaderCellDef> Date Modified</th>
+          <td mat-cell *matCellDef="let element"> {{element.Entered_Date}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <ng-container matColumnDef="Action">
+
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+
+          <td mat-cell *matCellDef= "let element"> <button mat-raised-button  [routerLink] ="['/viewhealthtrackingform', element._id]"> View </button> | <button mat-raised-button [routerLink] ="['/updatehealthfrom', element._id]"> Edit </button> |  <button mat-raised-button [routerLink] ="['/delete', element._id]" > Delete </button> </td>
+
+        </ng-container>
+      </table>
+
+
+    </div>
+    </mat-card>
+

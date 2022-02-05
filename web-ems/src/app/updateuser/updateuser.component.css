@@ -11,18 +11,6 @@ textarea{
 }
 button{
 
-  margin-top: 1px;
-  width: 50%;
-  color: white;
-  height: 40px;
-  background-color: #3F51B5;
-  left:23%;
-  margin-bottom: 10px;
-
-}
-
-.Submit{
-
   margin-top: 10px;
   width: 50%;
   color: white;
@@ -43,7 +31,6 @@ button:hover {
   text-decoration: none;
 
 }
-
 
 .example-section {
   display: flex;
@@ -79,22 +66,5 @@ mat-card-title{
   border: 20px solid rgb(75, 94, 206);
   background:  rgb(75, 94, 206);
   margin-bottom: 2rem;
-
-}
-
-.Image{
-  visibility: hidden;
-
-}
-.image-preview{
-  height:5rem;
-  margin: 1rem 0;
-}
-.image-preview img{
-  height:10%;
-}
-
-.form-labell{
-  width: 50%;
 
 }
