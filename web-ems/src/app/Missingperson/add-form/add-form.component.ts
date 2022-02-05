@@ -5,24 +5,21 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { ActivatedRoute} from '@angular/router';
 import {missingperson} from '../missingpersondashboard/missingpersondashboard.model'
-
 @Component({
   selector: "app-add-form",
   templateUrl: './add-form.component.html',
   styleUrls: ['./add-form.component.css']
 })
 
-
-export class AddFormComponent implements OnInit {
-
+export class AddFormComponent implements OnInit
+{
   images:any;
   productImage=[];
-
+  imageData:any;
   constructor(private missingService: MissingService,
               private _snackBar: MatSnackBar,
               public route: ActivatedRoute,
               private http:HttpClient ) {}
-
  form = new FormGroup({
  Firstname: new FormControl('',Validators.required),
  Surname: new FormControl('',Validators.required),
@@ -37,54 +34,38 @@ export class AddFormComponent implements OnInit {
   });
 
 
-
  ngOnInit(): void {
  }
-
-
-
-select(event:any){
-  //if(event.target.files.length >0){
+ select(event:any){
+  {
+    const file = (event.target as HTMLInputElement).files;
+    this.form.patchValue({ productImage: file});
+    const allowedMimeTypes = ["image/png", "image/jpeg", "image/jpg"];
+    {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageData = reader.result as string;
+      };
+      if(file){
+      reader.readAsDataURL(file[0]);
+      }
+    }
     const productImage = event.target.files[0];
+    this.images=productImage;
     console.log(productImage)
 
-  //}
 
-  const formData = new FormData();
+     }
+   }
 
-  //for(let productImage of this.productImage){
-    formData.append('productImage', productImage);
-  //}
+   SaveData(){
 
-    this.http.post<any>('http://localhost:3000/api/Missingpersondashboard/create', formData).subscribe((d)=>{
-      console.log(d);
-    }
-
-    );
-}
-
-
-
-SaveData() {
-  const formData = new FormData();
-
-  for(let productImage of this.productImage){
-    formData.append('productImage', productImage);
-  }
+    const formData = new FormData();
+    formData.append('productImage', this.images);
 
     this.http.post<any>('http://localhost:3000/api/Missingpersondashboard/create', formData).subscribe((d)=>{
       console.log(d);
-    }
+    });
 
-    );
-
-  //if (this.form.invalid) return;
-
-  //this.missingService.createForm( this.form.value)
-  //.subscribe( ( result ) => {
-  //  this.form.reset( {} );
-  //  console.log(result);
-  //});
+   }
 }
-}
-

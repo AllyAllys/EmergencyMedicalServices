@@ -2,15 +2,18 @@
   <mat-card-title> Missing Person Form</mat-card-title>
 
 
-  <form [formGroup]= "form" (submit) ="SaveData()" >
+  <form [formGroup]= "form"   (submit)= "SaveData()">
 
     <div>
-      <input type="file" name="productImage" (change)= "select($event)" />
+      <button mat-stroked-button type="button" (click)= "filePicker.click()">Pick Image</button>
+      <input class = "Image" type="file" name="productImage" #filePicker (change)= "select($event)" />
+    </div>
+
+    <div *ngIf= "imageData">
+      <img [src]= "imageData" />
     </div>
     <br>
-    <div>
-      <button type="submit" (click)= "SaveData()">Upload</button>
-    </div>
+
 
         <mat-form-field appearance="fill">
           <mat-label class="form-label">Firstname</mat-label>
