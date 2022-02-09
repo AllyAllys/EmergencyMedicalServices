@@ -62,6 +62,16 @@ export class AddFormComponent implements OnInit
 
     const formData = new FormData();
     formData.append('productImage', this.images);
+    formData.append('Firstname',this.form.value.Firstname);
+    formData.append('Surname',this.form.value.Surname);
+    formData.append('Age',this.form.value.Age);
+    formData.append('Gender',this.form.value.Gender);
+    formData.append('Height',this.form.value.Height);
+    formData.append('Street',this.form.value.Street);
+    formData.append('City',this.form.value.City);
+    formData.append('ZipCode',this.form.value.ZipCode);
+    formData.append('Person_Descript',this.form.value.Person_Descript);
+
 
     this.http.post<any>('http://localhost:3000/api/Missingpersondashboard/create', formData).subscribe((d)=>{
       console.log(d);

@@ -1,6 +1,6 @@
 mat-card{
   width:50%;
-  height:840px;
+  height:1200px;
   background-color: rgb(238, 238, 238) ;
   margin:auto;
 
@@ -90,6 +90,19 @@ mat-card-title{
   height:5rem;
   margin: 1rem 0;
 }
-.image-preview img{
-  height:10%;
+.image-preview {
+
+  height:12rem;
+  margin:1 rem 0;
 }
+.image-preview img {
+  border: 1px solid rgb(8, 3, 3);
+  padding: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  height:100%
+}
+
+

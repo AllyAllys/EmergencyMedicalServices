@@ -15,7 +15,7 @@ router.post("/chatroom",async (req,res)=>{
 
     const chatroom = new Chatroom({
         _id: mongoose.Types.ObjectId(),
-        name,
+        name:req.body.name,
     });
     await chatroom.save();
     res.json({

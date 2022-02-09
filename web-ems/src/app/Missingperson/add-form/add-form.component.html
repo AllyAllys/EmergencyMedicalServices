@@ -9,7 +9,7 @@
       <input class = "Image" type="file" name="productImage" #filePicker (change)= "select($event)" />
     </div>
 
-    <div *ngIf= "imageData">
+    <div class="image-preview" *ngIf= "imageData">
       <img [src]= "imageData" />
     </div>
     <br>

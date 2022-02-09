@@ -1,3 +1,38 @@
 main{
   margin-top: 2rem;
 }
+
+mat-sidenav {
+  margin:16px;
+  width:200px;
+  border-right:none;
+  background: rgb(5, 104, 95);
+  color: white;
+  border-radius:10px;
+  padding: 16px;
+  text-align:center;
+}
+mat-sidenav-container{
+  height: calc(100vh -65px);
+
+}
+.content{
+  height:calc(100vh-98px);
+  margin:16px;
+  margin-left: 32px;
+  display: flex;
+  border-radius:10px;
+}
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  font-family: "Arial", Times, serif;
+  font-weight: bold;
+
+  font-size: 1.1em;
+
+}

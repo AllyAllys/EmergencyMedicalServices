@@ -28,6 +28,7 @@ import {UsersComponent} from './users/users.component'
 import{ViewuserComponent} from './viewuser/viewuser.component'
 import {UpdateuserComponent} from './updateuser/updateuser.component'
 import{CreateuserComponent} from './createuser/createuser.component'
+import { ChatComponent } from './chat/chat.component';
 const routes: Routes = [
   {path:"login",component: LoginComponent},
   {path:"signup",component:SignupComponent},
@@ -56,7 +57,8 @@ const routes: Routes = [
   {path:"users",component:UsersComponent},
   {path:"ViewuserComponent/:id",component:ViewuserComponent},
   {path:"updateusersform/:id",component:UpdateuserComponent},
-  {path:"create",component:CreateuserComponent}
+  {path:"create",component:CreateuserComponent},
+  {path:"chat",component:ChatComponent}
 ];
 
 @NgModule({

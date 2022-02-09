@@ -59,7 +59,11 @@ import { UsersComponent } from './users/users.component';
 import { UpdateuserComponent } from './updateuser/updateuser.component';
 import { ViewuserComponent } from './viewuser/viewuser.component';
 import { CreateuserComponent } from './createuser/createuser.component';
-
+import { ChatComponent } from './chat/chat.component';
+import { ChatusersComponent } from './chat/chatusers/chatusers.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -98,6 +102,9 @@ import { CreateuserComponent } from './createuser/createuser.component';
     UpdateuserComponent,
     ViewuserComponent,
     CreateuserComponent,
+    ChatComponent,
+    ChatusersComponent,
+    SidenavComponent
 
   ],
   imports: [
@@ -122,6 +129,9 @@ import { CreateuserComponent } from './createuser/createuser.component';
     MatRadioModule,
     MatSnackBarModule,
     MatPaginatorModule,
+    ScrollingModule,
+    MatSidenavModule
+
   ],
   providers: [
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,useValue:{duration:2000}}],

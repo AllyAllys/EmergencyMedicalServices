@@ -6,13 +6,11 @@ const path = require ('path');
 const app = express()
 const bodyParser = require('body-parser');
 var morgan = require('morgan');
-//require('dotenv').config();
 
 
 
-//const socketio = require('socket.io');
-//const http = require('http')
-//const server = http.createServer(app);
+
+
 
 //const io = socketio(server);
 app.use(bodyParser.json());
@@ -36,7 +34,7 @@ app.use('/images', express.static('images'));
 app.use('/uploads',express.static('uploads'));
 
 //Mongoose Schema Models
-//const chatroom = require("./backend/DataModels/chatroom.model")
+const chatroom = require("./DataModels/chatroom.model")
 const Users = require("./DataModels/Users.model")
 const Admin = require("./DataModels/Admins.model")
 const Ambulance_Information = require("./DataModels/Ambulance_Information.model")
@@ -58,9 +56,9 @@ const patient_victim_identifications= require("./DataModels/Patient_victim_ident
 const publics= require("./DataModels/Public.model")
 const volunteers= require("./DataModels/Volunteer.model")
 const onsitepatient_victim_identifications = require("./DataModels/Onsitevictimpatient.model")
-
+const Msg= require('./DataModels/messages.model')
 //Routes
-//const Chatrooms = require('./backend/Routes/chatroom')
+const Chatrooms = require('./Routes/chatroom')
 const Admins= require('./Routes/Admins')
 const Ambulance= require('./Routes/Ambulance_Information')
 const Manager = require('./Routes/Disaster_managers')
@@ -83,7 +81,7 @@ const law = require('./Routes/Lawenforcement')
 const Onsitevictictimpatient = require('./Routes/onsitepatientvictim')
 
 //Http
-//app.use ('/Chat',Chatrooms)
+app.use ('/Chat',Chatrooms)
 app.use('/Admins',Admins)
 app.use('/Ambulancetracking',Ambulance)
 app.use('/Disastermanager',Manager)
@@ -182,4 +180,5 @@ app.use((req,res,next)=>{
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 module.exports = app;

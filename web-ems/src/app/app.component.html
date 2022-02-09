@@ -1,6 +1,55 @@
 
 <app-header></app-header>
-<main>
-  <router-outlet></router-outlet>
 
-</main>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+
+
+    <button  class="menu-button" mat-button  routerLink ="/missingpersondashboard" routerLinkActive = "mat-accent">
+
+      <span>Missing Person Dashboard</span>
+  </button>
+
+  <button  class="menu-button" mat-button  routerLink ="/incidentdashboard" routerLinkActive = "mat-accent">
+
+    <span>Incident Dashboard</span>
+</button>
+
+<button  class="menu-button" mat-button  routerLink ="/victimpatient" routerLinkActive = "mat-accent">
+
+  <span>Patient/Victim Dashboard</span>
+</button>
+
+<button  class="menu-button" mat-button  routerLink ="/onsitedashboard" routerLinkActive = "mat-accent">
+
+  <span>Patient/Victim Onsite</span>
+</button>
+
+<button  class="menu-button" mat-button  routerLink ="/users" routerLinkActive = "mat-accent">
+  <mat-icon>supervisor_account</mat-icon>
+  <span>Users Dashboard</span>
+</button>
+
+<button  class="menu-button" mat-button  routerLink ="/chat" routerLinkActive = "mat-accent">
+  <mat-icon> textsms</mat-icon>
+  <span>Chat</span>
+</button>
+
+<button  class="menu-button" mat-button  routerLink ="/healthtrackingdashboard"routerLinkActive = "mat-accent">
+
+  <span>Health Staff Tracking</span>
+</button>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class ="content mat-elevantion-z4">
+
+    </div>
+    <main>
+      <router-outlet></router-outlet>
+
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
