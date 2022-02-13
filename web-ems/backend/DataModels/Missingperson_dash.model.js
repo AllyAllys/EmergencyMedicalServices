@@ -25,7 +25,7 @@ const MissingPersonSchema= new mongoose.Schema({
         type:String,
         required: true,
     },
-    Age:String,
+    Age:Number,
     Height:String,
 
     Street:{
@@ -38,7 +38,7 @@ const MissingPersonSchema= new mongoose.Schema({
       required: true
     },
 
-    ZipCode:String,
+    ZipCode:Number,
 
     Person_Descript:{
         type:String,

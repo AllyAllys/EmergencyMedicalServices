@@ -13,64 +13,63 @@ router.get('/list',UsersController.users_get_list );
 //Search for User based on their Id
 router.get("/:id",UsersController.users_get_one);
 
-//Registration 
+//Registration
 router.post('/signup',UsersController.users_signup);
 
 //User Login
 router.post('/login',UsersController.users_login)
 
 
-/* router.post('/:updateAdmin',function(req,res,next){
-    const id = req.params.updateAdmin;
 
-    User_model.find({Userclass: "Admin"})
-    .exec()
-    .then(user=>
-        {
-         if (user.length<1){
-            return res.status(401).json({
-                message:'Authorization failed'
-            });
-        }
-     })
+//Change Password
+//LOOK into further
+router.post('/:updateAdmin',function(req,res,next){
+  const id = req.params.updateAdmin;
 
-     const newUsers = new Admin_model({
+  User_model.find({Userclass: "Adminstrator"})
+  .exec()
+  .then(user=>
+      {
+       if (user.length<1){
+          return res.status(401).json({
+              message:'Authorization failed'
+          });
+      }
+   })
 
-     // _id :req.body._id,
-      UserID: req.params.updateAdmin
+   const newUsers = new Admin_model({
 
-     });
-     newUsers
-     .save()
-     .then(result =>
-        {
-         console.log(result);
-         res.status(201).json({
-             message:"New Admin created"
-         });
-     })
-     
-     .catch(err=>
-        {
-         console.log(err);
-         res.status(500).json
-         ({
-             error:err
-         });
-        
-        });
-        
+    _id: mongoose.Types.ObjectId(),
+    UserID: req.params.updateAdmin
+
+   });
+   newUsers
+   .save()
+   .then(result =>
+      {
+       console.log(result);
+       res.status(201).json({
+           message:"New Admin created"
+       });
+   })
+
+   .catch(err=>
+      {
+       console.log(err);
+       res.status(500).json
+       ({
+           error:err
+       });
+
+      });
+
 });
-*/ 
-//Change Password 
-//LOOK into further 
-    
 
 //Update Admin users Username and Email Address
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!REVIEW!!!!!!
 router.put('/:updateUser',UsersController.users_put_update);
 
-//Delete User 
+//Delete User
 router.delete('/:userId',UsersController.users_delete_one);
 
 //router.delete('/logout',(req,res)=> {

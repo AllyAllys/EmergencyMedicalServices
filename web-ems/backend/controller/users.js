@@ -71,6 +71,8 @@ exports.users_signup = function(req,res,next)
                });
            })
 
+
+
            .catch(err=>{
                console.log(err);
                res.status(500).json({
@@ -95,6 +97,7 @@ exports.users_login = (req,res,next)=>{
                 message:'Authorization failed'
             });
         }
+
         bcrypt.compare(req.body.Password, user[0].Password,(err,result)=>{
             if(err){
                 return res.status(401).json({
@@ -115,7 +118,7 @@ exports.users_login = (req,res,next)=>{
 
                 return res.status(200).json({
                     message:"Authorization sucessful",
-                    token:token
+                    token: token
                 });
             }
             res.status(401).json({

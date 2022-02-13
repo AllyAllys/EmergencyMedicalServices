@@ -22,7 +22,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HeaderComponent } from './header/header.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomepageComponent } from './homepage/homepage.component';
 import { IncidentdashboardComponent } from './incidentdashboard/incidentdashboard.component';
 import { MissingpersondashboardComponent } from './Missingperson/missingpersondashboard/missingpersondashboard.component';
@@ -64,6 +64,7 @@ import { ChatusersComponent } from './chat/chatusers/chatusers.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { AuthInterceptor } from './login/login.interceptor';
 
 @NgModule({
   declarations: [
@@ -134,7 +135,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 
   ],
   providers: [
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,useValue:{duration:2000}}],
+   {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor,multi:true},
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,useValue:{duration:2000}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
