@@ -65,6 +65,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AuthInterceptor } from './login/login.interceptor';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -131,7 +132,8 @@ import { AuthInterceptor } from './login/login.interceptor';
     MatSnackBarModule,
     MatPaginatorModule,
     ScrollingModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule,
 
   ],
   providers: [

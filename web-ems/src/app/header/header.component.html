@@ -1,16 +1,19 @@
 <mat-toolbar color="primary">
+  <button mat-icon-button (click)= "toggleSidebar()">
+    <mat-icon>menu</mat-icon>
+  </button>
   <span>Welcome to EMS</span>
   <span class = "spacer"></span>
   <ul>
-    <li>
+    <li  >
       <a mat-button routerLink ="/login" routerLinkActive = "mat-accent">Login</a>
     </li>
 
-    <li>
+    <li  >
       <a mat-button routerLink ="/signup" routerLinkActive = "mat-accent">SignUp</a>
     </li>
-    <li>
-      <button mat-button >Logout</button>
+    <li  >
+      <button mat-button (click)= "onlogout()" >Logout</button>
     </li>
   </ul>
 </mat-toolbar>

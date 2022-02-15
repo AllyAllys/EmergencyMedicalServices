@@ -2,14 +2,23 @@ import { Injectable } from "@angular/core";
 import { HttpClient} from "@angular/common/http";
 import {Router} from '@angular/router';
 import {loginData} from "./login.model";
+import { Subject } from "rxjs";
 
 @Injectable({ providedIn:"root"})
 
 export class  LoginService {
   private token:any;
+  userIsAuthenticated=false;
+  private authStatusListener = new Subject<boolean>();
+  isAuthenticated: boolean;
+  tokenresp:any;
   constructor(private http: HttpClient, private router:Router  ){ }
 
 
+  getauthStatusListener(){
+    return this.authStatusListener.asObservable();
+
+  }
 
  loginUser(Username:string, Password:string){
    const LoginData: loginData = {Username:Username,Password:Password}
@@ -19,7 +28,9 @@ export class  LoginService {
     const token = response.token;
     this.token= token;
     localStorage.setItem('token',response.token)
-    //this.router.navigate(['/homepage'])
+    this.authStatusListener.next(true);
+
+    this.router.navigate(['/homepage'])
 
 
   })
@@ -29,4 +40,21 @@ export class  LoginService {
 
   return localStorage.getItem('token')
   }
+
+
+
+  logout(){
+    this.token=null;
+    this.isAuthenticated =false;
+    this.authStatusListener.next(false);
+
+  }
+  GetRolebyToken(token:any){
+    let _token=token.split('.')[1];
+    this.tokenresp=JSON.parse(atob(_token))
+    console.log(this.tokenresp);
+    return this.tokenresp.Userclass;
+  }
+
+
 }

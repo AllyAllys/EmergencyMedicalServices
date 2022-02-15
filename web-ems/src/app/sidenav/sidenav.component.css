@@ -1,0 +1,53 @@
+.mat-icon{
+  vertical-align: center;
+  margin-right:1rem;
+
+}
+
+.mat-divider{
+  border-top-width: 2px;
+  border-color: white;
+}
+.mat-list-item{
+  color:white ;
+  font-size:1.05rem;
+  height: 44px ;
+  margin-bottom:6px;
+  border-radius: 5px;
+  margin: 0 10px;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: 400;
+  margin-bottom: 18px;
+
+
+
+
+
+}
+.mat-list-item:hover {
+  background: #2c3344;
+}
+
+
+.list-item-active {
+  color:rgb(28, 255, 85);;
+}
+.list-item-active ::ng-deep .mat-list-item-content {
+  background: #566b9b;
+}
+.list-item-active ::ng-deep .mat-list-item-content:hover {
+  background: #2c3344;
+}
+.mat-subheader{
+  text-decoration: underline;
+
+  color : #ffffff;
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-family: 'Times New Roman', Times, serif;
+
+
+
+
+
+}

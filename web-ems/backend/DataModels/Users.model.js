@@ -13,8 +13,6 @@ const usersSchema= new mongoose.Schema({
     },
     Userclass: {
         type: String,
-
-
     },
     Firstname: {
         type:String,

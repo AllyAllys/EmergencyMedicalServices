@@ -2,6 +2,25 @@ main{
   margin-top: 2rem;
 }
 
+:host{
+  display:flex;
+  flex-direction:column;
+  height:100%
+}
+
+
+mat-drawer{
+  width:260px;
+  background-color: #1a2a83 ;
+
+}
+
+mat-drawer-container{
+  height: 100%
+}
+
+
+
 mat-sidenav {
   margin:16px;
   width:200px;

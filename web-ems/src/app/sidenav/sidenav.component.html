@@ -1,1 +1,28 @@
-<p>sidenav works!</p>
+<mat-nav-list >
+ <h2 matSubheader class="mt-2" > Features </h2>
+ <a mat-list-item routerLink="/homepage" routerLinkActive= "list-item-active"><mat-icon>home</mat-icon> Home</a>
+
+ <a *ngIf= "missingperson" mat-list-item routerLink="/missingpersondashboard" routerLinkActive= "list-item-active"><mat-icon>person</mat-icon>
+  Missing Person Dashboard </a>
+
+ <a *ngIf= "incidentreport" mat-list-item routerLink="/incidentdashboard" routerLinkActive= "list-item-active"><mat-icon>nature</mat-icon>
+  Incident Reports</a>
+
+ <a  *ngIf= "patient" mat-list-item routerLink="/victimpatient" routerLinkActive= "list-item-active"><mat-icon>person</mat-icon>
+  Patient/Victim Dashboard</a>
+
+ <a *ngIf= "onsite" mat-list-item routerLink="/onsitedashboard" routerLinkActive= "list-item-active"><mat-icon>person</mat-icon>
+  Patient/Victim Onsite</a>
+
+ <a *ngIf= "users"  mat-list-item routerLink="/users" routerLinkActive= "list-item-active"><mat-icon>supervisor_account</mat-icon>
+  Users</a>
+
+  <a *ngIf= "chat" mat-list-item routerLink="/chat" routerLinkActive= "list-item-active"><mat-icon> textsms</mat-icon>
+    Chat
+  </a>
+
+  <a *ngIf= "health" mat-list-item routerLink="/healthtrackingdashboard" routerLinkActive= "list-item-active"><mat-icon> local_hospital</mat-icon>
+    Health Tracking Dashboard</a>
+
+
+</mat-nav-list>

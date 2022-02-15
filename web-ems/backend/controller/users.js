@@ -108,7 +108,8 @@ exports.users_login = (req,res,next)=>{
                 const token = jwt.sign(
                {
                     Username: user[0].Username,
-                    userId:user[0]._id
+                    userId:user[0]._id,
+                    Userclass:user[0].Userclass
                 },
                 "secret",
                 {

@@ -1,6 +1,22 @@
 
-<app-header></app-header>
 
+
+<mat-drawer-container >
+
+  <mat-drawer mode ="side" [opened]= "sideBarOpen" >
+  <app-sidenav >
+
+  </app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+  <app-header (toggleSidebarForMe)= "sideBarToggler()"></app-header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+</mat-drawer-content>
+</mat-drawer-container>
+
+<!--
 
 <mat-sidenav-container>
   <mat-sidenav mode="side" opened>
@@ -47,9 +63,7 @@
     <div class ="content mat-elevantion-z4">
 
     </div>
-    <main>
-      <router-outlet></router-outlet>
 
-    </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
+-->
