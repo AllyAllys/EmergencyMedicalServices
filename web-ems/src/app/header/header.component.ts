@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit{
   @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
 
   userIsAuthenticated = false;
+  displaymenu=false;
   constructor(private loginService:LoginService,private signupservice:SignupService ,private router:Router ) { }
   private authListenerSubs: Subscription;
 
@@ -32,6 +33,15 @@ export class HeaderComponent implements OnInit{
   //  this.authListenerSubs.unsubscribe();
 
  // }
+ ngDoCheck(){
+  if(this.router.url=='/login'){
+    this.displaymenu=false;
+  }
+  else{
+    this.displaymenu=true;
+  }
+
+}
 
   onlogout(){
     this.loginService.logout();

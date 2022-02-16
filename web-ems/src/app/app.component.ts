@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LoginService } from './login/login.service';
 
@@ -7,28 +8,33 @@ import { LoginService } from './login/login.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent   {
+export class AppComponent  implements OnInit, DoCheck {
   displaymenu=false;
   displayemployee=false;
   displayuser=false;
   currentrole:any;
   title = 'web-ems';
   sideBarOpen=true;
-  constructor(private loginservice:LoginService){}
+  constructor(private loginservice:LoginService, private route:Router){}
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
 
   ngOnInit():void{
-   // this.authListenerSubs = this.loginservice.getauthStatusListener().subscribe(isAuthenticated=>{
-   //  this.userIsAuthenticated = isAuthenticated;
-    // })
+
 
   }
   sideBarToggler(){
     this.sideBarOpen=!this.sideBarOpen;
   }
- // ngOnDestroy(): void {
-  //  this.authListenerSubs.unsubscribe();}
 
+  ngDoCheck(){
+    if(this.route.url=='/login'){
+      this.displaymenu=false;
+    }
+    else{
+      this.displaymenu=true;
+    }
+
+  }
 
 }

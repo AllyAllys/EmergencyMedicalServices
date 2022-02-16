@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.loginService.loginUser(form.value.Username,form.value.Password);
+    this.loginService.updatemenu.next();
   }
 
   ngOnInit(): void {

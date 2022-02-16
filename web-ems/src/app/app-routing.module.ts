@@ -29,20 +29,27 @@ import{ViewuserComponent} from './viewuser/viewuser.component'
 import {UpdateuserComponent} from './updateuser/updateuser.component'
 import{CreateuserComponent} from './createuser/createuser.component'
 import { ChatComponent } from './chat/chat.component';
+import { GuardGuard } from './authguard/guard.guard';
+import { PatientvicitmGuard } from './authguard/patientvicitm.guard';
+import { HealthtrackingGuard } from './authguard/healthtracking.guard';
+import { ChatGuard } from './authguard/chat.guard';
+import { IncidentGuard } from './authguard/incident.guard';
+import { OnsiteGuard } from './authguard/onsite.guard';
+import { MissingpersonGuard } from './authguard/missingperson.guard';
 const routes: Routes = [
   {path:"login",component: LoginComponent},
   {path:"signup",component:SignupComponent},
   {path:"homepage",component:HomepageComponent},
-  {path:"incidentdashboard",component:IncidentdashboardComponent},
-  {path:"missingpersondashboard",component:MissingpersondashboardComponent},
+  {path:"incidentdashboard",component:IncidentdashboardComponent,canActivate:[IncidentGuard]},
+  {path:"missingpersondashboard",component:MissingpersondashboardComponent,canActivate:[MissingpersonGuard]},
   {path: "addmissingpersonform",component:AddFormComponent},
   {path: "delete/:id",component:UpdateFormComponent},
   {path: "edit/:id",component:UpdateComponent},
   {path: "view/:id",component:ViewComponent},
-  {path:"victimpatient",component:VictimpatientdashboardComponent},
+  {path:"victimpatient",component:VictimpatientdashboardComponent,canActivate:[PatientvicitmGuard]},
   {path:"addvictimpatientform",component:AddVictimpatientComponent},
   {path:"addhospitalform",component:AddformComponent},
-  {path:"onsitedashboard",component:OnsiteComponent},
+  {path:"onsitedashboard",component:OnsiteComponent,canActivate:[OnsiteGuard]},
   {path:"viewpatientform/:id",component:ViewPatientvictimComponent},
   {path:"viewonsiteform/:id",component:ViewformComponent},
   {path:"updatepatientform/:id",component:UpdateVictimpatientComponent},
@@ -50,15 +57,15 @@ const routes: Routes = [
   {path:"addincidentform",component:AddincidentformComponent},
   {path:"viewincidentform/:id", component:ViewincidentformComponent},
   {path:"update/:id",component:UpdateincidentformComponent},
-  {path:"healthtrackingdashboard",component:HealthstafftrackingdashboardComponent},
+  {path:"healthtrackingdashboard",component:HealthstafftrackingdashboardComponent,canActivate:[ HealthtrackingGuard]},
   {path:"viewhealthtrackingform/:id",component:ViewHealthComponent},
   {path:"addhealthform",component:HealthstaffComponent},
   {path:"updatehealthfrom/:id",component:UpdateHealthComponent},
-  {path:"users",component:UsersComponent},
+  {path:"users",component:UsersComponent,canActivate:[GuardGuard]},
   {path:"ViewuserComponent/:id",component:ViewuserComponent},
   {path:"updateusersform/:id",component:UpdateuserComponent},
   {path:"create",component:CreateuserComponent},
-  {path:"chat",component:ChatComponent}
+  {path:"chat",component:ChatComponent,canActivate:[ChatGuard]}
 ];
 
 @NgModule({

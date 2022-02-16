@@ -8,13 +8,18 @@ import { Subject } from "rxjs";
 
 export class  LoginService {
   private token:any;
+  private _updatemenu= new Subject<void>();
+
+
   userIsAuthenticated=false;
   private authStatusListener = new Subject<boolean>();
   isAuthenticated: boolean;
   tokenresp:any;
   constructor(private http: HttpClient, private router:Router  ){ }
 
-
+  get updatemenu(){
+    return this._updatemenu;
+  }
   getauthStatusListener(){
     return this.authStatusListener.asObservable();
 
@@ -27,14 +32,16 @@ export class  LoginService {
 
     const token = response.token;
     this.token= token;
-    localStorage.setItem('token',response.token)
-    this.authStatusListener.next(true);
+    localStorage.setItem('token',response.token);
 
-    this.router.navigate(['/homepage'])
-
+    this.router.navigate(['/homepage']);
+    //this.authStatusListener.next(true);
 
   })
  }
+ IsLogged() {
+  return localStorage.getItem("token") != null;
+}
 
  getToken(){
 
