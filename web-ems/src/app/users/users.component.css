@@ -8,6 +8,11 @@ mat-card{
   width:95%;
   margin:auto;
 }
+.mat-form-field {
+  font-size: 14px;
+  width: 40%;
+}
+
 
 mat-card-title{
 

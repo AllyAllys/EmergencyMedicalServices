@@ -66,6 +66,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AuthInterceptor } from './login/login.interceptor';
 import {MatListModule} from '@angular/material/list';
+import { SearchPipe } from './orders/search.pipe';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,8 @@ import {MatListModule} from '@angular/material/list';
     CreateuserComponent,
     ChatComponent,
     ChatusersComponent,
-    SidenavComponent
+    SidenavComponent,
+    SearchPipe
 
   ],
   imports: [

@@ -17,6 +17,7 @@ export class SidenavComponent implements OnInit{
   users=false;
   chat=false;
   health=false;
+  order=false;
 
   displayuser=false;
   currentrole:any;
@@ -46,6 +47,7 @@ export class SidenavComponent implements OnInit{
     this.users=this.currentrole=='Adminstrator';
     this.chat=this.currentrole=='Adminstrator'|| this.currentrole=='Disaster Manager' || this.currentrole=='First Responder' || this.currentrole=='Emergency Responder';
     this.health = this.currentrole=='Adminstrator'|| this.currentrole=='First Responder' || this.currentrole=='Emergency Responder';
+    this.order = this.currentrole=='Adminstrator' || this.currentrole=='First Responder' || this.currentrole=='Emergency Responder';
   }
 
 

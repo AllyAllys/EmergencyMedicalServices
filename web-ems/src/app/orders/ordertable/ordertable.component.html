@@ -1,1 +1,65 @@
-<p>ordertable works!</p>
+<mat-card>
+
+  <mat-card-title>
+    Orders
+    </mat-card-title>
+
+
+
+    <button class ="add" mat-raised-button  routerLink ="/addorderform" routerLinkActive = "mat-accent" >Add Order</button>
+   <div>
+    <mat-form-field appearance="standard">
+      <mat-label>Search Bar</mat-label>
+      <span matSuffix> <i class="material-icons">search</i> </span>
+      <input matInput (keyup)= "applyFilter($event)" placeholder="UserID" #input>
+    </mat-form-field>
+  </div>
+    <div>
+      <table mat-table [dataSource] = "dataSource" class=" data-table" matSort>
+
+        <ng-container matColumnDef="_id"  >
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> OrderID </th>
+          <td mat-cell *matCellDef="let element"> {{element._id}}  </td>
+        </ng-container>
+
+        <ng-container matColumnDef="FirstID">
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> UserID</th>
+          <td mat-cell *matCellDef= "let element"> {{element.FirstID}} {{element.EmerID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Orderstatus">
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Status </th>
+          <td mat-cell *matCellDef= "let element"> {{element.Orderstatus}} </td>
+        </ng-container>
+
+
+
+        <ng-container matColumnDef="DateOrdered" >
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Date Ordered</th>
+          <td mat-cell *matCellDef="let element"> {{element.DateOrdered}} </td>
+        </ng-container>
+
+
+
+
+        <tr mat-header-row *matHeaderRowDef= "displayedColumns"></tr>
+        <tr mat-row *matRowDef= "let row; columns: displayedColumns;"></tr>
+
+        <ng-container matColumnDef="Action">
+
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+
+          <td mat-cell *matCellDef= "let element"> <button mat-raised-button  [routerLink] ="['/view', element._id]"> View </button> | <button mat-raised-button [routerLink] ="['/edit', element._id]"> Edit </button> |  <button mat-raised-button [routerLink] ="['/delete', element._id]" > Delete </button> </td>
+
+        </ng-container>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]= "[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+
+    </div>
+    </mat-card>

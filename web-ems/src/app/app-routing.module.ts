@@ -1,3 +1,4 @@
+import { OrdersComponent } from './orders/orders.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from "./login/login.component";
@@ -36,6 +37,7 @@ import { ChatGuard } from './authguard/chat.guard';
 import { IncidentGuard } from './authguard/incident.guard';
 import { OnsiteGuard } from './authguard/onsite.guard';
 import { MissingpersonGuard } from './authguard/missingperson.guard';
+import { OrdertableComponent } from './orders/ordertable/ordertable.component';
 const routes: Routes = [
   {path:"login",component: LoginComponent},
   {path:"signup",component:SignupComponent},
@@ -65,7 +67,9 @@ const routes: Routes = [
   {path:"ViewuserComponent/:id",component:ViewuserComponent},
   {path:"updateusersform/:id",component:UpdateuserComponent},
   {path:"create",component:CreateuserComponent},
-  {path:"chat",component:ChatComponent,canActivate:[ChatGuard]}
+  {path:"chat",component:ChatComponent,canActivate:[ChatGuard]},
+  {path:"ordertable",component:OrdertableComponent},
+  {path:"addorderform",component:OrdersComponent}
 ];
 
 @NgModule({

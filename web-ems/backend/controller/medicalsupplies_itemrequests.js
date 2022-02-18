@@ -12,21 +12,27 @@ exports.itemrequest_get_list = function(req, res, next)
       })
 }
 
+/*
 exports.itemrequest_post_create = function(req,res,next)
 {
     order_model.findById(req.body.OrderID)
     .then(order =>{
-        if(!order) {
-            return res.status (404).json({
-                message:"Order not found!"
-            });
+       if(!order) {
+           return res.status (404).json({
+              message:"Order not found!"
+           });
         }
         const items= new item_model
         ({
             _id: mongoose.Types.ObjectId(),
             OrderID: req.body.OrderID,
             Item_Quantity: req.body.Item_Quantity,
-            PhoneNo:req.body.PhoneNo
+            PhoneNo:req.body.PhoneNo,
+            ItemName:req.body.ItemName,
+            ItemDescription:req.body.ItemDescription,
+            Street:req.body.Street,
+            City:req.body.City,
+            ZipCode:req.body.ZipCode
         });
         return items.save();
 
@@ -46,6 +52,38 @@ exports.itemrequest_post_create = function(req,res,next)
         });
     });
 
+
+}
+*/
+exports.itemrequest_post_create = function(req,res,next)
+{
+  const items= new item_model
+        ({
+            _id: mongoose.Types.ObjectId(),
+            OrderID: req.body.OrderID,
+            Item_Quantity: req.body.Item_Quantity,
+            PhoneNo:req.body.PhoneNo,
+            ItemName:req.body.ItemName,
+            ItemDescription:req.body.ItemDescription,
+            Street:req.body.Street,
+            City:req.body.City,
+            ZipCode:req.body.ZipCode
+        });
+  items
+  .save()
+  .then(result =>{
+      console.log(result);
+      res.status(201).json({
+      message:"The order was created successfully.",
+
+      })
+  })
+  .catch(err =>{
+      console.log(err);
+      res.status(500).json({
+          error:err
+      });
+  });
 
 }
 

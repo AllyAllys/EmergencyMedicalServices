@@ -6,33 +6,40 @@
 
     <button class ="addd" mat-raised-button  routerLink  ="/addhospitalform" routerLinkActive = "mat-accent" >Add Form</button>
 
+    <div>
+      <mat-form-field>
+        <mat-label>Search </mat-label>
+        <span matSuffix> <i class="material-icons">search</i> </span>
+        <input matInput (keyup)= "applyFilter($event)" placeholder="Enter Parameter" #input>
+      </mat-form-field>
+     </div>
       <div>
-      <table mat-table [dataSource] = "listMissing" class=" data-table">
+      <table mat-table [dataSource] = "dataSource" class=" data-table" matSort>
 
         <ng-container matColumnDef="VolunteerID"  >
-          <th mat-header-cell *matHeaderCellDef> UserID </th>
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> UserID </th>
           <td mat-cell *matCellDef="let element"> {{element.VolunteerID}} {{element.HealthStaffID}} </td>
         </ng-container>
 
         <ng-container matColumnDef="Firstname">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Name </th>
           <td mat-cell *matCellDef="let element"> {{element.Firstname}} {{element.Surname}} </td>
         </ng-container>
 
         <ng-container matColumnDef="Address">
-          <th mat-header-cell *matHeaderCellDef> Location Last Seen</th>
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Location Last Seen</th>
           <td mat-cell *matCellDef="let element"> {{element.Street}},{{element.City}} </td>
         </ng-container>
 
 
         <ng-container matColumnDef="Gender">
-          <th mat-header-cell *matHeaderCellDef> Gender</th>
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Gender</th>
           <td mat-cell *matCellDef="let element"> {{element.Gender}} </td>
         </ng-container>
 
 
         <ng-container matColumnDef="DateTime">
-          <th mat-header-cell *matHeaderCellDef> Upload Date</th>
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Upload Date</th>
           <td mat-cell *matCellDef="let element"> {{element.ModifiedDate}} </td>
         </ng-container>
 
@@ -46,8 +53,12 @@
           <td mat-cell *matCellDef= "let element"> <button mat-raised-button  [routerLink] ="['/viewonsiteform', element._id]"> View </button> | <button mat-raised-button [routerLink] ="['/onsiteupdate', element._id]" > Edit </button> |  <button mat-raised-button [routerLink] ="['/delete', element._id]" > Delete </button> </td>
 
         </ng-container>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
       </table>
 
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
 
     </div>
     </mat-card>

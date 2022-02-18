@@ -4,7 +4,9 @@ export interface incident {
   PublicID:string;
   Subject: string;
   PhoneNo: string;
-  Address:[string];
+  Street:string;
+  City:string;
+  ZipCode:number;
   Incident_Des: string;
   Incident_Date:string;
   UploadDate: string;

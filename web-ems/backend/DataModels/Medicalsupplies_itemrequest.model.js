@@ -5,15 +5,35 @@ const MedicalSuppliesItemRequestSchema= new mongoose.Schema({
     OrderID: {
         type: mongoose.SchemaTypes.ObjectId,
         ref:"medicalsupplies_order",
-        required:true 
+
     },
     Item_Quantity:{
         type:Number,
-        required:true 
+        required:true
     },
     PhoneNo:{
         type:String,
         required: true
-    }
+    },
+    ItemName:{
+      type:String,
+      required:true,
+    },
+    ItemDescription:{
+      type:String,
+      required:true
+    },
+    Street:{
+      type:String,
+      required:true
+    },
+    City:{
+      type:String,
+      required:true
+    },
+    ZipCode:{
+      type:Number
+    },
+
 })
 module.exports= mongoose.model("medicalsupplies_itemrequests",MedicalSuppliesItemRequestSchema)

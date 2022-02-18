@@ -6,7 +6,7 @@ exports.medicalsupplies_order_list = function(req, res, next) {
         if(err)
         res.send(err);
         else
-        res.send({status: 500, Count: orderresponse.length, orders: orderresponse});
+        res.send( orderresponse);
       })
 }
 
@@ -23,7 +23,7 @@ exports.medicalsupplies_order_create = (req,res,next)=>
         console.log(result);
         res.status(201).json({
         message:"The order was created successfully.",
-        
+
         })
     })
     .catch(err =>{
@@ -32,14 +32,14 @@ exports.medicalsupplies_order_create = (req,res,next)=>
             error:err
         });
     });
-    
+
 
 }
 
 exports.medicalsuppliesOrder_get_one = function(req,res,next){
 
     order_model.findOne({_id:req.params.id})
-    
+
     .then(function(dbuser)
     {
 
@@ -66,7 +66,7 @@ exports.medicalsuppliesOrder_update = function(req,res,next){
             error:err
         });
     });
-    
+
 }
 
 exports.medicalsuppliesOrder_delete_one = function(req,res,next){
