@@ -102,6 +102,7 @@ app.use('/Orders',Order)
 app.use('/Itemrequests',Items)
 app.use('/Itemdescriptions',Itemdescription)
 app.use('/api/onsitepatientvictiminformation',Onsitevictictimpatient)
+//app.use('/map')
 
 
 //app.use('/images', express.static(path.join('images')));

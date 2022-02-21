@@ -23,6 +23,7 @@ export class IncidentdashboardComponent implements OnInit,AfterViewInit {
 
 
   ngAfterViewInit() {
+
   }
   constructor(private incidentService: IncidentService) {}
 

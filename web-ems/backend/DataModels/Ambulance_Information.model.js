@@ -8,23 +8,27 @@ const ambulanceSchema= new mongoose.Schema({
     DispatcherID:
     { type: mongoose.SchemaTypes.ObjectId,
       ref:"ems_dispatcher",
-     
+
     },
-    Address:[{
-        Street:String,
-        City:String,
-        ZipCode:Number,
-        
+    Name:{
+      type:String
+
+    },
+
+    coordinates:[{
+      type:String
+
     }],
+
     Driver: {
         type:String,
-        required: true
+
     },
     DateTime:{
         type:Date,
         default: () => Date.now(),
     }
-   
+
 });
 
 module.exports=mongoose.model("ambulance_information",ambulanceSchema)

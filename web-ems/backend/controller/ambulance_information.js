@@ -16,10 +16,11 @@ exports.ambulance_get_list= function(req, res, next) {
   exports.ambulance_create = (req,res,next) => {
 
     let newAmbulance = new ambulanceinfo({
-        
+
         _id: mongoose.Types.ObjectId(),
         DispatcherID: req.body.DispatcherID,
-        Address: req.body.Address,
+        Name:req.body.Name,
+        coordinates: req.body.coordinates,
         Driver: req.body.Driver,
     })
     newAmbulance
@@ -28,7 +29,7 @@ exports.ambulance_get_list= function(req, res, next) {
         console.log(result);
         res.status(201).json({
         message:"Ambulance information uploaded!",
-        
+
         })
     })
     .catch(err =>{
@@ -37,13 +38,13 @@ exports.ambulance_get_list= function(req, res, next) {
             error:err
         });
     });
-    
+
 
 }
 
 exports.ambulance_get_one = function(req,res,next){
     ambulanceinfo.findOne({_id:req.params.id})
-    
+
     .then(function(dbuser)
     {
 
@@ -70,7 +71,7 @@ exports.ambulance_update = function(req,res,next){
             error:err
         });
     });
-    
+
 }
 
 exports.ambulance_delete_one = function(req,res,next){

@@ -67,6 +67,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { AuthInterceptor } from './login/login.interceptor';
 import {MatListModule} from '@angular/material/list';
 import { SearchPipe } from './orders/search.pipe';
+import { MapComponent } from './map/map.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +110,9 @@ import { SearchPipe } from './orders/search.pipe';
     ChatComponent,
     ChatusersComponent,
     SidenavComponent,
-    SearchPipe
+    SearchPipe,
+    MapComponent,
+    StatisticsComponent
 
   ],
   imports: [

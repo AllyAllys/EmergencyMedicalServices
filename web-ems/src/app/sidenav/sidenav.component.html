@@ -26,7 +26,14 @@
 
     <a *ngIf= "order" mat-list-item routerLink="/ordertable" routerLinkActive= "list-item-active"><mat-icon>add_shopping_cart</mat-icon>
 
-      Orders</a>
+      Orders
+    </a>
+
+  <a *ngIf= "health" mat-list-item routerLink="/map" routerLinkActive= "list-item-active"><mat-icon>gps_fixed</mat-icon> Ambulance Tracking</a>
+
+  <a *ngIf= "health" mat-list-item routerLink="/chart" routerLinkActive= "list-item-active">  <mat-icon> bar_chart</mat-icon>
+    Statistics</a>
+
 
 
 </mat-nav-list>
