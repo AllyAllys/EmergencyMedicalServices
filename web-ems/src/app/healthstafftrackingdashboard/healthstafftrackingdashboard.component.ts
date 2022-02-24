@@ -45,6 +45,16 @@ export class HealthstafftrackingdashboardComponent implements OnInit{
     }
   }
 
+  delete(form_id:any){
+
+    this.healthservice.deleteUser(form_id).subscribe((result)=>{
+      //console.log(result);
+      this.ngOnInit();
+      alert("Deleted Successfully");
+    })
+
+  }
+
 
 
 

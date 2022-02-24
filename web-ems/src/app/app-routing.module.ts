@@ -40,6 +40,7 @@ import { MissingpersonGuard } from './authguard/missingperson.guard';
 import { OrdertableComponent } from './orders/ordertable/ordertable.component';
 import { MapComponent } from './map/map.component';
 import {StatisticsComponent} from './statistics/statistics.component'
+import { PiechartComponent } from './statistics/piechart/piechart.component';
 const routes: Routes = [
   {path:"login",component: LoginComponent},
   {path:"signup",component:SignupComponent},
@@ -73,7 +74,8 @@ const routes: Routes = [
   {path:"ordertable",component:OrdertableComponent},
   {path:"addorderform",component:OrdersComponent},
   {path:"map",component:MapComponent},
-  {path:"chart",component:StatisticsComponent}
+  {path:"chart",component:StatisticsComponent},
+  {path:"piechart",component:PiechartComponent}
 ];
 
 @NgModule({

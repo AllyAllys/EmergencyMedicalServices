@@ -5,6 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { MissingpersonService } from './missingpersondashboard.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import { LoginService } from 'src/app/login/login.service';
 
 const ELEMENT_DATA: missingperson[] = [];
 
@@ -21,8 +22,12 @@ export class MissingpersondashboardComponent implements OnInit {
   dataSource = new MatTableDataSource<missingperson>();
   listMissing : missingperson[] = [];
   Reports:any;
+  remove=false;
 
-  constructor(private missingpersonService: MissingpersonService ) {}
+
+  currentrole:any;
+
+  constructor(private missingpersonService: MissingpersonService , private loginservice:LoginService) {}
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -37,6 +42,11 @@ export class MissingpersondashboardComponent implements OnInit {
 
     })
 
+    this.loginservice.updatemenu.subscribe(res=>{
+      this.MenuDisplay();
+     });
+     this.MenuDisplay();
+
   }
 
   applyFilter(event: Event) {
@@ -45,6 +55,24 @@ export class MissingpersondashboardComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  MenuDisplay(){
+    if(this.loginservice.getToken()!='')
+    this.currentrole=this.loginservice.GetRolebyToken(this.loginservice.getToken());
+
+    this.remove = this.currentrole=='Adminstrator'; // allows only admin to access the delete button
+
+  }
+
+  delete(form_id:any){
+
+    this.missingpersonService.deleteUser(form_id).subscribe((result)=>{
+      //console.log(result);
+      this.ngOnInit();
+      alert("Deleted Successfully");
+    })
+
   }
 
 }

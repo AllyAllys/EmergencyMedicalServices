@@ -40,6 +40,29 @@ const upload = multer({
 //Get List of incident reports
 router.get('/list', missingpersonController.missingperson_get_list);
 
+router.get('/chart',(req, res, next)=>
+{
+missingperson.find({})
+     .then(docs =>{
+       console.log(docs);
+       res.status(200).json(docs);
+
+     })
+     .catch((error)=> console.log(error))
+});
+
+
+router.get('/chartt',function(req, res, next)
+{
+missingperson.find(function(err, missingpersonresponse){
+     if(err)
+     res.send(err);
+     else
+     res.send({Count:missingpersonresponse.length,missingpersonresponse});
+   })
+});
+
+
 //find one document of missing person
 router.get('/:id',missingpersonController.missingperson_get_one);
 

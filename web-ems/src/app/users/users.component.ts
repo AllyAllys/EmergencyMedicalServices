@@ -42,5 +42,14 @@ export class UsersComponent implements OnInit, AfterViewInit{
   ngAfterViewInit() {
 
   }
+  delete(form_id:any){
+
+    this.usersservice.deleteUser(form_id).subscribe((result)=>{
+      //console.log(result);
+      this.ngOnInit();
+      alert("Deleted Successfully");
+    })
+
+  }
 
 }

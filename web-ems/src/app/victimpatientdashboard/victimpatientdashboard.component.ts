@@ -43,6 +43,16 @@ export class VictimpatientdashboardComponent implements OnInit {
     }
   }
 
+  delete(form_id:any){
+
+    this.patientvictimservice.deleteUser(form_id).subscribe((result)=>{
+      //console.log(result);
+      this.ngOnInit();
+      alert("Deleted Successfully");
+    })
+
+  }
+
 
 
 }

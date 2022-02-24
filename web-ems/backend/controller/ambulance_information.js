@@ -19,7 +19,7 @@ exports.ambulance_get_list= function(req, res, next) {
 
         _id: mongoose.Types.ObjectId(),
         DispatcherID: req.body.DispatcherID,
-        Name:req.body.Name,
+        name:req.body.name,
         coordinates: req.body.coordinates,
         Driver: req.body.Driver,
     })

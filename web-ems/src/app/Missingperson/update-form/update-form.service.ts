@@ -8,10 +8,10 @@ import { UpdateFormComponent } from "./update-form.component";
 export class  UpdateService {
   constructor(private http: HttpClient ){ }
 
-deleteUser(id:any){
-  return this.http.delete("http://localhost:3000/api/missingpersondashboard/" + id)
+//deleteUser(id:any){
+ // return this.http.delete("http://localhost:3000/api/missingpersondashboard/" + id)
 
 
-}
+//}
 
 }

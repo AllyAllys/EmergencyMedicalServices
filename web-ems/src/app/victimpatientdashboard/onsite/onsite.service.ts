@@ -14,5 +14,8 @@ export class  onsitePatientVictimService {
     return this.http.get <victimpatient[]> ("http://localhost:3000/api/onsitepatientvictiminformation/list")
 
   }
+  deleteUser(id:any){
+    return this.http.delete("http://localhost:3000/api/onsitepatientvictiminformation/" + id)
+  }
 
 }

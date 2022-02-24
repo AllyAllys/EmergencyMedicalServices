@@ -44,6 +44,16 @@ export class IncidentdashboardComponent implements OnInit,AfterViewInit {
     }
   }
 
+  delete(form_id:any){
+
+    this.incidentService.deleteUser(form_id).subscribe((result)=>{
+      //console.log(result);
+      this.ngOnInit();
+      alert("Deleted Successfully");
+    })
+
+  }
+
 
 
 }

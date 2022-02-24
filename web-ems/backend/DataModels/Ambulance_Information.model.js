@@ -10,15 +10,15 @@ const ambulanceSchema= new mongoose.Schema({
       ref:"ems_dispatcher",
 
     },
-    Name:{
+    name:{
       type:String
 
     },
 
-    coordinates:[{
-      type:String
+    coordinates:{
+      type:[Number]
 
-    }],
+    },
 
     Driver: {
         type:String,

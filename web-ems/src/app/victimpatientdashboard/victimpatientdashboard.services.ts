@@ -14,5 +14,8 @@ export class  PatientVictimService {
     return this.http.get <victimpatient[]> ("http://localhost:3000/api/Patientvictiminformation/list")
 
   }
+  deleteUser(id:any){
+    return this.http.delete("http://localhost:3000/api/Patientvictiminformation/" + id)
+  }
 
 }

@@ -20,6 +20,9 @@ export class UpdateFormComponent implements OnInit {
       console.log(data);
 
     });
+    /*
+
+
 
     if(this.userId)
    {
@@ -32,6 +35,10 @@ export class UpdateFormComponent implements OnInit {
     else{
       this._snackBar.open('Unable to delete missing person form')
     }
+
+
+
+*/
   }
 
 }

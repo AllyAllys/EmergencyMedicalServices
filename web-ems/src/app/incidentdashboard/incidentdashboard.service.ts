@@ -14,5 +14,9 @@ export class  IncidentService {
     return this.http.get <incident[]> ("http://localhost:3000/api/incidentdashboard/list" )
 
   }
+  deleteUser(id:any){
+    return this.http.delete("http://localhost:3000/api/incidentdashboard/" + id)
+  }
+
 
 }

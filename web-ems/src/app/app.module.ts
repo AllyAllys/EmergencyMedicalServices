@@ -69,6 +69,7 @@ import {MatListModule} from '@angular/material/list';
 import { SearchPipe } from './orders/search.pipe';
 import { MapComponent } from './map/map.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { PiechartComponent } from './statistics/piechart/piechart.component';
 
 @NgModule({
   declarations: [
@@ -112,7 +113,8 @@ import { StatisticsComponent } from './statistics/statistics.component';
     SidenavComponent,
     SearchPipe,
     MapComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    PiechartComponent
 
   ],
   imports: [

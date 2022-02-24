@@ -30,5 +30,8 @@ export class  UsersService {
 
 
   }
+  deleteUser(id:any){
+    return this.http.delete("http://localhost:3000/api/users/" + id)
+  }
 
 }

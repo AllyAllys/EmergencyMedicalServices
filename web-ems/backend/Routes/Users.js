@@ -36,6 +36,17 @@ router.get("/health",(req,res)=>{
 
 router.get('/list',UsersController.users_get_list );
 
+router.get ('/userchart',function(req, res, next)
+{
+    User_model.find({})
+    .then(docs =>{
+      console.log(docs);
+      res.status(200).json(docs);
+
+    })
+    .catch((error)=> console.log(error))
+})
+
 //Search for User based on their Id
 router.get("/:id",UsersController.users_get_one);
 
