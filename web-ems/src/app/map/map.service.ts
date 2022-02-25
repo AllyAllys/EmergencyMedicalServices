@@ -18,6 +18,14 @@ export class MarkerService {
         const latitude=c.coordinates[0];
         const longitude = c.coordinates[1];
         const marker=L.marker([latitude,longitude]).addTo(map);
+       marker.bindPopup(`<center>
+
+       <p> <strong> ${c.name}  </strong></p>
+       <p>
+       <strong> <label> Driver: </label> ${c.Driver}</strong>
+       </p>
+       <p> <label>Coordinates:</label>${c.coordinates} </p>`)
+       .openPopup();
 
       }
 

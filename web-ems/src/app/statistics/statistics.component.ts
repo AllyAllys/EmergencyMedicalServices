@@ -29,20 +29,23 @@ chart: any=[]
 
 
 
-
       let weatherDates = []
         DateTime.forEach((res) =>{
           let jsdate =  new Date(res)
           weatherDates.push(jsdate.toLocaleTimeString('en', { year: 'numeric', month: 'short', day: 'numeric'}))
           console.log(jsdate)
           console.log(res)
+
         })
 
 
-        let Gen=[]
+        let Male=[]
+        let Female=[]
+        let Other=[]
         let malecount=0;
         let femalecount=0;
         let othercount=0;
+
         Gender.forEach((res)=>{
           if (res.includes("Male")){
             malecount=malecount+1;
@@ -57,9 +60,10 @@ chart: any=[]
 
           }
         })
-        Gen.push(malecount)
-        Gen.push(femalecount)
-        Gen.push(othercount)
+        Male.push(malecount)
+        Female.push(femalecount)
+        Other.push(othercount)
+        console.log(Male)
 
 
       let Heightdate= []
@@ -70,31 +74,26 @@ chart: any=[]
        he= heightemp.replace("cm"," ")
 
        Heightdate.push(he)
-       console.log("yes")
        }
-       console.log(Heightdate)
 
      })
 
-
         this.chart = new Chart('canvas',{
+
           type:'bar',
           data:{
-            labels: DateTime,
+            labels:['January','Feburary','March','April','May','June','July','August','September','October','November','December'],
+
             datasets:[
               {
-                label:'DateTime',
-                data:Gen,
-                backgroundColor:'red',
-                borderColor: 'blue',
+                label:"Time",
+                data:[Male,Female],
+                backgroundColor: [
+                  'rgb(105, 97, 216)',
+                  'rgb(54, 44, 73)',
+                  ,
 
-
-              },{
-                label:'Gender',
-                data:Heightdate,
-                backgroundColor:'blue',
-
-                borderColor: 'red',
+                ],
 
 
               },
@@ -117,9 +116,7 @@ chart: any=[]
 
         })
 
-        console.log(weatherDates)
-      console.log(Gender)
-      console.log(DateTime)
+
     })
   }
 

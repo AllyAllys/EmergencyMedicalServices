@@ -33,7 +33,7 @@ export class MapComponent implements OnInit {
       console.log(`lat:${position.coords.latitude},lon:${position.coords.longitude},accuracy${position.coords.accuracy}`
       );
 
-      marker.bindPopup('<b>Ambulance 1 </b> <p> Driver: Fabien Paul </p>').openPopupconst
+      marker.bindPopup(`<b>Ambulance 1 </b> <p> Driver: Fabien Paul </p><label>Coordinates:</label> ${position.coords.latitude} ${position.coords.longitude}</p>`).openPopupconst
 
 
 

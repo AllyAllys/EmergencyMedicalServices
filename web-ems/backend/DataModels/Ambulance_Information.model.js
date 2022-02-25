@@ -10,7 +10,9 @@ const ambulanceSchema= new mongoose.Schema({
       ref:"ems_dispatcher",
 
     },
-    name:{
+    name:String,
+
+    Driver:{
       type:String
 
     },
@@ -20,10 +22,6 @@ const ambulanceSchema= new mongoose.Schema({
 
     },
 
-    Driver: {
-        type:String,
-
-    },
     DateTime:{
         type:Date,
         default: () => Date.now(),
