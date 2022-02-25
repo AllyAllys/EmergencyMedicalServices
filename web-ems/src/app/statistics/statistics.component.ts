@@ -32,11 +32,34 @@ chart: any=[]
       let weatherDates = []
         DateTime.forEach((res) =>{
           let jsdate =  new Date(res)
-          weatherDates.push(jsdate.toLocaleTimeString('en', { year: 'numeric', month: 'short', day: 'numeric'}))
-          console.log(jsdate)
-          console.log(res)
+
+          weatherDates.push(jsdate.toLocaleTimeString('en', {  month: 'short'}))
 
         })
+        console.log(weatherDates)
+
+
+        let Jan=[];
+        let Feb=[];
+        let January=0;
+        let February=0;
+        weatherDates.forEach((res)=>{
+          if (res.includes("Jan")){
+            January=January + 1;
+
+          }
+          if (res.includes("Feb")){
+            February=February + 1;
+
+          }
+
+        })
+        Jan.push(January);
+        Feb.push(February);
+        console.log(Feb)
+
+
+
 
 
         let Male=[]
@@ -63,7 +86,20 @@ chart: any=[]
         Male.push(malecount)
         Female.push(femalecount)
         Other.push(othercount)
-        console.log(Male)
+
+
+
+        let counter=[]
+        let Femalecounter=0;
+        Gender.forEach((res)=>{
+          if(res.includes("Female")){
+            Femalecounter=Femalecounter+1
+
+          }
+          counter.push(Femalecounter,malecount)
+
+        })
+
 
 
       let Heightdate= []
@@ -82,18 +118,17 @@ chart: any=[]
 
           type:'bar',
           data:{
-            labels:['January','Feburary','March','April','May','June','July','August','September','October','November','December'],
+            labels:['January','February','March','April','May','June','July','August','September','October','November','December'],
 
             datasets:[
-              {
-                label:"Time",
-                data:[Male,Female],
-                backgroundColor: [
-                  'rgb(105, 97, 216)',
-                  'rgb(54, 44, 73)',
-                  ,
 
-                ],
+              {
+                label:"Number of Persons",
+                data:[Jan,Feb],
+                backgroundColor:'rgb(221, 10, 10)',
+                //fill:false,
+                borderColor:
+                  'rgb(75, 192, 192)',
 
 
               },
@@ -106,10 +141,15 @@ chart: any=[]
 
             scales: {
               xAxes: {
-                display: true
+                display: true,
+               // beginAtZero:true
+
+
+
               },
               yAxes: {
-                display: true
+                display: true,
+                //beginAtZero:true
               }
         }
       }
