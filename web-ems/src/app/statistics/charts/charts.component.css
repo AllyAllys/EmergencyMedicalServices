@@ -1,0 +1,41 @@
+mat-card{
+  width:70%;
+  height:700px;
+  background-color: rgb(246, 243, 243) ;
+  margin:auto;
+}
+mat-card-title{
+
+  color:White;
+  text-align:center;
+  border: 20px solid rgb(75, 94, 206);
+  background:  rgb(75, 94, 206);
+  margin-bottom: 2rem;
+
+}
+
+button{
+
+  margin-top: 1px;
+  width: 50%;
+  font-size:16px;
+
+
+  color: rgb(253, 253, 253);
+  height: 50px;
+  background-color: #0f6d99;
+  left:23%;
+  margin-bottom: 40px;
+
+
+
+}
+button:hover {
+
+  color:#e6e9ff;
+  background-color: rgb(165, 9, 9);
+  cursor: pointer;
+  transition-duration: 0.4s;
+  text-decoration: none;
+
+}

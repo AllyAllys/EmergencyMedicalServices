@@ -9,9 +9,20 @@ const itemrequestController = require ('../controller/medicalsupplies_itemreques
 //Get Item Requests
 router.get('/list', itemrequestController.itemrequest_get_list);
 
+router.get('/itemchart',(req, res, next)=>
+{
+  item_model.find({})
+     .then(docs =>{
+       console.log(docs);
+       res.status(200).json(docs);
+
+     })
+     .catch((error)=> console.log(error))
+});
 
 
-//Create Item request and if Order ID is not found from medicalsupplies_order an error is prompted. 
+
+//Create Item request and if Order ID is not found from medicalsupplies_order an error is prompted.
 router.post('/create',itemrequestController.itemrequest_post_create);
 
 
@@ -21,7 +32,7 @@ router.get("/:id",itemrequestController.itemrequest_get_one);
 //Update Item Request
 router.put('/:updateUser',itemrequestController.itemrequest_put_update);
 
-//Delete Item request 
+//Delete Item request
 router.delete('/:ItemId',itemrequestController.itemrequest_delete_one);
 
 

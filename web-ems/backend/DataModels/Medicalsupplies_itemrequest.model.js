@@ -35,5 +35,10 @@ const MedicalSuppliesItemRequestSchema= new mongoose.Schema({
       type:Number
     },
 
+    UploadDate:{
+      type:Date,
+      default: () => Date.now(),
+  },
+
 })
 module.exports= mongoose.model("medicalsupplies_itemrequests",MedicalSuppliesItemRequestSchema)

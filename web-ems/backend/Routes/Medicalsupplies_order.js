@@ -8,6 +8,17 @@ const orderController = require ('../controller/medicalsupplies_order')
 router.get('/list', orderController.medicalsupplies_order_list);
 //Create new Order
 
+router.get('/orderchart',(req, res, next)=>
+{
+order_model.find({})
+     .then(docs =>{
+       console.log(docs);
+       res.status(200).json(docs);
+
+     })
+     .catch((error)=> console.log(error))
+});
+
 router.post('/create',orderController.medicalsupplies_order_create);
 //Find Order using ObjectId
 

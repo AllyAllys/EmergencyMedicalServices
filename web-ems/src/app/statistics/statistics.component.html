@@ -1,9 +1,12 @@
-
+<div class="back">
 <mat-card>
 <div class="card text-center m-5">
-  <h2 align="center">Bar Graph Showing Number of Missing Person Vs Time </h2>
+  <mat-card-title>
+  <h2 align="center">Bar Chart Showing Number of Missing Person Per Month </h2>
+</mat-card-title>
 </div>
 <div *ngIf= "chart">
   <canvas  id="canvas">{{ chart }}</canvas>
 </div>
 </mat-card>
+</div>

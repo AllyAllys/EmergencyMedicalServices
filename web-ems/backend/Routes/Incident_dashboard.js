@@ -7,6 +7,17 @@ const incident = require ('../DataModels/Incident_dashboard.model')
 //Get List of incident reports
 router.get('/list',IncidentdashboardController.incidentdashboard_list);
 
+router.get('/incidentchart',(req, res, next)=>
+{
+incident.find({})
+     .then(docs =>{
+       console.log(docs);
+       res.status(200).json(docs);
+
+     })
+     .catch((error)=> console.log(error))
+});
+
 router.get("/:id",IncidentdashboardController.incidentdashboard_get_one);
 
 //Creating  a new document within the collection

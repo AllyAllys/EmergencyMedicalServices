@@ -2,7 +2,6 @@ mat-card{
   width:50%;
   height:600px;
   background-color: rgb(246, 243, 243) ;
-
   margin:auto;
 }
 
@@ -15,8 +14,6 @@ mat-card{
  h3 {
   font-family: "Georgia", Times, serif;
   text-indent: 1em;
-
-
   text-align: left;
   display: inline-flex;
 

@@ -41,6 +41,13 @@ import { OrdertableComponent } from './orders/ordertable/ordertable.component';
 import { MapComponent } from './map/map.component';
 import {StatisticsComponent} from './statistics/statistics.component'
 import { PiechartComponent } from './statistics/piechart/piechart.component';
+import { ChartsComponent } from './statistics/charts/charts.component';
+import { IncidentchartComponent } from './statistics/incidentchart/incidentchart.component';
+import { OrderschartComponent } from './statistics/orderschart/orderschart.component';
+import { PatientchartComponent } from './statistics/patientchart/patientchart.component';
+import { OnsitechartComponent } from './statistics/onsitechart/onsitechart.component';
+import { MissingpersongenderchartComponent } from './statistics/missingpersongenderchart/missingpersongenderchart.component';
+
 const routes: Routes = [
   {path:"login",component: LoginComponent},
   {path:"signup",component:SignupComponent},
@@ -75,7 +82,13 @@ const routes: Routes = [
   {path:"addorderform",component:OrdersComponent},
   {path:"map",component:MapComponent},
   {path:"chart",component:StatisticsComponent},
-  {path:"piechart",component:PiechartComponent}
+  {path:"piechart",component:PiechartComponent},
+  {path:"chartinterface",component:ChartsComponent },
+  {path:"incidentchart",component:IncidentchartComponent },
+  {path:"orderchart",component:OrderschartComponent },
+  {path:"onsitechart",component:OnsitechartComponent},
+  {path:"patientchart",component:PatientchartComponent},
+  {path:"genderchart",component:MissingpersongenderchartComponent }
 ];
 
 @NgModule({

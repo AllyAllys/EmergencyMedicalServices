@@ -1,44 +1,46 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartService } from './statistics.service';
 import {
   Chart,registerables
 } from 'chart.js';
+import { PatientVictimChartService } from './patientchart.service';
 @Component({
-  selector: 'app-statistics',
-  templateUrl: './statistics.component.html',
-  styleUrls: ['./statistics.component.css']
+  selector: 'app-patientchart',
+  templateUrl: './patientchart.component.html',
+  styleUrls: ['./patientchart.component.css']
 })
+export class PatientchartComponent implements OnInit {
 
-export class StatisticsComponent implements OnInit {
-
-
-chart: any=[]
-  constructor(private chartservice:ChartService) {
+  chart: any=[]
+  constructor(private patientservice:PatientVictimChartService) {
     Chart.register(...registerables)
   }
 
-  ngOnInit() {
-    this.chartservice.MissingpersonChart()
+  ngOnInit(): void {
+
+    this.patientservice.victimChart()
     .subscribe(res=>{
       console.log(res);
 
-      let Gender = res.map(res=>res.Gender)
-      let DateTime = res.map(res=>res.DateTime)
-      let Height= res.map(res=>res.Height)
 
-
+      let DateTime = res.map(res=>res.ModifiedDate)
 
 
       let weatherDates = []
         DateTime.forEach((res) =>{
           let jsdate =  new Date(res)
 
-          weatherDates.push(jsdate.toLocaleTimeString('en', {  month: 'short'}))
+          weatherDates.push(jsdate.toLocaleTimeString('en', { year: 'numeric', month: 'short'}))
 
         })
         console.log(weatherDates)
 
 //----------------------------------------Gets the Month from function weatherDate-------------------------------
+        let year=[];
+        let yearcount=0;
+        let year2=[];
+        let yearcount2=0;
+        let year3=[];
+        let yearcount3=0;
         let Jan=[];
         let Feb=[];
         let Mar=[];
@@ -51,6 +53,8 @@ chart: any=[]
         let Oct=[];
         let Nov=[];
         let Dec=[];
+        let Nov2=[];
+        let Dec2=[];
         let January=0;
         let February=0;
         let March=0;
@@ -63,55 +67,73 @@ chart: any=[]
         let October=0;
         let November=0;
         let December=0;
+        let November2=0;
+        let December2=0;
         weatherDates.forEach((res)=>{
           if (res.includes("Jan")){
-            January=January + 1;  //Determines Number of reports submitted in January from the backend ( converts string to numbers to plot)
+            January=January + 1;  //Determines Number of reports submited in January from the backend ( converts string to numbers to plot)
 
           }
           if (res.includes("Feb")){
-            February=February + 1;   //Determines the number of reports submitting in January from the backend
+            February=February + 1;   //Determines the number of reports submited in January from the backend
 
           }
           if (res.includes("Mar")){
-            March=March + 1;   //Determines the number of reports submitting in January from the backend
+            March=March + 1;   //Determines the number of reports submited in January from the backend
 
           }
           if (res.includes("Apr")){
-            April=April + 1;   //Determines the number of reports submitting in January from the backend
+            April=April + 1;   //Determines the number of reports submited in January from the backend
 
           }
           if (res.includes("May")){
-            Maycount=Maycount + 1;   //Determines the number of reports submitting in January from the backend
+            Maycount=Maycount + 1;   //Determines the number of reports submited in January from the backend
 
           }
           if (res.includes("Jun")){
-            June=June + 1;   //Determines the number of reports submitting in January from the backend
+            June=June + 1;   //Determines the number of reports submited in January from the backend
 
           }
           if (res.includes("Jul")){
-            July=July + 1;   //Determines the number of reports submitting in January from the backend
+            July=July + 1;   //Determines the number of reports submited in January from the backend
 
           }
           if (res.includes("Aug")){
-            August=August + 1;   //Determines the number of reports submitting in January from the backend
+            August=August + 1;   //Determines the number of reports submited in January from the backend
 
           }
           if (res.includes("Sep")){
-            September=September+ 1;   //Determines the number of reports submitting in January from the backend
+            September=September+ 1;   //Determines the number of reports submited in January from the backend
 
           }
           if (res.includes("Oct")){
-            October=October + 1;   //Determines the number of reports submitting in January from the backend
+            October=October + 1;   //Determines the number of reports submited in January from the backend
 
           }
-          if (res.includes("Nov")){
-            November=November + 1;   //Determines the number of reports submitting in January from the backend
+          if (res.includes("Nov 2021")){
+            November=November + 1;   //Determines the number of reports submited in Nov from the backend
 
           }
-          if (res.includes("Dec")){
-            December= December + 1;   //Determines the number of reports submitting in January from the backend
+
+          if (res.includes("Dec 2021")){
+            December= December + 1;   //Determines the number of reports submited in Dec from the backend
 
           }
+
+          if (res.includes("Nov 2022")){
+            November2=November2 + 1;   //Determines the number of reports submited in Nov from the backend
+
+          }
+
+          if (res.includes("Dec 2022")){
+            December2= December2 + 1;   //Determines the number of reports submited in Dec from the backend
+
+          }
+         // if (res.includes("2021")){
+         //   yearcount= yearcount;   //Determines the number of reports submited in January from the backend
+
+          //}
+
 
         })
         Jan.push(January);
@@ -126,64 +148,18 @@ chart: any=[]
         Oct.push(October);
         Nov.push(November);
         Dec.push(December);
+        Nov2.push(November2);
+        Dec2.push(December2)
+        //year.push(yearcount,November);
+        //year2.push(yearcount2,December);
 
         console.log(Feb)
 
 //-----------------------------------------------------------------------------------------------------------------
 
 //Testing cases to count number of Males and Females each.
-
-        let Male=[]
-        let Female=[]
-        let Other=[]
-        let malecount=0;
-        let femalecount=0;
-        let othercount=0;
-
-        Gender.forEach((res)=>{
-          if (res.includes("Male")){
-            malecount=malecount+1;
-
-          }
-          if (res.includes("Female")){
-            femalecount=femalecount+1;
-
-          }
-          if (res.includes("Other")){
-            othercount=othercount+1;
-
-          }
-        })
-        Male.push(malecount)
-        Female.push(femalecount)
-        Other.push(othercount)
-
-
-
-        let counter=[]
-        let Femalecounter=0;
-        Gender.forEach((res)=>{
-          if(res.includes("Female")){
-            Femalecounter=Femalecounter+1
-
-          }
-          counter.push(Femalecounter,malecount)
-
-        })
-
-
 //Testing cases to remove a string from a number to plot the number only.
-      let Heightdate= []
-      Height.forEach((res)=>{
-       let heightemp= res;
-       let he = heightemp;
-       if (heightemp.includes("cm")){
-       he= heightemp.replace("cm"," ")
 
-       Heightdate.push(he)
-       }
-
-     })
 
         this.chart = new Chart('canvas',{
 
@@ -194,21 +170,13 @@ chart: any=[]
             datasets:[
 
               {
-                label:"Number of Persons",
+                label:"Number of Patients",
 
-                data:[Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec],
-                backgroundColor:'rgb(0, 96, 160)',
+                data:[Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov2,Dec2],
+                backgroundColor:'rgb(159, 24, 172)',
                 //fill:false,
                 borderColor:'rgb(0, 99, 132)',
-
-
-
-
               },
-
-
-
-
             ]
 
           },
@@ -222,7 +190,7 @@ chart: any=[]
                       color:'black',
                       font: {
                         family: 'Times',
-                        size: 20,
+                        size: 22,
                         style: 'normal',
                         weight: 'bold',
                         lineHeight: 1.2
@@ -286,7 +254,7 @@ chart: any=[]
                 display: true,
                 title:{
                   display:true,
-                  text:"Number of Missing Persons",
+                  text:"Number of Patients ",
                   color:"black",
                   font:{
                     family: 'Times',
@@ -306,5 +274,4 @@ chart: any=[]
 
     })
   }
-
 }

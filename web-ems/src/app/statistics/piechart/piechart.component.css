@@ -1,6 +1,17 @@
 mat-card{
-  width:55%;
-  height:50px;
+  width:44%;
+  height:800px;
   background-color: rgb(240, 245, 247) ;
   margin:auto;
+}
+
+h2 {
+  font-family: " Times, serif";
+  font-size: 30px;
+  font-weight:bold;
+  border-bottom: 2px solid black;
+  padding-bottom:14px;
+
+
+
 }

@@ -1,3 +1,7 @@
+button{
+  color:rgb(0, 96, 160)
+}
+
 
 
 mat-card{
@@ -13,6 +17,7 @@ h2 {
   font-weight:bold;
   border-bottom: 2px solid black;
   padding-bottom:14px;
+
 
 
 }

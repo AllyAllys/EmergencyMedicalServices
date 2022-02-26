@@ -70,6 +70,12 @@ import { SearchPipe } from './orders/search.pipe';
 import { MapComponent } from './map/map.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { PiechartComponent } from './statistics/piechart/piechart.component';
+import { ChartsComponent } from './statistics/charts/charts.component';
+import { IncidentchartComponent } from './statistics/incidentchart/incidentchart.component';
+import { OrderschartComponent } from './statistics/orderschart/orderschart.component';
+import { PatientchartComponent } from './statistics/patientchart/patientchart.component';
+import { OnsitechartComponent } from './statistics/onsitechart/onsitechart.component';
+import { MissingpersongenderchartComponent } from './statistics/missingpersongenderchart/missingpersongenderchart.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +120,13 @@ import { PiechartComponent } from './statistics/piechart/piechart.component';
     SearchPipe,
     MapComponent,
     StatisticsComponent,
-    PiechartComponent
+    PiechartComponent,
+    ChartsComponent,
+    IncidentchartComponent,
+    OrderschartComponent,
+    PatientchartComponent,
+    OnsitechartComponent,
+    MissingpersongenderchartComponent
 
   ],
   imports: [

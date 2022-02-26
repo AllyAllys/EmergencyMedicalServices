@@ -7,6 +7,17 @@ const PatientController = require ('../controller/patient_victim_identification'
 //Get List of patient information forms
 router.get('/list',PatientController.patientvictim_get_list );
 
+router.get('/victimchart',(req, res, next)=>
+{
+  patient.find({})
+     .then(docs =>{
+       console.log(docs);
+       res.status(200).json(docs);
+
+     })
+     .catch((error)=> console.log(error))
+});
+
 router.get("/:id",PatientController.patientvictim_get_one);
 
 //Creating  a new document within the collection

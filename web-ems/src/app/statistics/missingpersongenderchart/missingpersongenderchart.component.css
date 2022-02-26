@@ -1,8 +1,8 @@
 
 
 mat-card{
-  width:80%;
-  height:600px;
+  width:35%;
+  height:550px;
   background-color: rgb(245, 245, 245) ;
   margin:auto;
 }
@@ -15,7 +15,5 @@ h2 {
   padding-bottom:14px;
 
 
+
 }
-
-
-

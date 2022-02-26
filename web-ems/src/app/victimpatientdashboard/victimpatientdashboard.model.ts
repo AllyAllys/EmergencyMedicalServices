@@ -21,5 +21,6 @@ export interface victimpatient {
  Contactsurname:string;
  Relationship:string;
  Contact:string;
+ ModifiedDate:string;
 
 }
