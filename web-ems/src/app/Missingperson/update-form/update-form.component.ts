@@ -18,6 +18,11 @@ export class UpdateFormComponent implements OnInit {
     this.activatedRoute.params.subscribe(data=>{
       this.userId = data['id'];
       console.log(data);
+      this._snackBar.open('Updated Successfully','',{
+        verticalPosition:'top',
+       // horizontalPosition:'center',
+        panelClass:'edit'
+      })
 
     });
     /*

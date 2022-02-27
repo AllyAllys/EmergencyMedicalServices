@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UsersService } from '../users/users.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UsersService } from '../users/users.service';
 })
 export class CreateuserComponent implements OnInit {
 
-  constructor(private usersservice:UsersService) { }
+  constructor(private usersservice:UsersService, private _snackBar: MatSnackBar) { }
 
   form = new FormGroup({
 

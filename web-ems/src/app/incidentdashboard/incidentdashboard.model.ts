@@ -3,6 +3,7 @@ export interface incident {
   LawID:string;
   PublicID:string;
   Subject: string;
+  Other:string;
   PhoneNo: string;
   Street:string;
   City:string;

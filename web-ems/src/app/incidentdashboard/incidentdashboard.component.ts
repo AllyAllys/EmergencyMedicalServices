@@ -4,6 +4,7 @@ import {incident} from './incidentdashboard.model'
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import { LoginService } from '../login/login.service';
 
 
 @Component({
@@ -25,7 +26,9 @@ export class IncidentdashboardComponent implements OnInit,AfterViewInit {
   ngAfterViewInit() {
 
   }
-  constructor(private incidentService: IncidentService) {}
+  constructor(private incidentService: IncidentService,private loginservice:LoginService) {}
+  remove=false;
+  currentrole:any;
 
   ngOnInit(): void {
     this.incidentService.listIncidents().subscribe((data)=> {
@@ -35,7 +38,15 @@ export class IncidentdashboardComponent implements OnInit,AfterViewInit {
       this.dataSource.sort = this.sort;
 
     })
+
+    this.loginservice.updatemenu.subscribe(res=>{
+      this.MenuDisplay();
+     });
+     this.MenuDisplay();
   }
+
+
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -51,6 +62,13 @@ export class IncidentdashboardComponent implements OnInit,AfterViewInit {
       this.ngOnInit();
       alert("Deleted Successfully");
     })
+
+  }
+
+  MenuDisplay(){
+    if(this.loginservice.getToken()!='')
+    this.currentrole=this.loginservice.GetRolebyToken(this.loginservice.getToken());
+    this.remove = this.currentrole=='Adminstrator'; // allows only admin to access the delete button
 
   }
 

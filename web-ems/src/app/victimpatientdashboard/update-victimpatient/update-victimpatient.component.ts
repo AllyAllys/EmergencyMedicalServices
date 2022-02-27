@@ -62,7 +62,11 @@ export class UpdateVictimpatientComponent implements OnInit {
     console.log(this.form.value);
     this.updateservice.updateform(this.activatedroute.snapshot.params['id'],this.form.value).subscribe((result)=>{
       console.log(result);
-      this._snackBar.open('Patient Form is successfully Updated');
+      this._snackBar.open('Updated Successfully','',{
+        verticalPosition:'top',
+       // horizontalPosition:'center',
+        panelClass:'edit'
+      })
 
     })
 

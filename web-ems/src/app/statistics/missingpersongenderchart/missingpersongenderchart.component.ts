@@ -3,6 +3,8 @@ import { ChartService} from '../statistics.service'
 import {
   Chart,registerables
 } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 @Component({
   selector: 'app-missingpersongenderchart',
   templateUrl: './missingpersongenderchart.component.html',
@@ -14,6 +16,8 @@ export class MissingpersongenderchartComponent implements OnInit {
 chart: any=[]
 constructor(private chartservice:ChartService) {
   Chart.register(...registerables)
+  Chart.register(ChartDataLabels);
+
 }
 
 ngOnInit() {
@@ -193,6 +197,16 @@ ngOnInit() {
           datasets:[
 
             {
+              datalabels: {
+                color: 'black',
+                backgroundColor: '#ccc',
+                borderRadius: 4,
+
+                font: {
+                  size: 18,
+                  weight:'bold'
+                }
+              },
               label:"Gender",
 
               data:[Male,Female],

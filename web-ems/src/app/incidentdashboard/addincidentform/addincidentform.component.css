@@ -1,6 +1,6 @@
 mat-card{
   width:50%;
-  height:680px;
+  height:750px;
   background-color: rgb(238, 238, 238) ;
   margin:auto;
 
@@ -95,6 +95,25 @@ mat-card-title{
 }
 
 .form-labell{
-  width: 50%;
+  left:23%;
+  width: 55%;
 
+}
+.form-labelll{
+
+  width: 55%;
+
+}
+
+.example-form-field {
+  margin-right: 20px;
+}
+
+.Date{
+  margin-top: 10px;
+  color: white;
+  background-color: #3F51B5;
+  left: 10%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }

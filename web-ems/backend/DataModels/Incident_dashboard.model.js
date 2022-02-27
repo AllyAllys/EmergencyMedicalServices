@@ -21,6 +21,9 @@ const IncidentDashboardSchema= new mongoose.Schema({
         required:true
 
     },
+    Other:{
+      type:String
+    },
 
     Street:{
       type:String,

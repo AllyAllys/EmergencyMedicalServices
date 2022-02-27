@@ -48,12 +48,12 @@ export class UpdateHealthComponent implements OnInit {
     console.log(this.form.value);
     this.healthservice.updateform(this.activatedroute.snapshot.params['id'],this.form.value).subscribe((result)=>{
       console.log(result);
-      this._snackBar.open('Incident Form is successfully Updated');
-
+      this._snackBar.open('Updated Successfully','',{
+        verticalPosition:'top',
+       // horizontalPosition:'center',
+        panelClass:'edit'
+      })
     })
-
-
-
   }
   removeMessage() {
 

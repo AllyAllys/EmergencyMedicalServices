@@ -1,6 +1,6 @@
 mat-card{
   width:70%;
-  height:700px;
+  height:800px;
   background-color: rgb(246, 243, 243) ;
   margin:auto;
 }
@@ -17,7 +17,7 @@ mat-card-title{
 button{
 
   margin-top: 1px;
-  width: 50%;
+  width: 55%;
   font-size:16px;
 
 

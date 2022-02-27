@@ -30,6 +30,11 @@ import { HealthstafftrackingdashboardComponent } from './healthstafftrackingdash
 import { VictimpatientdashboardComponent } from './victimpatientdashboard/victimpatientdashboard.component';
 import { AddFormComponent } from './Missingperson/add-form/add-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
+
 
 
 import {MatRadioModule} from '@angular/material/radio';
@@ -76,6 +81,10 @@ import { OrderschartComponent } from './statistics/orderschart/orderschart.compo
 import { PatientchartComponent } from './statistics/patientchart/patientchart.component';
 import { OnsitechartComponent } from './statistics/onsitechart/onsitechart.component';
 import { MissingpersongenderchartComponent } from './statistics/missingpersongenderchart/missingpersongenderchart.component';
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import { Moment } from 'moment';
+import { TypeofincidentchartComponent } from './statistics/typeofincidentchart/typeofincidentchart.component';
+
 
 @NgModule({
   declarations: [
@@ -126,7 +135,8 @@ import { MissingpersongenderchartComponent } from './statistics/missingpersongen
     OrderschartComponent,
     PatientchartComponent,
     OnsitechartComponent,
-    MissingpersongenderchartComponent
+    MissingpersongenderchartComponent,
+    TypeofincidentchartComponent
 
   ],
   imports: [
@@ -154,11 +164,15 @@ import { MissingpersongenderchartComponent } from './statistics/missingpersongen
     ScrollingModule,
     MatSidenavModule,
     MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
 
   ],
   providers: [
    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor,multi:true},
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,useValue:{duration:2000}}
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,useValue:{duration:2000}},
+    {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}}
   ],
   bootstrap: [AppComponent]
 })

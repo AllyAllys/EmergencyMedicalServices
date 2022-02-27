@@ -2,3 +2,29 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-simple-snackbar {
+
+  display: flex;
+  font-size: 28px !important;
+  font-family: 'Times New Roman', Times, serif;
+  min-height: 35px !important;
+  font-weight: 500;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.edit.mat-snack-bar-container{
+
+  margin-right: auto !important;
+    margin-left: auto !important;
+    width: 80vw !important;
+    max-width: 50vw !important;
+
+
+  background-color: rgb(67, 202, 67);
+  color: rgb(29, 13, 13);
+  align-items: center !important;
+
+
+}

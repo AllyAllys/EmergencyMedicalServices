@@ -4,6 +4,7 @@ import {healthstaff} from '../healthstaff/healthstaff.model'
 import { HealthService } from './healthstafftracking.service';
 import { MatPaginator } from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import { LoginService } from '../login/login.service';
 
 
 @Component({
@@ -19,11 +20,13 @@ export class HealthstafftrackingdashboardComponent implements OnInit{
   dataSource = new MatTableDataSource <healthstaff>();
   listMissing : healthstaff[] = [];
   Reports:any;
+  remove=false;
+  currentrole:any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private healthservice:HealthService ) { }
+  constructor(private healthservice:HealthService, private loginservice:LoginService ) { }
 
 
   ngOnInit(): void {
@@ -36,6 +39,10 @@ export class HealthstafftrackingdashboardComponent implements OnInit{
 
 
     })
+    this.loginservice.updatemenu.subscribe(res=>{
+      this.MenuDisplay();
+     });
+     this.MenuDisplay();
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -52,6 +59,13 @@ export class HealthstafftrackingdashboardComponent implements OnInit{
       this.ngOnInit();
       alert("Deleted Successfully");
     })
+
+  }
+
+  MenuDisplay(){
+    if(this.loginservice.getToken()!='')
+    this.currentrole=this.loginservice.GetRolebyToken(this.loginservice.getToken());
+    this.remove = this.currentrole=='Adminstrator'; // allows only admin to access the delete button
 
   }
 

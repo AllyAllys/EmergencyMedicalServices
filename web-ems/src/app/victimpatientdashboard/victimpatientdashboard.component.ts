@@ -4,6 +4,7 @@ import {victimpatient} from './victimpatientdashboard.model';
 import { PatientVictimService } from './victimpatientdashboard.services';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-victimpatientdashboard',
@@ -16,11 +17,15 @@ export class VictimpatientdashboardComponent implements OnInit {
   dataSource = new MatTableDataSource<victimpatient>();
   //listMissing : victimpatient[] = [];
   Reports:any;
+  remove=false;
+
+
+  currentrole:any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private patientvictimservice:PatientVictimService) { }
+  constructor(private patientvictimservice:PatientVictimService,private loginservice:LoginService) { }
 
   ngOnInit(): void {
 
@@ -32,6 +37,11 @@ export class VictimpatientdashboardComponent implements OnInit {
       this.dataSource.sort = this.sort;
 
     })
+    this.loginservice.updatemenu.subscribe(res=>{
+      this.MenuDisplay();
+     });
+     this.MenuDisplay();
+
 
   }
 
@@ -41,6 +51,14 @@ export class VictimpatientdashboardComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  MenuDisplay(){
+    if(this.loginservice.getToken()!='')
+    this.currentrole=this.loginservice.GetRolebyToken(this.loginservice.getToken());
+
+    this.remove = this.currentrole=='Adminstrator'; // allows only admin to access the delete button
+
   }
 
   delete(form_id:any){

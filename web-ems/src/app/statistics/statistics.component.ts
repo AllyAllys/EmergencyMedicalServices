@@ -3,6 +3,8 @@ import { ChartService } from './statistics.service';
 import {
   Chart,registerables
 } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
@@ -15,6 +17,8 @@ export class StatisticsComponent implements OnInit {
 chart: any=[]
   constructor(private chartservice:ChartService) {
     Chart.register(...registerables)
+    Chart.register(ChartDataLabels);
+
   }
 
   ngOnInit() {
@@ -194,6 +198,17 @@ chart: any=[]
             datasets:[
 
               {
+                datalabels: {
+                  color: 'black',
+                  backgroundColor: '#ccc',
+                  borderRadius: 1,
+
+                  font: {
+                    size: 14,
+                    weight:'bold'
+                  }
+                },
+
                 label:"Number of Persons",
 
                 data:[Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec],

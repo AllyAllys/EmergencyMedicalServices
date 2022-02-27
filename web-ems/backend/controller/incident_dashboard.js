@@ -35,6 +35,7 @@ exports.incidentdashboard_create = (req,res,next)=>
         LawID:req.body.LawID,
         EventID:req.body.EventID,
         Subject:req.body.Subject,
+        Other:req.body.Other,
         Street:req.body.Street,
         City:req.body.City,
         ZipCode:req.body.ZipCode,

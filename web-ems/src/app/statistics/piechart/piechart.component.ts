@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { PieService } from './piechart.service';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-piechart',
@@ -11,6 +12,8 @@ export class PiechartComponent implements OnInit {
   chart: any=[]
   constructor(private chartservice:PieService) {
   Chart.register(...registerables)
+  Chart.register(ChartDataLabels);
+
 }
 
 ngOnInit() {
@@ -99,6 +102,16 @@ ngOnInit() {
 
           datasets:[
            {
+            datalabels: {
+              color: 'black',
+              backgroundColor: '#ccc',
+              borderRadius: 4,
+
+              font: {
+                size: 18,
+                weight:'bold'
+              }
+            },
               label:'Public',
               data:[Pub,Admin,Law,health,Ems,disaster,first,emer,vol],
               backgroundColor: [

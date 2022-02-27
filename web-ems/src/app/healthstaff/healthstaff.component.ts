@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { HealthService } from '../healthstafftrackingdashboard/healthstafftracking.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { HealthService } from '../healthstafftrackingdashboard/healthstafftracki
 })
 export class HealthstaffComponent implements OnInit {
 
-  constructor(private healthservice:HealthService) { }
+  constructor(private healthservice:HealthService,private _snackBar: MatSnackBar) { }
 
   form = new FormGroup({
     Firstname: new FormControl('',Validators.required),
@@ -33,6 +34,11 @@ export class HealthstaffComponent implements OnInit {
     .subscribe( ( result ) => {
       this.form.reset( {} );
      console.log(result);
+     this._snackBar.open('Uploaded Successfully','',{
+      verticalPosition:'top',
+     // horizontalPosition:'center',
+      panelClass:'edit'
+    })
      });
   }
 

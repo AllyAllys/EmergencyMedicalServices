@@ -3,6 +3,8 @@ import {
   Chart,registerables
 } from 'chart.js';
 import {IncidentChartService} from './incidentchart.service'
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 @Component({
   selector: 'app-incidentchart',
   templateUrl: './incidentchart.component.html',
@@ -13,6 +15,10 @@ export class IncidentchartComponent implements OnInit {
   chart: any=[]
   constructor(private Incidentservice:IncidentChartService) {
     Chart.register(...registerables)
+    Chart.register(ChartDataLabels);
+
+
+
   }
 
   ngOnInit(): void {
@@ -176,6 +182,16 @@ export class IncidentchartComponent implements OnInit {
             datasets:[
 
               {
+                datalabels: {
+                  color: 'black',
+                  backgroundColor: '#ccc',
+                  borderRadius: 4,
+
+                  font: {
+                    size: 14,
+                    weight:'bold'
+                  }
+                },
                 label:"Number of Incident Reports",
 
                 data:[Nov,Dec,Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov2,Dec2],

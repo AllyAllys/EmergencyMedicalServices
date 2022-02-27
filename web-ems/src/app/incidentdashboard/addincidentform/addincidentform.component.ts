@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddincidentService } from './addincident.service';
-
+import {PieService} from '../../statistics/piechart/piechart.service'
 @Component({
   selector: 'app-addincidentform',
   templateUrl: './addincidentform.component.html',
@@ -9,10 +10,11 @@ import { AddincidentService } from './addincident.service';
 })
 export class AddincidentformComponent implements OnInit {
 
-  constructor(private addincidentservice:AddincidentService) { }
+  constructor(private addincidentservice:AddincidentService, private _snackBar: MatSnackBar, private users:PieService) { }
 
   form = new FormGroup({
     Subject: new FormControl('',Validators.required),
+    Other: new FormControl(''),
     Street:new FormControl('',Validators.required),
     City:new FormControl('',Validators.required),
     ZipCode:new FormControl('',Validators.required),
@@ -24,7 +26,15 @@ export class AddincidentformComponent implements OnInit {
     });
 
   ngOnInit(): void {
+    this.users.Incidents()
+    .subscribe(res=>{
+      console.log(res);
+    })
+
+
   }
+
+
 
   SaveData() {
 
@@ -34,6 +44,11 @@ export class AddincidentformComponent implements OnInit {
     .subscribe( ( result ) => {
       this.form.reset( {} );
      console.log(result);
+     this._snackBar.open('Uploaded Successfully','',{
+      verticalPosition:'top',
+     // horizontalPosition:'center',
+      panelClass:'edit'
+    })
      });
   }
 

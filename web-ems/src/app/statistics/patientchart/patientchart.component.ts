@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {
   Chart,registerables
 } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 import { PatientVictimChartService } from './patientchart.service';
 @Component({
   selector: 'app-patientchart',
@@ -13,6 +15,8 @@ export class PatientchartComponent implements OnInit {
   chart: any=[]
   constructor(private patientservice:PatientVictimChartService) {
     Chart.register(...registerables)
+    Chart.register(ChartDataLabels);
+
   }
 
   ngOnInit(): void {
@@ -170,6 +174,16 @@ export class PatientchartComponent implements OnInit {
             datasets:[
 
               {
+                datalabels: {
+                  color: 'black',
+                  backgroundColor: '#ccc',
+                  borderRadius: 4,
+
+                  font: {
+                    size: 14,
+                    weight:'bold'
+                  }
+                },
                 label:"Number of Patients",
 
                 data:[Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov2,Dec2],

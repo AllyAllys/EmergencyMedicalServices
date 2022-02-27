@@ -4,6 +4,7 @@ import {users} from './users.model';
 import { UsersService } from './users.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-users',
@@ -16,8 +17,10 @@ export class UsersComponent implements OnInit, AfterViewInit{
   dataSource = new MatTableDataSource <users>();
   //listMissing : users[] = [];
   Reports:any;
+  remove=false;
+  currentrole:any;
 
-  constructor(private usersservice:UsersService) { }
+  constructor(private usersservice:UsersService,private loginservice:LoginService) { }
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -31,12 +34,24 @@ export class UsersComponent implements OnInit, AfterViewInit{
       this.dataSource.sort = this.sort;
 
 
-    })
+    });
+    this.loginservice.updatemenu.subscribe(res=>{
+      this.MenuDisplay();
+     });
+     this.MenuDisplay();
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
+
+  }
+
+  MenuDisplay(){
+    if(this.loginservice.getToken()!='')
+    this.currentrole=this.loginservice.GetRolebyToken(this.loginservice.getToken());
+
+    this.remove = this.currentrole=='Adminstrator'; // allows only admin to access the delete button
 
   }
   ngAfterViewInit() {

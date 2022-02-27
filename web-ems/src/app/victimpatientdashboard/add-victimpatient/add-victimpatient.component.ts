@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {AddvictimpatientService} from '../add-victimpatient/add-victimpatient.service'
 @Component({
   selector: 'app-add-victimpatient',
@@ -8,7 +9,7 @@ import {AddvictimpatientService} from '../add-victimpatient/add-victimpatient.se
 })
 export class AddVictimpatientComponent implements OnInit {
 
-  constructor(private addvictimpatientService:AddvictimpatientService) { }
+  constructor(private addvictimpatientService:AddvictimpatientService,private _snackBar: MatSnackBar) { }
 
     form = new FormGroup({
     Firstname: new FormControl('',Validators.required),
@@ -40,6 +41,11 @@ export class AddVictimpatientComponent implements OnInit {
     .subscribe( ( result ) => {
       this.form.reset( {} );
      console.log(result);
+     this._snackBar.open('Uploaded Successfully','',{
+      verticalPosition:'top',
+     // horizontalPosition:'center',
+      panelClass:'edit'
+    })
      });
   }
 }

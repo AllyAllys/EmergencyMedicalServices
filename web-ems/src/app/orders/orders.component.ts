@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { OrderService } from './orders.service';
 @Component({
   selector: 'app-orders',
@@ -18,7 +19,7 @@ export class OrdersComponent implements OnInit {
 
     });
 
-  constructor(private orderservice:OrderService) { }
+  constructor(private orderservice:OrderService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +32,11 @@ export class OrdersComponent implements OnInit {
     .subscribe( ( result ) => {
       this.form.reset( {} );
      console.log(result);
+     this._snackBar.open('Uploaded Successfully','',{
+      verticalPosition:'top',
+     // horizontalPosition:'center',
+      panelClass:'edit'
+    })
      });
   }
 

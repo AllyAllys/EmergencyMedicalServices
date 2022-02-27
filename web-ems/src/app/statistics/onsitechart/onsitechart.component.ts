@@ -3,6 +3,8 @@ import {
   Chart,registerables
 } from 'chart.js';
 import { onsitePatientVictimChartService } from './onsite.service';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 @Component({
   selector: 'app-onsitechart',
   templateUrl: './onsitechart.component.html',
@@ -13,6 +15,8 @@ export class OnsitechartComponent implements OnInit {
   chart: any=[]
   constructor(private onsitechartservice:onsitePatientVictimChartService) {
     Chart.register(...registerables)
+    Chart.register(ChartDataLabels);
+
   }
 
   ngOnInit(): void {
@@ -176,6 +180,16 @@ export class OnsitechartComponent implements OnInit {
             datasets:[
 
               {
+                datalabels: {
+                  color: 'black',
+                  backgroundColor: '#ccc',
+                  borderRadius: 4,
+
+                  font: {
+                    size: 14,
+                    weight:'bold'
+                  }
+                },
                 label:"Number of Victims Onsite",
 
                 data:[Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov2,Dec2],
