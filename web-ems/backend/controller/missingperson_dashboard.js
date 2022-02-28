@@ -108,6 +108,7 @@ exports.missingperson_post_create = (req,res,next)=>{
     _id: mongoose.Types.ObjectId(),
     PublicID:req.body.PublicID,
     LawID:req.body.LawID,
+    UserID:req.body.UserID,
     Firstname:req.body.Firstname,
     Surname:req.body.Surname,
     Gender:req.body.Gender,

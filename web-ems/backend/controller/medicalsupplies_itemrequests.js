@@ -61,6 +61,7 @@ exports.itemrequest_post_create = function(req,res,next)
         ({
             _id: mongoose.Types.ObjectId(),
             OrderID: req.body.OrderID,
+            UserID:req.body.UserID,
             Item_Quantity: req.body.Item_Quantity,
             PhoneNo:req.body.PhoneNo,
             ItemName:req.body.ItemName,

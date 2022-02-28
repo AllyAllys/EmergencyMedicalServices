@@ -45,6 +45,10 @@ const healthstafftrackingSchema= new mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
         ref:"emergency_responders",
 
+    },
+    UserID:{
+      type: mongoose.SchemaTypes.ObjectId,
+
     }
 
 })

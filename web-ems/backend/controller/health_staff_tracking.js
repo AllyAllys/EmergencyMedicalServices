@@ -17,6 +17,7 @@ exports.health_create = (req,res,next)=>
         _id: mongoose.Types.ObjectId(),
         FirstID:req.body.FirstID,
         EmerID:req.body.EmerID,
+        UserID:req.body.UserID,
         Street:req.body.Street,
         City:req.body.City,
         ZipCode:req.body.ZipCode,

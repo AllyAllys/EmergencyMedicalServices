@@ -28,6 +28,7 @@ exports.onsitepatientvictim_get_one = function(req,res,next)
 exports.onsitepatientvictim_post_create = (req,res,next)=>{
     const tracking =  new onsitepatient ({
         _id: mongoose.Types.ObjectId(),
+        UserID:req.body.UserID,
         VolunteerID:req.body.VolunteerID,
         Firstname:req.body.Firstname,
         Surname:req.body.Surname,

@@ -4,6 +4,9 @@ const mongoose = require("mongoose")
 
 const IncidentDashboardSchema= new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
+    UserID:{
+      type:mongoose.SchemaTypes.ObjectId
+    },
     PublicID: {
         type: mongoose.SchemaTypes.ObjectId,
         ref:"publics"

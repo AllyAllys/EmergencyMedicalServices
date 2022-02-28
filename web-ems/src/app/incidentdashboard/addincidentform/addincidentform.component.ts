@@ -9,10 +9,13 @@ import {PieService} from '../../statistics/piechart/piechart.service'
   styleUrls: ['./addincidentform.component.css']
 })
 export class AddincidentformComponent implements OnInit {
+  userId: string;
 
   constructor(private addincidentservice:AddincidentService, private _snackBar: MatSnackBar, private users:PieService) { }
 
   form = new FormGroup({
+
+    UserID:new FormControl(''),
     Subject: new FormControl('',Validators.required),
     Other: new FormControl(''),
     Street:new FormControl('',Validators.required),
@@ -26,10 +29,10 @@ export class AddincidentformComponent implements OnInit {
     });
 
   ngOnInit(): void {
-    this.users.Incidents()
-    .subscribe(res=>{
-      console.log(res);
-    })
+   // this.users.Incidents()
+   // .subscribe(res=>{
+    //  console.log(res);
+  //  })
 
 
   }
@@ -40,9 +43,16 @@ export class AddincidentformComponent implements OnInit {
 
     if (this.form.invalid) return;
 
-    this.addincidentservice.addincidentForm( this.form.value)
+    this.userId =localStorage.getItem('_id')
+    this.form.value.UserID=this.userId
+   let user = this.userId
+
+    this.addincidentservice.addincidentForm( this.form.value,user)
     .subscribe( ( result ) => {
       this.form.reset( {} );
+
+
+
      console.log(result);
      this._snackBar.open('Uploaded Successfully','',{
       verticalPosition:'top',

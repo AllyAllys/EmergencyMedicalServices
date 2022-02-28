@@ -7,6 +7,10 @@ const MedicalSuppliesItemRequestSchema= new mongoose.Schema({
         ref:"medicalsupplies_order",
 
     },
+    UserID:{
+      type:mongoose.SchemaTypes.ObjectId
+    },
+
     Item_Quantity:{
         type:Number,
         required:true

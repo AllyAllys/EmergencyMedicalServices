@@ -20,10 +20,10 @@ export class  HealthService {
 
 
   }
-  addhealthForm(data:any){
+  addhealthForm(data:any,userId){
 
     console.log(data);
-    return this.http.post('http://localhost:3000/Healthstafftracking/create',data)
+    return this.http.post('http://localhost:3000/Healthstafftracking/create',data,userId)
 
 
   }

@@ -1,5 +1,5 @@
 export interface victimpatient {
-
+ UserID:string;
  VolunteerID?:string;
  HealthStaffID?:string;
  Firstname:string;

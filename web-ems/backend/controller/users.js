@@ -89,6 +89,7 @@ exports.users_signup = function(req,res,next)
 
 exports.users_login = (req,res,next)=>{
     User_model.find({Username: req.body.Username})
+
     .exec()
     .then(user=>{
 
@@ -108,7 +109,7 @@ exports.users_login = (req,res,next)=>{
                 const token = jwt.sign(
                {
                     Username: user[0].Username,
-                    userId:user[0]._id,
+                    _id:user[0]._id,
                     Userclass:user[0].Userclass
                 },
                 "secret",

@@ -8,10 +8,12 @@ import {AddvictimpatientService} from '../add-victimpatient/add-victimpatient.se
   styleUrls: ['./add-victimpatient.component.css']
 })
 export class AddVictimpatientComponent implements OnInit {
+  userId: any;
 
   constructor(private addvictimpatientService:AddvictimpatientService,private _snackBar: MatSnackBar) { }
 
     form = new FormGroup({
+    UserID:new FormControl(''),
     Firstname: new FormControl('',Validators.required),
     Surname: new FormControl('',Validators.required),
     DOb: new FormControl('',Validators.required),
@@ -34,10 +36,12 @@ export class AddVictimpatientComponent implements OnInit {
   }
 
   SaveData() {
-
+    this.userId =localStorage.getItem('_id')
+    this.form.value.UserID=this.userId
+    let user = this.userId
     if (this.form.invalid) return;
 
-    this.addvictimpatientService.createForm( this.form.value)
+    this.addvictimpatientService.createForm( this.form.value,user)
     .subscribe( ( result ) => {
       this.form.reset( {} );
      console.log(result);

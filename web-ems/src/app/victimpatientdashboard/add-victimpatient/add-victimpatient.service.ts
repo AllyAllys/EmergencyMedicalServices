@@ -11,16 +11,16 @@ import { Subject } from "rxjs";
 
 
 
-  createForm(data:any){
+  createForm(data:any,userId){
     console.log(data);
-    return this.http.post('http://localhost:3000/api/Patientvictiminformation/create',data)
+    return this.http.post('http://localhost:3000/api/Patientvictiminformation/create',data,userId)
 
 
   }
 
-  addForm(data:any){
+  addForm(data:any,userId){
     console.log(data);
-    return this.http.post('http://localhost:3000/api/onsitepatientvictiminformation/create',data)
+    return this.http.post('http://localhost:3000/api/onsitepatientvictiminformation/create',data,userId)
 
 
   }

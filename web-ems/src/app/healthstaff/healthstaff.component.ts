@@ -9,6 +9,7 @@ import { HealthService } from '../healthstafftrackingdashboard/healthstafftracki
   styleUrls: ['./healthstaff.component.css']
 })
 export class HealthstaffComponent implements OnInit {
+  userId: any;
 
   constructor(private healthservice:HealthService,private _snackBar: MatSnackBar) { }
 
@@ -29,8 +30,11 @@ export class HealthstaffComponent implements OnInit {
   SaveData() {
 
     if (this.form.invalid) return;
+    this.userId =localStorage.getItem('_id')
+    this.form.value.UserID=this.userId
+    let user = this.userId
 
-    this.healthservice.addhealthForm( this.form.value)
+    this.healthservice.addhealthForm( this.form.value,user)
     .subscribe( ( result ) => {
       this.form.reset( {} );
      console.log(result);

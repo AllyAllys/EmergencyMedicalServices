@@ -9,7 +9,6 @@ import { Subject } from "rxjs";
 export class  LoginService {
   private token:any;
   private _updatemenu= new Subject<void>();
-  user:any;
 
 
   userIsAuthenticated=false;
@@ -28,14 +27,12 @@ export class  LoginService {
 
  loginUser(Username:string, Password:string){
    const LoginData: loginData = {Username:Username,Password:Password}
-   this.http.post<{token:string,userId:string}>("http://localhost:3000/api/users/login",LoginData)
+   this.http.post<{token:string}>("http://localhost:3000/api/users/login",LoginData)
    .subscribe(response=>{
 
     const token = response.token;
-    const user = response.userId
     this.token= token;
     localStorage.setItem('token',response.token);
-    localStorage.setItem('userId',response.userId)
 
     this.router.navigate(['/homepage']);
     //this.authStatusListener.next(true);
@@ -51,6 +48,10 @@ export class  LoginService {
   return localStorage.getItem('token')
   }
 
+  getID(){
+    return localStorage.getItem('_id')
+  }
+
 
 
   logout(){
@@ -63,7 +64,11 @@ export class  LoginService {
     let _token=token.split('.')[1];
     this.tokenresp=JSON.parse(atob(_token))
     console.log(this.tokenresp);
+    let user =this.tokenresp._id
+
+    localStorage.setItem('_id',user); //Stores current user token in the local storage
     return this.tokenresp.Userclass;
+
   }
 
 

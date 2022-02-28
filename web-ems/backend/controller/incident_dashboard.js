@@ -33,6 +33,7 @@ exports.incidentdashboard_create = (req,res,next)=>
         _id: mongoose.Types.ObjectId(),
         PublicID:req.body.PublicID,
         LawID:req.body.LawID,
+        UserID:req.body.UserID,
         EventID:req.body.EventID,
         Subject:req.body.Subject,
         Other:req.body.Other,

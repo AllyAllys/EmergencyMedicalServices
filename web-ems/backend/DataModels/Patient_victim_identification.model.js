@@ -11,6 +11,10 @@ const PatientVictimIdentificationSchema= new mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
         ref:"healthstaffs"
     },
+    UserID:{
+      type: mongoose.SchemaTypes.ObjectId,
+
+    },
     Firstname:{
         type:String,
         required:true,

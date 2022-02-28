@@ -16,11 +16,13 @@ export class AddFormComponent implements OnInit
   images:any;
   productImage=[];
   imageData:any;
+  userId: any;
   constructor(private missingService: MissingService,
               private _snackBar: MatSnackBar,
-              public route: ActivatedRoute,
+             // public route: ActivatedRoute,
               private http:HttpClient ) {}
  form = new FormGroup({
+ UserID: new FormControl(''),
  Firstname: new FormControl('',Validators.required),
  Surname: new FormControl('',Validators.required),
  Age: new FormControl('',Validators.required),
@@ -56,11 +58,15 @@ export class AddFormComponent implements OnInit
 
 
      }
+
+     this.userId =localStorage.getItem('_id')
+     //let UserID=this.userId
    }
 
    SaveData(){
 
     const formData = new FormData();
+    formData.append('UserID',this.userId)
     formData.append('productImage', this.images);
     formData.append('Firstname',this.form.value.Firstname);
     formData.append('Surname',this.form.value.Surname);
@@ -75,6 +81,8 @@ export class AddFormComponent implements OnInit
 
     this.http.post<any>('http://localhost:3000/api/Missingpersondashboard/create', formData).subscribe((d)=>{
       console.log(d);
+
+
       this._snackBar.open('Uploaded Successfully','',{
         verticalPosition:'top',
        // horizontalPosition:'center',

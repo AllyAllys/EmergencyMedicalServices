@@ -3,6 +3,7 @@ export interface missingperson {
 
   PublicID?:string;
   LawID?:string;
+  UserID:string;
   Firstname:string;
   Surname:string;
   Gender:String;

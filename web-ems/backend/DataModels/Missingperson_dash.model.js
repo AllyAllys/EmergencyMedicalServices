@@ -12,6 +12,10 @@ const MissingPersonSchema= new mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
         ref:"publics"
     },
+    UserID:{
+      type: mongoose.SchemaTypes.ObjectId,
+
+    },
     Firstname:{
         type:String,
         required: true

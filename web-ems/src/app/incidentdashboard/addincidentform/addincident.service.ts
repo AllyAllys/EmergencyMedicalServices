@@ -8,14 +8,16 @@ import { Subject } from "rxjs";
   export class AddincidentService {
   constructor(private http: HttpClient ){ }
 
+userId:any
 
-
-  addincidentForm(data:any){
-    console.log(data);
-    return this.http.post('http://localhost:3000/api/incidentdashboard/create',data)
+  addincidentForm(formData,userId){
+    console.log(formData);
+    console.log(userId)
+    return this.http.post('http://localhost:3000/api/incidentdashboard/create',formData,userId)
 
 
   }
+
 
 
 

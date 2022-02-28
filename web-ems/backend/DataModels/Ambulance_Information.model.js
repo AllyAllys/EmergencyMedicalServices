@@ -10,6 +10,10 @@ const ambulanceSchema= new mongoose.Schema({
       ref:"ems_dispatcher",
 
     },
+    UserID:{
+      type: mongoose.SchemaTypes.ObjectId,
+
+    },
     name:String,
 
     Driver:{
