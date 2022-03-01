@@ -16,61 +16,53 @@ const io = require('socket.io')(http, {
       origin: '*'
   }
 });
+/*
 
-
-let userList = new Map();
-
-io.on('join', function(data){
-//joining
-socket.join(data.room);
-
-console.log(data.user + 'joined the room : ' + data.room);
-
-socket.broadcast.to(data.room).emit('new user joined', {user:data.user, message:'has joined this room.'});
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "http://localhost:4200",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header"],
+    credentials: true
+  }
 });
+*/
+ io.on('connection',(socket)=>{
 
-io.on('connection', (socket) => {
-console.log('Second server new Connection');
-  let userName = socket.handshake.query.userName;
-  addUser(userName, socket.id);
+     console.log('new connection made.');
 
-  socket.broadcast.emit('user-list', [...userList.keys()]);
-  socket.emit('user-list', [...userList.keys()]);
 
-  socket.on('message', (msg) => {
-    const message= new Msg({msg,userName});
-     message.save().then(()=>{
-       io.emit('message')
+     socket.on('join', function(data){
+       //joining
+       socket.join(data.room);
+
+       console.log(data.user + 'joined the room : ' + data.room);
+
+       socket.broadcast.to(data.room).emit('new user joined', {user:data.user, message:' has joined this room.'});
+     });
+
+
+     socket.on('leave', function(data){
+
+       console.log(data.user + 'left the room : ' + data.room);
+
+       socket.broadcast.to(data.room).emit('left room', {user:data.user, message:' has left this room.'});
+
+       socket.leave(data.room);
+     });
+
+     socket.on('message',function(data){
+       const message = new Msg({user:data.user,message:data.message})
+       message.save().then(()=>{
+      io.in(data.room).emit('new message', {user:data.user, message:data.message});
+
+       })
+
 
      })
-      socket.broadcast.emit('message-broadcast', {message: msg, userName: userName});
-  })
-
-  socket.on('disconnect', (reason) => {
-      removeUser(userName, socket.id);
-  })
-});
+ });
 
 
-
-
-
-function addUser(userName, id) {
-  if (!userList.has(userName)) {
-      userList.set(userName, new Set(id));
-  } else {
-      userList.get(userName).add(id);
-  }
-}
-
-function removeUser(userName, id) {
-  if (userList.has(userName)) {
-      let userIds = userList.get(userName);
-      if (userIds.size == 0) {
-          userList.delete(userName);
-      }
-  }
-}
 
 http.listen(process.env.PORT || 4000, () => {
   console.log(`Server is running ${process.env.PORT || 4000}`);

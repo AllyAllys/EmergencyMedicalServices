@@ -1,44 +1,64 @@
 
-
-<div class="container">
-  <h1>Welcome to EMS Chat</h1>
-  <div class="col-sm-5">
-    <label for="roomInput">Choose room</label>
-    <select name="roomInput" id="roomInput" class="form-control" [(ngModel)]= "room">
-        <option value="Lobby">Lobby</option>
-        <option value="Hall">Hall</option>
-        <option value="Deluxe">Deluxe</option>
-    </select>
-</div>
-  <app-chatusers (userNameEvent)= "userNameUpdate($event)" *ngIf= "!userName"></app-chatusers>
-  <div class="chatbox">
-    <div class="chatbox__user-list">
-      <h2>User list</h2>
-      <div class="chatbox__user--active" *ngFor="let user of userList" >
-        <p>{{ user }}</p>
-      </div>
-    </div>
-
-    <div class="messages_list">
-      <div class="chatbox__messages" *ngFor= "let msg of messageList" [ngClass]= "{mine: msg.mine}">
-        <div class="user-message">
-          <div class="message-box">
-            <p class="name">{{ msg.userName }}</p>
-            <br/>
-            <p class="message">{{ msg.message }}</p>
-          </div>
+<h1 style="text-align: center;">Welcome to the EMS Chat </h1>
+<h2 style="text-align: center;">Please enter your Username and Select a Room before sending a message</h2>
+    <mat-card>
+<div class="row">
+        <div class="col-sm-4">
+            <div class="form-group" align="center">
+              <label class="steps">Step 1: </label>
+              <mat-form-field class="example-full-widthh" appearance="outline">
+              <mat-label for="username">Username</mat-label>
+                <input  matInput type="text" [(ngModel)]= "user" class="form-control" id="username" placeholder="Enter Username - Position (Eg. Jerry - EOC)">
+              </mat-form-field>
+            </div>
         </div>
-      </div>
+        <div class="col-sm-4" align="center">
+          <label class="steps">Step 2: </label>
+          <mat-form-field class="example-full-widthh" appearance="outline">
+            <mat-label for="roomInput">Select Room</mat-label>
+            <mat-select name="roomInput" id="roomInput" class="form-control" [(ngModel)]= "room">
+              <mat-option value="Lobby">Lobby</mat-option>
+              <mat-option value="Hall">Hall</mat-option>
+              <mat-option value="Deluxe">Deluxe</mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+        <div class="col sm-4">
+            <div style="margin-top:19px;" class="pull-right">
+              <label class="steps">Step 3: </label>
+                <button  class ="joinbutton" mat-raised-button color="accent" (click)= "join()">Join Room</button>
+                &nbsp;&nbsp;
+                <div>
+                <button class="leavebutton" mat-raised-button color="primary" (click)= "leave()" [style.width.%]="30">Leave Room</button>
+              </div>
+            </div>
+        </div>
     </div>
+
+    <div class="rows">
+        <div class="well" style="height:200px;">
+            <cdk-virtual-scroll-viewport itemSize="200" class="message-area">
+                <div *ngFor="let item of messageArray" class="message">
+                    <span class="items"><strong>{{item.user}} : </strong> {{item.message}}</span>
+                </div>
+            </cdk-virtual-scroll-viewport>
+        </div>
+    </div>
+
+     <div class="row">
+      <div class="col-sm-8">
+        <mat-form-field class="example-full-widthhh" appearance="outline" >
+          <mat-label>Message</mat-label>
+          <input  matInput type="text" class="fo" [(ngModel)]= "messageText"  placeholder="Enter Message Here"   >
+        </mat-form-field>
+        <button  mat-raised-button  class="send" (click)= "sendMessage()"> <mat-icon>send</mat-icon> Send</button>
+
+        &nbsp;&nbsp;
+      </div>
+      <div class="col-sm-4">
+
+      </div>
   </div>
-  <div class="send-message">
 
 
-    <input  type="text" [(ngModel)]= "message">
-
-
-    <button mat-raised-button  (click)= "sendMessage()">Send</button>
-  </div>
-</div>
-
-
+    </mat-card>

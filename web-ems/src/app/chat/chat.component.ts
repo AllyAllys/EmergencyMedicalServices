@@ -1,50 +1,60 @@
-import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import * as io from 'socket.io-client';
+import {ChatService} from './chat.service'
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css'],
+  providers:[ChatService]
 
 })
 export class ChatComponent {
-
-  room:any;
-    userName = '';
-    message = '';
-    messageList: {message: string, userName: string, mine: boolean}[] = [];
-    userList: string[] = [];
-    socket: any;
-   data:any;
-    user: any;
-  constructor() {
-  }
+  @Output() userNameEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
+
   }
 
-  userNameUpdate(name: string): void {
+  user:any;
+  room:any;
+  messageText:any;
+  messageArray:Array<{user:String,message:String}> = [];
 
-    this.socket = io.io(`localhost:4000?userName=${name}`);
-    this.userName = name;
+  constructor(private _chatService:ChatService, private _snackbar:MatSnackBar){
+    this._chatService.newUserJoined().subscribe(data=> this.messageArray.push(data));
 
-    this.socket.emit('set-user-name', name);
+    this._chatService.userLeftRoom().subscribe(data=>this.messageArray.push(data));
 
-    this.socket.on('user-list', (userList: string[]) => {
-      this.userList = userList;
-    });
-
-    this.socket.on('message-broadcast', (data: {message: string, userName: string}) => {
-      if (data) {
-        this.messageList.push({message: data.message, userName: data.userName, mine: false});
-      }
-    });
+    this._chatService.newMessageReceived().subscribe(data=>this.messageArray.push(data));
   }
 
-  sendMessage(): void {
-    this.socket.emit('message', this.message);
-    this.messageList.push({message: this.message, userName: this.userName, mine: true});
-    this.message = '';
+
+
+
+  join(){
+    this._chatService.joinRoom({user:this.user, room:this.room});
+    this._snackbar.open('You Joined the Conversation','',{
+      verticalPosition:'top',
+     // horizontalPosition:'center',
+      panelClass:'edit'
+    })
   }
+
+  leave(){
+    this._chatService.leaveRoom({user:this.user, room:this.room});
+    this._snackbar.open('You have left the room','',{
+      verticalPosition:'top',
+     // horizontalPosition:'center',
+      panelClass:'edit'
+    })
+  }
+
+  sendMessage(){
+    this._chatService.sendMessage({user:this.user, room:this.room, message:this.messageText});
+
+  }
+
 
 
 

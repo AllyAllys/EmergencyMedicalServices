@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const msgSchema= new mongoose.Schema({
-  msg:{
+  user:{
     type:String,
-    required:true,
+
   },
-  userName:{
+  message:{
     type:String,
-    required:true
+
   },
 
 

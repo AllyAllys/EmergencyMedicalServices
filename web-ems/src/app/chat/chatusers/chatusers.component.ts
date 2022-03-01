@@ -8,12 +8,19 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class ChatusersComponent
 {
 
+
   @Output() userNameEvent = new EventEmitter<string>();
 
   userName = '';
+  name:any;
 
   setUserName(): void {
     this.userNameEvent.emit(this.userName);
+  }
+
+  RemoveUser(){
+    this.userNameEvent.emit('disconnect')
+
   }
 
 
