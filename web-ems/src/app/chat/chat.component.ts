@@ -13,9 +13,11 @@ export class ChatComponent {
   @Output() userNameEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
+    var dateString = new Date().toDateString();
 
   }
  date=Date.now();
+
   user:any;
   room:any;
   messageText:any;

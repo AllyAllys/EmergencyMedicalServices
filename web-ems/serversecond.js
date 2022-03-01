@@ -52,9 +52,10 @@ const io = require("socket.io")(server, {
      });
 
      socket.on('message',function(data){
-       const message = new Msg({user:data.user,message:data.message,date:Date.now()})
+      var date= new Date().toLocaleTimeString();
+       const message = new Msg({user:data.user,message:data.message,date:date})
        message.save().then(()=>{
-      io.in(data.room).emit('new message', {user:data.user, message:data.message,date:Date.now()});
+      io.in(data.room).emit('new message', {user:data.user, message:data.message,date:date});
 
        })
 
