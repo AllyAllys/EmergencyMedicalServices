@@ -52,9 +52,9 @@ const io = require("socket.io")(server, {
      });
 
      socket.on('message',function(data){
-       const message = new Msg({user:data.user,message:data.message})
+       const message = new Msg({user:data.user,message:data.message,date:Date.now()})
        message.save().then(()=>{
-      io.in(data.room).emit('new message', {user:data.user, message:data.message});
+      io.in(data.room).emit('new message', {user:data.user, message:data.message,date:Date.now()});
 
        })
 

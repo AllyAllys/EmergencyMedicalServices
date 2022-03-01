@@ -9,6 +9,10 @@ const msgSchema= new mongoose.Schema({
     type:String,
 
   },
+  ModifiedDate:{
+    type:Date,
+    default: () => Date.now(),
+},
 
 
 

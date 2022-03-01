@@ -8,7 +8,7 @@
               <label class="steps">Step 1: </label>
               <mat-form-field class="example-full-widthh" appearance="outline">
               <mat-label for="username">Username</mat-label>
-                <input  matInput type="text" [(ngModel)]= "user" class="form-control" id="username" placeholder="Enter Username - Position (Eg. Jerry - EOC)">
+                <input  matInput type="text" [(ngModel)]= "user" class="form-control" id="username" placeholder="Enter Username">
               </mat-form-field>
             </div>
         </div>
@@ -25,11 +25,11 @@
         </div>
         <div class="col sm-4">
             <div style="margin-top:19px;" class="pull-right">
-              <label class="steps">Step 3: </label>
+
                 <button  class ="joinbutton" mat-raised-button color="accent" (click)= "join()">Join Room</button>
                 &nbsp;&nbsp;
                 <div>
-                <button class="leavebutton" mat-raised-button color="primary" (click)= "leave()" [style.width.%]="30">Leave Room</button>
+                <button class="leavebutton" mat-raised-button color="primary" (click)= "leave()" >Leave Room</button>
               </div>
             </div>
         </div>
@@ -38,8 +38,9 @@
     <div class="rows">
         <div class="well" style="height:200px;">
             <cdk-virtual-scroll-viewport itemSize="200" class="message-area">
-                <div *ngFor="let item of messageArray" class="message">
-                    <span class="items"><strong>{{item.user}} : </strong> {{item.message}}</span>
+                <div *ngFor= "let item of messageArray" class="message">
+                    <span class="items"><strong>{{item.user}} : </strong> {{item.message}}: Sent at: {{item.date}}</span>
+
                 </div>
             </cdk-virtual-scroll-viewport>
         </div>

@@ -15,11 +15,11 @@ export class ChatComponent {
   ngOnInit(): void {
 
   }
-
+ date=Date.now();
   user:any;
   room:any;
   messageText:any;
-  messageArray:Array<{user:String,message:String}> = [];
+  messageArray:Array<{user:String,message:String,date:String}> = [];
 
   constructor(private _chatService:ChatService, private _snackbar:MatSnackBar){
     this._chatService.newUserJoined().subscribe(data=> this.messageArray.push(data));
@@ -33,7 +33,7 @@ export class ChatComponent {
 
 
   join(){
-    this._chatService.joinRoom({user:this.user, room:this.room});
+    this._chatService.joinRoom({user:this.user, room:this.room,date:this.date});
     this._snackbar.open('You Joined the Conversation','',{
       verticalPosition:'top',
      // horizontalPosition:'center',
@@ -42,7 +42,7 @@ export class ChatComponent {
   }
 
   leave(){
-    this._chatService.leaveRoom({user:this.user, room:this.room});
+    this._chatService.leaveRoom({user:this.user, room:this.room,date:this.date});
     this._snackbar.open('You have left the room','',{
       verticalPosition:'top',
      // horizontalPosition:'center',
@@ -51,7 +51,8 @@ export class ChatComponent {
   }
 
   sendMessage(){
-    this._chatService.sendMessage({user:this.user, room:this.room, message:this.messageText});
+    this._chatService.sendMessage({user:this.user, room:this.room, message:this.messageText,date:this.date});
+    console.log(this.date)
 
   }
 
