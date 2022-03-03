@@ -3,7 +3,7 @@
 
 <mat-drawer-container >
 
-  <mat-drawer mode ="side" [opened]= "sideBarOpen" *ngIf= "displaymenu">
+  <mat-drawer mode ="side" [opened]= "sideBarOpen" *ngIf= " IsLogged()">
   <app-sidenav >
 
   </app-sidenav>

@@ -8,7 +8,7 @@ import { LoginService } from './login/login.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements OnInit, DoCheck {
+export class AppComponent  implements OnInit {
   displaymenu=false;
   displayemployee=false;
   displayuser=false;
@@ -27,7 +27,7 @@ export class AppComponent  implements OnInit, DoCheck {
     this.sideBarOpen=!this.sideBarOpen;
   }
 
-  ngDoCheck(){
+ /* ngDoCheck(){
     if(this.route.url=='/login'){
       this.displaymenu=false;
     }
@@ -36,5 +36,10 @@ export class AppComponent  implements OnInit, DoCheck {
     }
 
   }
+  */
+  IsLogged() {
+    return !!localStorage.getItem("token");
+  }
+
 
 }

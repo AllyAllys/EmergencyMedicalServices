@@ -35,7 +35,7 @@ export class ChatComponent {
 
 
   join(){
-    this._chatService.joinRoom({user:this.user, room:this.room,date:this.date});
+    this._chatService.joinRoom({user:this.user, room:this.room});
     this._snackbar.open('You Joined the Conversation','',{
       verticalPosition:'top',
      // horizontalPosition:'center',
@@ -44,7 +44,7 @@ export class ChatComponent {
   }
 
   leave(){
-    this._chatService.leaveRoom({user:this.user, room:this.room,date:this.date});
+    this._chatService.leaveRoom({user:this.user, room:this.room});
     this._snackbar.open('You have left the room','',{
       verticalPosition:'top',
      // horizontalPosition:'center',

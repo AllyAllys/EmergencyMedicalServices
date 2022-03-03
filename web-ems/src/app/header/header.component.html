@@ -5,15 +5,15 @@
   <span>Welcome to EMS</span>
   <span class = "spacer"></span>
   <ul>
-    <li  *ngIf= "!displaymenu">
-      <a mat-button routerLink ="/login" routerLinkActive = "mat-accent">Login</a>
+    <li  >
+      <a *ngIf= "!IsLogged()" mat-button routerLink ="/login" routerLinkActive = "mat-accent">Login</a>
     </li>
 
-    <li  *ngIf= "!displaymenu">
-      <a mat-button routerLink ="/signup" routerLinkActive = "mat-accent">SignUp</a>
+    <li >
+      <a mat-button  *ngIf= "!IsLogged()" routerLink ="/signup" routerLinkActive = "mat-accent">SignUp</a>
     </li>
-    <li  *ngIf= "displaymenu">
-      <button mat-button (click)= "onlogout()" >Logout</button>
+    <li >
+      <button mat-button  *ngIf= "IsLogged()"(click)= "onlogout()" >Logout</button>
     </li>
   </ul>
 </mat-toolbar>

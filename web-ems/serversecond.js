@@ -33,26 +33,29 @@ const io = require("socket.io")(server, {
 
 
      socket.on('join', function(data){
+      var date= new Date().toLocaleTimeString();
+
        //joining
        socket.join(data.room);
 
        console.log(data.user + 'joined the room : ' + data.room);
 
-       socket.broadcast.to(data.room).emit('new user joined', {user:data.user, message:' has joined this room.'});
+       socket.broadcast.to(data.room).emit('new user joined', {user:data.user, message:' has joined this room.',date:date});
      });
 
 
      socket.on('leave', function(data){
+      var date= new Date().toLocaleTimeString();
 
        console.log(data.user + 'left the room : ' + data.room);
 
-       socket.broadcast.to(data.room).emit('left room', {user:data.user, message:' has left this room.'});
+       socket.broadcast.to(data.room).emit('left room', {user:data.user, message:' has left this room.',date:date});
 
        socket.leave(data.room);
      });
 
      socket.on('message',function(data){
-      var date= new Date().toLocaleTimeString();
+      var date= new Date().toLocaleTimeString('en', { year: 'numeric', month: 'short', day: 'numeric',hour:'numeric',minute:'numeric'});
        const message = new Msg({user:data.user,message:data.message,date:date})
        message.save().then(()=>{
       io.in(data.room).emit('new message', {user:data.user, message:data.message,date:date});

@@ -39,8 +39,8 @@
         <div class="well" style="height:200px;">
             <cdk-virtual-scroll-viewport itemSize="200" class="message-area">
                 <div *ngFor= "let item of messageArray" class="message">
-                    <span class="items"><strong>{{item.user}} : </strong> {{item.message}}: Sent at: {{item.date}}</span>
-
+                    <span class="items"><strong>{{item.user}} : </strong> {{item.message}} </span>
+                    <span class="date">{{item.date}}</span>
                 </div>
             </cdk-virtual-scroll-viewport>
         </div>

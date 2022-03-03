@@ -40,12 +40,12 @@ export class  LoginService {
   })
  }
  IsLogged() {
-  return localStorage.getItem("token") != null;
+  return localStorage.getItem("token") != '';
 }
 
  getToken(){
 
-  return localStorage.getItem('token')
+  return localStorage.getItem('token')  || '';
   }
 
   getID(){
@@ -54,12 +54,13 @@ export class  LoginService {
 
 
 
-  logout(){
+  /*logout(){
     this.token=null;
     this.isAuthenticated =false;
     this.authStatusListener.next(false);
 
   }
+  */
   GetRolebyToken(token:any){
     let _token=token.split('.')[1];
     this.tokenresp=JSON.parse(atob(_token))

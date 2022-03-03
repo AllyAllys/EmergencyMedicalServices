@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-title> Update User</mat-card-title>
+  <mat-card-title> Create User Entry </mat-card-title>
 
 
   <form [formGroup]= "form" (submit) ="SaveData()" >
@@ -7,7 +7,7 @@
         <mat-form-field appearance="fill">
           <mat-label class="form-label">Username</mat-label>
           <input matInput type="Username" class="form-control" placeholder="Username" formControlName="Username">
-          <mat-error *ngIf= "form.get('Username').invalid"> Please enter Subject.</mat-error>
+          <mat-error *ngIf= "form.get('Username').invalid"> Please enter username.</mat-error>
          </mat-form-field>
 
          <mat-form-field appearance="fill">

@@ -93,3 +93,9 @@ button:hover {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+.date{
+  font-size: 18px;
+  font-weight: 550;
+  font-family: 'Times New Roman', Times, serif;
+}

@@ -19,13 +19,17 @@ export class HeaderComponent implements OnInit{
   private authListenerSubs: Subscription;
 
   ngOnInit(): void {
-    //this.authListenerSubs = this.loginService.getauthStatusListener().subscribe(isAuthenticated=>{
-    // this.userIsAuthenticated = isAuthenticated;
-  //  });
+    this.authListenerSubs = this.loginService.getauthStatusListener().subscribe(isAuthenticated=>{
+     this.userIsAuthenticated = isAuthenticated;
+    });
 
   }
   toggleSidebar(){
     this.toggleSidebarForMe.emit();
+  }
+
+  IsLogged() {
+    return !!localStorage.getItem("token");
   }
 
 
@@ -44,12 +48,9 @@ export class HeaderComponent implements OnInit{
 }
 
   onlogout(){
-    this.loginService.logout();
     alert('Your session expired')
     localStorage.clear();
     this.router.navigate(['/login'])
-
-
   }
 
 }
