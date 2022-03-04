@@ -37,7 +37,7 @@ chart: any=[]
         DateTime.forEach((res) =>{
           let jsdate =  new Date(res)
 
-          weatherDates.push(jsdate.toLocaleTimeString('en', {  month: 'short'}))
+          weatherDates.push(jsdate.toLocaleTimeString('en', { year:'numeric', month: 'short'}))
 
         })
         console.log(weatherDates)

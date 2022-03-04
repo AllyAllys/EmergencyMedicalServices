@@ -19,24 +19,24 @@
 
         <ng-container matColumnDef="_id"  >
           <th mat-header-cell *matHeaderCellDef  mat-sort-header> OrderID </th>
-          <td mat-cell *matCellDef="let element"> {{element._id}}  </td>
+          <td mat-cell *matCellDef= "let element"> {{element._id}}  </td>
         </ng-container>
 
         <ng-container matColumnDef="FirstID">
           <th mat-header-cell *matHeaderCellDef  mat-sort-header> UserID</th>
-          <td mat-cell *matCellDef= "let element"> {{element.FirstID}} {{element.EmerID}} </td>
+          <td mat-cell *matCellDef= "let element"> {{element.UserID}}  </td>
         </ng-container>
 
-        <ng-container matColumnDef="Orderstatus">
+        <ng-container matColumnDef="Status">
           <th mat-header-cell *matHeaderCellDef  mat-sort-header> Status </th>
-          <td mat-cell *matCellDef= "let element"> {{element.Orderstatus}} </td>
+          <td mat-cell *matCellDef= "let element"> {{element.Status}} </td>
         </ng-container>
 
 
 
-        <ng-container matColumnDef="DateOrdered" >
+        <ng-container matColumnDef="UploadDate" >
           <th mat-header-cell *matHeaderCellDef  mat-sort-header> Date Ordered</th>
-          <td mat-cell *matCellDef="let element"> {{element.DateOrdered}} </td>
+          <td mat-cell *matCellDef= "let element"> {{element.UploadDate}} </td>
         </ng-container>
 
 
@@ -49,7 +49,7 @@
 
           <th mat-header-cell *matHeaderCellDef> Actions </th>
 
-          <td mat-cell *matCellDef= "let element"> <button mat-raised-button  [routerLink] ="['/view', element._id]"> View </button> | <button mat-raised-button [routerLink] ="['/edit', element._id]"> Edit </button> |  <button mat-raised-button [routerLink] ="['/delete', element._id]" > Delete </button> </td>
+          <td mat-cell *matCellDef= "let element"> <button mat-raised-button  [routerLink] ="['/vieworderform', element._id]"> View </button> | <button mat-raised-button [routerLink] ="['/updateordersform', element._id]"> Edit </button> |  <button mat-raised-button [routerLink] ="['/delete', element._id]" > Delete </button> </td>
 
         </ng-container>
 

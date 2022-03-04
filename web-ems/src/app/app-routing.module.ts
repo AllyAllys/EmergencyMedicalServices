@@ -48,6 +48,8 @@ import { PatientchartComponent } from './statistics/patientchart/patientchart.co
 import { OnsitechartComponent } from './statistics/onsitechart/onsitechart.component';
 import { MissingpersongenderchartComponent } from './statistics/missingpersongenderchart/missingpersongenderchart.component';
 import { TypeofincidentchartComponent } from './statistics/typeofincidentchart/typeofincidentchart.component';
+import { VieworderComponent } from './orders/vieworder/vieworder.component';
+import { UpdateorderComponent } from './orders/updateorder/updateorder.component';
 
 const routes: Routes = [
   {path:"login",component: LoginComponent},
@@ -90,7 +92,9 @@ const routes: Routes = [
   {path:"onsitechart",component:OnsitechartComponent},
   {path:"patientchart",component:PatientchartComponent},
   {path:"genderchart",component:MissingpersongenderchartComponent },
-  {path:"typeofincidentchart",component:TypeofincidentchartComponent}
+  {path:"typeofincidentchart",component:TypeofincidentchartComponent},
+  {path:"vieworderform/:id",component:VieworderComponent },
+  {path:"updateordersform/:id",component:UpdateorderComponent}
 ];
 
 @NgModule({

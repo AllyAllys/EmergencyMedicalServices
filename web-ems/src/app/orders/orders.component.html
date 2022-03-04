@@ -4,6 +4,18 @@
 
   <form [formGroup]= "form" (submit) ="SaveData()" >
 
+
+    <mat-form-field appearance="fill">
+      <mat-label class="form-label">Firstname</mat-label>
+      <input matInput type="Firstname" class="form-control" formControlName="Firstname">
+      <mat-error *ngIf= "form.get('Firstname').invalid"> Please enter your Firstname.</mat-error>
+     </mat-form-field>
+     <mat-form-field appearance="fill">
+      <mat-label class="form-label">Surname</mat-label>
+      <input matInput type="Surname" class="form-control" formControlName="Surname">
+      <mat-error *ngIf= "form.get('Surname').invalid"> Please enter your Surname.</mat-error>
+     </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label class="form-label">Item Quantity</mat-label>
           <input matInput type="Item_Quantity" class="form-control" placeholder="1" formControlName="Item_Quantity">

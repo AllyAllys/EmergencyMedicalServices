@@ -8,9 +8,9 @@ const MedicalSuppliesOrderSchema= new mongoose.Schema({
         required:true
     },
 
-    FirstID: {
+    ItemDescrptionID: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref:"first_responders"
+        ref:"medicalsupplies_itemrequests"
     },
     EmerID: {
         type: mongoose.SchemaTypes.ObjectId,

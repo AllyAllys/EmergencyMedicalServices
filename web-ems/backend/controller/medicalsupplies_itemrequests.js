@@ -8,8 +8,20 @@ exports.itemrequest_get_list = function(req, res, next)
         if(err)
         res.send(err);
         else
-        res.send({status: 500, Count: itemresponse.length, items: itemresponse});
+        res.send( itemresponse);
       })
+}
+exports.itemrequest_get_one = function(req,res,next){
+  item_model.findOne({_id:req.params.id})
+
+  .then(function(dbuser)
+  {
+
+      res.send(dbuser);
+  })
+  .catch(function(err){
+      res.send('Item request not found!');
+  });
 }
 
 /*
@@ -62,6 +74,9 @@ exports.itemrequest_post_create = function(req,res,next)
             _id: mongoose.Types.ObjectId(),
             OrderID: req.body.OrderID,
             UserID:req.body.UserID,
+            Status:req.body.Status,
+            Firstname:req.body.Firstname,
+            Surname:req.body.Surname,
             Item_Quantity: req.body.Item_Quantity,
             PhoneNo:req.body.PhoneNo,
             ItemName:req.body.ItemName,
@@ -88,23 +103,19 @@ exports.itemrequest_post_create = function(req,res,next)
 
 }
 
-exports.itemrequest_get_one = function(req,res,next){
-    item_model.findOne({_id:req.params.id})
 
-    .then(function(dbuser)
-    {
-
-        res.send(dbuser);
-    })
-    .catch(function(err){
-        res.send('Item request not found!');
-    });
-}
 
 exports.itemrequest_put_update= function(req,res,next)
 {
     const id = req.params.updateUser;
-    item_model.updateOne({_id: id},{$set:{Item_Quantity:req.body.Item_Quantity,PhoneNo:req.body.PhoneNo}})
+    item_model.updateOne({_id: id},{$set:{
+      Item_Quantity:req.body.Item_Quantity,
+      ItemDescription:req.body.ItemDescription,
+      Status:req.body.Status,
+      Street:req.body.Street,
+      City:req.body.City,
+      ZipCode:req.body.ZipCode,
+      PhoneNo:req.body.PhoneNo}})
     .exec()
     .then(result=>{
         console.log(result);

@@ -10,7 +10,18 @@ const MedicalSuppliesItemRequestSchema= new mongoose.Schema({
     UserID:{
       type:mongoose.SchemaTypes.ObjectId
     },
+    Firstname:{
+      type:String,
+        required: true
+    },
+    Surname:{
+      type:String,
+        required: true
+    },
+    Status:{
+      type:String
 
+    },
     Item_Quantity:{
         type:Number,
         required:true
@@ -38,6 +49,7 @@ const MedicalSuppliesItemRequestSchema= new mongoose.Schema({
     ZipCode:{
       type:Number
     },
+
 
     UploadDate:{
       type:Date,

@@ -9,6 +9,11 @@ import { OrderService } from './orders.service';
 })
 export class OrdersComponent implements OnInit {
   form = new FormGroup({
+
+    UserID:new FormControl(''),
+    Firstname:new FormControl('',Validators.required),
+    Surname: new FormControl('',Validators.required),
+    //Status: new FormControl(''),
     Item_Quantity: new FormControl('',Validators.required),
     PhoneNo:new FormControl('',Validators.required),
     ItemName:new FormControl('',Validators.required),
@@ -18,6 +23,7 @@ export class OrdersComponent implements OnInit {
     ZipCode:new FormControl('',Validators.required),
 
     });
+  userId: any;
 
   constructor(private orderservice:OrderService, private _snackBar: MatSnackBar) { }
 
@@ -28,7 +34,11 @@ export class OrdersComponent implements OnInit {
 
     if (this.form.invalid) return;
 
-    this.orderservice.addorderForm( this.form.value)
+    this.userId =localStorage.getItem('_id')
+    this.form.value.UserID=this.userId
+   let user = this.userId
+
+    this.orderservice.addorderForm( this.form.value,user)
     .subscribe( ( result ) => {
       this.form.reset( {} );
      console.log(result);

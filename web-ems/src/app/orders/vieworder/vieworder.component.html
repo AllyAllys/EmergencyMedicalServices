@@ -1,1 +1,21 @@
-<p>vieworder works!</p>
+<mat-card class = "formdetails" *ngIf= "userDetails">
+  <mat-card-title>
+    Orders Form
+    </mat-card-title>
+
+  <mat-card-subtitle > <span >UserID : </span>  <h3>  {{userDetails.UserID}} </h3></mat-card-subtitle>
+  <mat-card-subtitle > <span >Firstname : </span>  <h3>  {{userDetails.Firstname}} </h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>Surname : </span><h3> {{userDetails.Surname}}</h3></mat-card-subtitle>
+
+  <mat-card-subtitle> <span> Item Quantity : </span><h3> {{userDetails.Item_Quantity}}</h3></mat-card-subtitle>
+  <mat-card-subtitle><span> PhoneNo: </span> <h3>{{userDetails.PhoneNo}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span> ItemName : </span><h3> {{userDetails.ItemName}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>Item Description: </span> <h3> {{userDetails.ItemDescription}} </h3></mat-card-subtitle>
+  <mat-card-subtitle><span> Street : </span> <h3>  {{userDetails.Street}}</h3></mat-card-subtitle>
+  <mat-card-subtitle><span> City : </span> <h3>  {{userDetails.City}}  </h3> </mat-card-subtitle>
+  <mat-card-subtitle> <span>Zipcode : </span> <h3> {{userDetails.ZipCode}}</h3></mat-card-subtitle>
+  <mat-card-subtitle> <span>Upload Date : </span> <h3> {{userDetails.UploadDate}} </h3></mat-card-subtitle>
+
+
+
+</mat-card>

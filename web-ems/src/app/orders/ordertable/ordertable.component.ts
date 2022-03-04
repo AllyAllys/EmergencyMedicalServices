@@ -11,7 +11,7 @@ import {MatSort} from '@angular/material/sort';
   styleUrls: ['./ordertable.component.css']
 })
 export class OrdertableComponent implements OnInit {
-  displayedColumns: string[] = [ '_id','FirstID' ,'DateOrdered','Orderstatus','Action'];
+  displayedColumns: string[] = [ '_id','FirstID' ,'UploadDate','Status','Action'];
   dataSource = new MatTableDataSource<orders>();
   searchKey:string;
 
