@@ -12,4 +12,5 @@ export interface incident {
   Incident_Date:string;
   UploadDate: string;
   IncidentPicture?:string;
+  productImage:[];
 }

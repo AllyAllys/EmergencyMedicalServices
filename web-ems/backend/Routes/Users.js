@@ -7,49 +7,14 @@ const jwt = require('jsonwebtoken')
 const Admin_model= require('../DataModels/Admins.model')
 const UsersController = require ('../controller/users')
 const checkAuth = require ('../api/middleware/check-auth')
-//Get Users listing
-
-
-router.get("/public",(req,res)=>{
-  res.status(200).send("Public Content")
-});
-router.get("/volunteer",(req,res)=>{
-  res.status(200).send("Volunteer Content")
-});
-
-router.get("/EMSdispatcher",(req,res)=>{
-  res.status(200).send("EMS Dispatcher homepage")
-});
-
-router.get("/First",(req,res)=>{
-  res.status(200).send("First responder Content")
-});
-
-router.get("/Emer",(req,res)=>{
-  res.status(200).send("Emergency Responder  Content")
-});
-
-router.get("/health",(req,res)=>{
-  res.status(200).send("Health Staff Content")
-});
 
 
 router.get('/list',UsersController.users_get_list );
 
-router.get ('/userchart',function(req, res, next)
-{
-    User_model.find({})
-    .then(docs =>{
-      console.log(docs);
-      res.status(200).json(docs);
-
-    })
-    .catch((error)=> console.log(error))
-})
+router.get ('/userchart',UsersController.getuserschart)
 
 //Search for User based on their Id
 router.get("/:id",UsersController.users_get_one);
-
 
 //Registration
 router.post('/signup',UsersController.users_signup);
@@ -58,9 +23,10 @@ router.post('/signup',UsersController.users_signup);
 router.post('/login',UsersController.users_login)
 
 
-
 //Change Password
 //LOOK into further
+
+/*
 router.post('/:updateAdmin',function(req,res,next){
   const id = req.params.updateAdmin;
 
@@ -102,6 +68,8 @@ router.post('/:updateAdmin',function(req,res,next){
       });
 
 });
+
+*/
 
 //Update Admin users Username and Email Address
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!REVIEW!!!!!!

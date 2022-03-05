@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddincidentService } from './addincident.service';
 import {PieService} from '../../statistics/piechart/piechart.service'
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-addincidentform',
   templateUrl: './addincidentform.component.html',
@@ -10,8 +11,12 @@ import {PieService} from '../../statistics/piechart/piechart.service'
 })
 export class AddincidentformComponent implements OnInit {
   userId: string;
+  images:any;
+  productImage=[];
+  imageData:any;
+  picture:any;
 
-  constructor(private addincidentservice:AddincidentService, private _snackBar: MatSnackBar, private users:PieService) { }
+  constructor(private addincidentservice:AddincidentService, private _snackBar: MatSnackBar, private users:PieService,private http:HttpClient) { }
 
   form = new FormGroup({
 
@@ -24,6 +29,7 @@ export class AddincidentformComponent implements OnInit {
     PhoneNo:new FormControl('',Validators.required),
     Incident_Des:new FormControl('',Validators.required),
     Incident_Date:new FormControl('',Validators.required),
+    productImage: new FormControl(null,Validators.required)
 
 
     });
@@ -34,32 +40,59 @@ export class AddincidentformComponent implements OnInit {
     //  console.log(res);
   //  })
 
-
   }
+  select(event:any){
+    {
+      const file = (event.target as HTMLInputElement).files;
+      this.form.patchValue({ productImage: file});
+      const allowedMimeTypes = ["image/png", "image/jpeg", "image/jpg"];
+      {
+        const reader = new FileReader();
+        reader.onload = () => {
+          this.imageData = reader.result as string;
+        };
+        if(file){
+        reader.readAsDataURL(file[0]);
+        }
+      }
+      const productImage = event.target.files[0];
+      this.images=productImage;
+      console.log(productImage)
+
+
+       }
+       this.userId =localStorage.getItem('_id')
+      }
 
 
 
   SaveData() {
 
-    if (this.form.invalid) return;
+    const formData = new FormData();
+    formData.append('UserID',this.userId)
+    formData.append('productImage', this.images);
+    formData.append('Subject',this.form.value.Subject);
+    formData.append('Other',this.form.value.Other);
+    formData.append('Street',this.form.value.Street);
+    formData.append('City',this.form.value.City);
+    formData.append('ZipCode',this.form.value.ZipCode);
+    formData.append('PhoneNo',this.form.value.PhoneNo);
+    formData.append('Incident_Des',this.form.value.Incident_Des);
+    formData.append('Incident_Date',this.form.value.Incident_Date);
 
-    this.userId =localStorage.getItem('_id')
-    this.form.value.UserID=this.userId
-   let user = this.userId
-
-    this.addincidentservice.addincidentForm( this.form.value,user)
-    .subscribe( ( result ) => {
-      this.form.reset( {} );
+    this.http.post<any>('http://localhost:3000/api/incidentdashboard/create', formData).subscribe((d)=>{
+      console.log(d);
 
 
+      this._snackBar.open('Uploaded Successfully','',{
+        verticalPosition:'top',
+       // horizontalPosition:'center',
+        panelClass:'edit'
+      })
+    });
 
-     console.log(result);
-     this._snackBar.open('Uploaded Successfully','',{
-      verticalPosition:'top',
-     // horizontalPosition:'center',
-      panelClass:'edit'
-    })
-     });
+
+
   }
 
 }

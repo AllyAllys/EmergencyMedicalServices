@@ -1,13 +1,40 @@
 <mat-card>
-  <mat-card-title> Update Incident Report Form</mat-card-title>
+  <mat-card-title> Incident Report Form</mat-card-title>
 
 
   <form [formGroup]= "form" (submit) ="UpdateData()" >
-
+<!--
         <mat-form-field appearance="fill">
           <mat-label class="form-label">Subject</mat-label>
           <input matInput type="Subject" class="form-control" placeholder="Ex.Fire,Earthquake..." formControlName="Subject">
           <mat-error *ngIf= "form.get('Subject').invalid"> Please enter Subject.</mat-error>
+         </mat-form-field>
+ -->
+
+         <mat-form-field appearance="fill" class = "form-labell" >
+          <mat-label >Subject</mat-label>
+          <mat-select Id="Subject" type="Subject" class="form-control" placeholder="Ex.Fire,Earthquake..." formControlName="Subject" >
+            <mat-option value="Chemical Emergencies">Chemical Emergencies</mat-option>
+            <mat-option value="Drought">Drought</mat-option>
+            <mat-option value="Earthquake">Earthquake</mat-option>
+            <mat-option value="Explosion">Explosion</mat-option>
+            <mat-option value="Fire">Fire</mat-option>
+            <mat-option value="Flood">Flood</mat-option>
+            <mat-option value="Hurricane">Hurricane</mat-option>
+            <mat-option value="Landslides">Landslides</mat-option>
+            <mat-option value="Power Outage">Power Outage</mat-option>
+            <mat-option value="Tsuanmi">Tsuanmi</mat-option>
+            <mat-option value="Tropical Storm">Tropical Storm</mat-option>
+            <mat-option value="Tornando">Tornado</mat-option>
+            <mat-option value="Volcanic Eruption">Volcanic Eruption</mat-option>
+            <mat-option value="Other">Other</mat-option>
+          </mat-select>
+          <mat-error *ngIf= "form.get('Subject').invalid"> Please select a Subject.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill"  class = "form-labell" >
+          <mat-label class="form-label">State Type of Disaster/Emergency If Not Listed Above</mat-label>
+          <input matInput type="State Type Emergency or Disaster " class="form-control" placeholder="State type of Emergency/Disaster" formControlName="Other">
          </mat-form-field>
 
 
@@ -44,13 +71,26 @@
             <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
           </mat-form-field></td>
         </tr></table>
-
+<!--
         <mat-form-field class = "form-labell" appearance="fill">
           <mat-label >Incident Date</mat-label>
           <input matInput type="Incident_Date" class="form-control" placeholder="YY/MM/DD" formControlName="Incident_Date" >
           <mat-error *ngIf= "form.get('Incident_Date').invalid"> Please enter date of incident.</mat-error>
-
         </mat-form-field>
+-->
+<mat-form-field appearance="fill" class = "form-labelll">
+  <mat-label>Select Date of Incident</mat-label>
+  <input matInput [matDatepicker]= "datepicker"  type="Incident_Date" class="form-control" placeholder="YY/MM/DD" formControlName="Incident_Date">
+  <mat-datepicker-toggle  matSuffix [for]= "datepicker"></mat-datepicker-toggle >
+  <mat-datepicker #datepicker >
+    <mat-datepicker-actions >
+
+      <button class="Date" mat-button color="primary" matDatepickerApply>Select</button>
+    </mat-datepicker-actions>
+  </mat-datepicker>
+  <mat-error *ngIf= "form.get('Incident_Date').invalid"> Please enter date of incident.</mat-error>
+</mat-form-field>
+
 
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label >Incident Description</mat-label>
@@ -59,8 +99,6 @@
           <mat-error *ngIf= "form.get('Incident_Des').invalid"> Please enter incident description.</mat-error>
 
         </mat-form-field>
-
-
 
 
         <button mat-raised-button  type= "submit"> Submit </button>

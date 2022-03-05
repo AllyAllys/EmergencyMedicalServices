@@ -59,7 +59,11 @@ const IncidentDashboardSchema= new mongoose.Schema({
         type:Date,
         default: () => Date.now(),
     },
-    IncidentPicture:Buffer
+    IncidentPicture:Buffer,
+    productImage:{
+      type:[String]
+
+     },
 })
 
 module.exports= mongoose.model("incident_dashboard",IncidentDashboardSchema)

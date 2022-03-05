@@ -9,16 +9,7 @@ const itemrequestController = require ('../controller/medicalsupplies_itemreques
 //Get Item Requests
 router.get('/list', itemrequestController.itemrequest_get_list);
 
-router.get('/itemchart',(req, res, next)=>
-{
-  item_model.find({})
-     .then(docs =>{
-       console.log(docs);
-       res.status(200).json(docs);
-
-     })
-     .catch((error)=> console.log(error))
-});
+router.get('/itemchart',itemrequestController.itemchart_list);
 
 
 

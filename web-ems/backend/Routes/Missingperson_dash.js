@@ -71,7 +71,7 @@ router.get('/:id',missingpersonController.missingperson_get_one);
 router.post('/create' , multer({storage:storage}).array('productImage'),missingpersonController.missingperson_post_create);
 
 //Update Missing person document
-router.put('/:updateUser',checkAuth,missingpersonController.missingperson_put_update);
+router.put('/:updateUser',missingpersonController.missingperson_put_update);
 
 //Delete missing person document
 router.delete('/:id',checkAuth, missingpersonController.missingperson_delete_one);

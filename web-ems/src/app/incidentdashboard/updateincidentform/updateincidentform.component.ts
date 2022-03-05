@@ -17,6 +17,7 @@ export class UpdateincidentformComponent implements OnInit {
 
   form = new FormGroup({
     Subject: new FormControl('',Validators.required),
+    Other: new FormControl('',Validators.required),
     Street:new FormControl('',Validators.required),
     City:new FormControl('',Validators.required),
     ZipCode:new FormControl('',Validators.required),
@@ -37,6 +38,7 @@ export class UpdateincidentformComponent implements OnInit {
 
       this.form = new FormGroup({
         Subject: new FormControl(result ['Subject'],Validators.required),
+        Other: new FormControl(result['Other'],Validators.required),
         Street:new FormControl(result['Street'],Validators.required),
         City:new FormControl(result['City'],Validators.required),
         ZipCode: new FormControl(result['ZipCode']),

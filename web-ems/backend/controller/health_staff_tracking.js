@@ -57,17 +57,13 @@ exports.healthtracking_update =function(req,res,next)
     const id = req.params.updateUser;
     healthtracking.updateOne({_id: id},{$set:{Street:req.body.Street,City:req.body.City,ZipCode:req.body.ZipCode,PhoneNo:req.body.PhoneNo,Firstname:req.body.Firstname,Surname:req.body.Surname}})
     .exec()
-    .then(result=>{
-        console.log(result);
-      res.status(200).json({
-          message:"Health Staff information is updated!"
-      })
+    .then(function(dbuser)
+    {
+
+        res.send(dbuser);
     })
-    .catch(err=>{
-        console.log(err);
-        res.status(500).json({
-            error:err
-        });
+    .catch(function(err){
+        res.send('Cannot update form');
     });
 
 }

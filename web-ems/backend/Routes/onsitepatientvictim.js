@@ -7,16 +7,7 @@ const   onsitepatient= require('../DataModels/Onsitevictimpatient.model')
 //Get List of patient information forms
 router.get('/list',onsitePatientController.onsitepatientvictim_get_list);
 
-router.get('/onsitechart',(req, res, next)=>
-{
-  onsitepatient.find({})
-     .then(docs =>{
-       console.log(docs);
-       res.status(200).json(docs);
-
-     })
-     .catch((error)=> console.log(error))
-});
+router.get('/onsitechart',onsitePatientController.onsite_chart);
 
 
 router.get("/:id",onsitePatientController.onsitepatientvictim_get_one);

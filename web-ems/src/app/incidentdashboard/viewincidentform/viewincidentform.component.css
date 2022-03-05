@@ -1,6 +1,6 @@
 mat-card{
   width:50%;
-  height:600px;
+  height:1000px;
   background-color: rgb(246, 243, 243) ;
 
   margin:auto;
@@ -39,4 +39,16 @@ mat-card-title{
   margin-bottom: 2rem;
 
 }
+
+.Image {
+  border: 1px solid rgb(8, 3, 3);
+  padding: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  height:18rem;
+  margin:1 rem 0;
+}
+
 

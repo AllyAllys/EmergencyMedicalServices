@@ -11,6 +11,17 @@ exports.patientvictim_get_list = function(req, res, next)
     })
 }
 
+exports.patientChart_list=(req, res, next)=>
+{
+  patient.find({})
+     .then(docs =>{
+       console.log(docs);
+       res.status(200).json(docs);
+
+     })
+     .catch((error)=> console.log(error))
+}
+
 exports.patientvictim_get_one = function(req,res,next)
 {
     patient.findOne({_id:req.params.id})
@@ -86,17 +97,13 @@ exports.patientvictim_update = function(req,res,next)
       Ambulance:req.body.Ambulance
     }})
     .exec()
-    .then(result=>{
-        console.log(result);
-      res.status(200).json({
-          message:"Missing Person Form updated!"
-      })
+    .then(function(dbuser)
+    {
+
+        res.send(dbuser);
     })
-    .catch(err=>{
-        console.log(err);
-        res.status(500).json({
-            error:err
-        });
+    .catch(function(err){
+        res.send('Cannot update form');
     });
 
 }

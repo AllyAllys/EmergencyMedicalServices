@@ -25,6 +25,17 @@ exports.onsitepatientvictim_get_one = function(req,res,next)
     });
 }
 
+exports.onsite_chart=(req, res, next)=>
+{
+  onsitepatient.find({})
+     .then(docs =>{
+       console.log(docs);
+       res.status(200).json(docs);
+
+     })
+     .catch((error)=> console.log(error))
+}
+
 exports.onsitepatientvictim_post_create = (req,res,next)=>{
     const tracking =  new onsitepatient ({
         _id: mongoose.Types.ObjectId(),
@@ -71,7 +82,8 @@ exports.onsitepatientvictim_post_create = (req,res,next)=>{
 exports.onsitepatientvictim_update = function(req,res,next)
 {
     const id = req.params.updateUser;
-    onsitepatient.updateOne({_id: id},{$set:{
+     onsitepatient.updateOne({_id: id},{$set:{
+   //  UserID:req.body.UserID,
       Firstname:req.body.Firstname,
       Surname:req.body.Surname,
       Email:req.body.Email,
@@ -87,19 +99,30 @@ exports.onsitepatientvictim_update = function(req,res,next)
       Relationship:req.body.Relationship,
       Contact:req.body.Contact}})
 
-    .exec()
-    .then(result=>{
+      .then(function(dbuser)
+      {
+
+          res.send(dbuser);
+      })
+      .catch(function(err){
+          res.send('Cannot update  form');
+      });
+
+
+    /*.then(result=>{
         console.log(result);
       res.status(200).json({
           message:"Missing Person Form updated!"
       })
     })
     .catch(err=>{
-        console.log(err);
+       // console.log(err);
         res.status(500).json({
             error:err
         });
     });
+
+    */
 
 }
 

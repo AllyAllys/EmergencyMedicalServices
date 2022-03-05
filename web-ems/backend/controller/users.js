@@ -3,7 +3,7 @@ const User_model= require('../DataModels/Users.model')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-exports.users_get_list = function(req, res, next)
+exports.users_get_list = function(req, res, next)// Get all users to display on table.
 {
     User_model.find(function(err, usersresponse){
       if(err)
@@ -12,8 +12,18 @@ exports.users_get_list = function(req, res, next)
       res.send(usersresponse);
     })
 }
+exports.getuserschart=function(req, res, next)   //Chart Route to get all users
+{
+    User_model.find({})
+    .then(docs =>{
+      console.log(docs);
+      res.status(200).json(docs);
 
-exports.users_get_one = function(req,res,next)
+    })
+    .catch((error)=> console.log(error))
+}
+
+exports.users_get_one = function(req,res,next) //Find each user by their ID
 {
     User_model.findOne({_id:req.params.id})
 
@@ -27,7 +37,7 @@ exports.users_get_one = function(req,res,next)
     });
 }
 
-exports.users_signup = function(req,res,next)
+exports.users_signup = function(req,res,next)   //Sign up
 {
     User_model.find({Email: req.body.Email})
     .exec()
@@ -142,18 +152,14 @@ exports.users_put_update = function(req,res,next)
     const id = req.params.updateUser;
     User_model.updateOne({_id: id},{$set:{Username:req.body.Username,Userclass:req.body.Userclass,Firstname:req.body.Firstname,Lastname:req.body.Lastname,Email:req.body.Email,Password:req.body.Password}})
     .exec()
-    .then(result=>{
-        console.log(result);
-      res.status(200).json({
-          message:"The User is updated"
+    .then(function(dbuser)
+      {
+
+          res.send(dbuser);
       })
-    })
-    .catch(err=>{
-        console.log(err);
-        res.status(500).json({
-            error:err
-        });
-    });
+      .catch(function(err){
+          res.send('Cannot update form');
+      });
 
 }
 exports.users_delete_one = function(req,res,next)

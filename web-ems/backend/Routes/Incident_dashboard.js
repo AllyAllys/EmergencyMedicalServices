@@ -3,55 +3,51 @@ const router = express.Router()
 const mongoose = require ('mongoose')
 const IncidentdashboardController = require('../controller/incident_dashboard')
 const incident = require ('../DataModels/Incident_dashboard.model')
+const multer = require('multer');
+
+
+const storage = multer.diskStorage({
+  destination:function(req,file,cb){
+   cb(null,'./uploads/');
+  },
+  filename:function(req,file,cb){
+    cb(null,file.originalname)
+
+  }
+ });
+ const fileFilter =(req,file,cb)=>{
+   //reject a file
+   if(file.mimetype === 'productImage/jpg' || file.mimetyoe === 'productImage/png'){
+     cb(null,true);
+   }else
+   { cb(null,false);
+
+
+   }
+
+ };
+ const upload = multer({
+   storage:storage,
+   limits:{
+   fileSize:1024 *1024 *5
+ },
+   fileFilter: fileFilter
+ });
+
 
 //Get List of incident reports
 router.get('/list',IncidentdashboardController.incidentdashboard_list);
 
-router.get('/incidentchart',(req, res, next)=>
-{
-incident.find({})
-     .then(docs =>{
-       console.log(docs);
-       res.status(200).json(docs);
-
-     })
-     .catch((error)=> console.log(error))
-});
+router.get('/incidentchart',IncidentdashboardController.incidentchart);
 
 router.get("/:id",IncidentdashboardController.incidentdashboard_get_one);
 
 //Creating  a new document within the collection
-router.post('/create',IncidentdashboardController.incidentdashboard_create);
+router.post('/create',multer({storage:storage}).array('productImage'),IncidentdashboardController.incidentdashboard_create);
 
 //Get incident file
 
-router.put('/:updateUser',function(req,res,next){
-  const id = req.params.updateUser;
-  incident.updateOne({_id: id},{$set:{
-    Subject:req.body.Subject,
-    Street:req.body.Street,
-    City:req.body.City,
-    ZipCode:req.body.ZipCode,
-    PhoneNo:req.body.PhoneNo,
-    Incident_Des:req.body.Incident_Des,
-    Incident_Date:req.body.Incident_Date
-
-  }})
-  .exec()
-  .then(result=>{
-      console.log(result);
-    res.status(200).json({
-        message:"Missing Person Form updated!"
-    })
-  })
-  .catch(err=>{
-      console.log(err);
-      res.status(500).json({
-          error:err
-      });
-  });
-
-});
+router.put('/:updateUser',IncidentdashboardController.incidentUPDATE);
 
 
 router.delete('/:incidentID',IncidentdashboardController.incidentdashboard_delete_one);

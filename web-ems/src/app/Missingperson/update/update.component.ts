@@ -60,7 +60,11 @@ export class UpdateComponent implements OnInit {
     console.log(this.editform.value);
     this.putService.updateform(this.activatedroute.snapshot.params['id'],this.editform.value).subscribe((result)=>{
       console.log(result);
-      this._snackBar.open('Missing person Form is successfully Updated');
+      this._snackBar.open('Updated Successfully','',{
+        verticalPosition:'top',
+       // horizontalPosition:'center',
+        panelClass:'edit'
+      });
 
     })
 

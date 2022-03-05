@@ -24,6 +24,18 @@ exports.itemrequest_get_one = function(req,res,next){
   });
 }
 
+
+exports.itemchart_list =(req, res, next)=>
+{
+  item_model.find({})
+     .then(docs =>{
+       console.log(docs);
+       res.status(200).json(docs);
+
+     })
+     .catch((error)=> console.log(error))
+}
+
 /*
 exports.itemrequest_post_create = function(req,res,next)
 {
@@ -117,17 +129,13 @@ exports.itemrequest_put_update= function(req,res,next)
       ZipCode:req.body.ZipCode,
       PhoneNo:req.body.PhoneNo}})
     .exec()
-    .then(result=>{
-        console.log(result);
-      res.status(200).json({
-          message:"Item request Updated"
-      })
+    .then(function(dbuser)
+    {
+
+        res.send(dbuser);
     })
-    .catch(err=>{
-        console.log(err);
-        res.status(500).json({
-            error:err
-        });
+    .catch(function(err){
+        res.send('Cannot update  form');
     });
 
 }
