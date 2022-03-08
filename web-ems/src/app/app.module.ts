@@ -171,7 +171,7 @@ import { TypeofincidentchartComponent } from './statistics/typeofincidentchart/t
   ],
   providers: [
    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor,multi:true},
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,useValue:{duration:2000}},
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,useValue:{duration:5000}},
     {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}}
   ],
   bootstrap: [AppComponent]

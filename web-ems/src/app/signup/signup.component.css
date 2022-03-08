@@ -1,6 +1,6 @@
 mat-card{
   width:50%;
-  height:500px;
+  height:560px;
   background-color: rgb(238, 238, 238) ;
   margin:auto;
 }
@@ -15,4 +15,16 @@ button{
   color: white;
   height: 40px;
   background-color: #3F51B5
+}
+
+mat-card-title{
+
+  font-family: " Times, serif";
+  font-size: 30px;
+  font-weight: 550;
+  border-bottom: 1px solid black;
+  margin-bottom: 50px;
+  padding-bottom:14px;
+
+
 }

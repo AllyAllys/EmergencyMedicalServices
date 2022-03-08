@@ -48,6 +48,16 @@ exports.users_signup = function(req,res,next)   //Sign up
                 message: "Email Address is already taken"
             });
         }
+        User_model.find({Username: req.body.Username})
+    .exec()
+    .then(users => {
+        if(users.length >=1)
+        {
+            return res.status(409).json({
+                message: "Username is taken."
+            });
+        }
+
         else
         {
             bcrypt.hash(req.body.Password,10,(err,hash)=>
@@ -95,6 +105,7 @@ exports.users_signup = function(req,res,next)   //Sign up
     });
 }
     });
+  });
 }
 
 exports.users_login = (req,res,next)=>{

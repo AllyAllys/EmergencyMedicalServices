@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {SignupService} from "./signup.service";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -14,11 +15,31 @@ export class SignupComponent implements OnInit {
 
   constructor(public signupService:SignupService, private _snackBar: MatSnackBar) {}
 
-  onSignUp(form:NgForm){
-    if(form.invalid){
-      return;
-    }
-    this.signupService.createUser(form.value.Username,form.value.Userclass,form.value.Firstname,form.value.Lastname,form.value.Email,form.value.Password);
+
+  form = new FormGroup({
+
+    Username: new FormControl(" ",[Validators.required],this.signupService.validateUsernameNotTaken.bind(this.signupService)),
+    Userclass:new FormControl('',Validators.required),
+    Firstname:new FormControl('',Validators.required),
+    Lastname:new FormControl('',Validators.required),
+    Email:new FormControl('',Validators.required,this.signupService.validateEmailNotTaken.bind(this.signupService)),
+    Password:new FormControl('',[Validators.required, Validators.minLength(8)]),
+
+
+
+  });
+
+  SaveData(){
+
+    if (this.form.invalid) return;
+
+    this.signupService.adduserForm( this.form.value)
+    .subscribe( ( result ) => {
+      this.form.reset( {} );
+     console.log(result);
+     });
+
+
     this._snackBar.open('Registration Successful','',{
       verticalPosition:'top',
      // horizontalPosition:'center',
@@ -28,6 +49,10 @@ export class SignupComponent implements OnInit {
   hide = true;
 
   ngOnInit(): void {
+
+
   }
+
+
 
 }
