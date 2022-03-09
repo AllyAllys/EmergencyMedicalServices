@@ -82,6 +82,8 @@ export class AddFormComponent implements OnInit
     this.http.post<any>('http://localhost:3000/api/Missingpersondashboard/create', formData).subscribe((d)=>{
       console.log(d);
 
+      this.form.reset();
+
 
       this._snackBar.open('Uploaded Successfully','',{
         verticalPosition:'top',

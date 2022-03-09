@@ -14,11 +14,24 @@ export class OrdertableComponent implements OnInit {
   displayedColumns: string[] = [ '_id','FirstID' ,'UploadDate','Status','Action'];
   dataSource = new MatTableDataSource<orders>();
   searchKey:string;
+  remove=true;
+
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private orderservice:OrderService) {}
+
+
+  delete(form_id:any){
+
+    this.orderservice.deleteUser(form_id).subscribe((result)=>{
+      //console.log(result);
+      this.ngOnInit();
+      alert("Deleted Successfully");
+    })
+
+  }
 
 
 
@@ -39,6 +52,8 @@ export class OrdertableComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+
 
 
 }

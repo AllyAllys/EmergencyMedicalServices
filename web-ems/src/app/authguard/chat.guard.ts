@@ -15,7 +15,8 @@ export class ChatGuard implements CanActivate {
 
       if (this.loginservice.IsLogged()) {
         this.currentrole = this.loginservice.GetRolebyToken(this.loginservice.getToken());
-        if (this.currentrole == 'Adminstrator'|| this.currentrole=='First Responder' || this.currentrole=='Emergency Responder' || this.currentrole=='Disaster Manager') {
+        if (this.currentrole=='Adminstrator'|| this.currentrole=='Disaster Manager' || this.currentrole=='First Responder' || this.currentrole=='Emergency Responder' || this.currentrole=='EMS Dispatcher' ||this.currentrole=='Health staff'
+        || this.currentrole=='Volunteer') {
           return true;
         } else {
           alert('You are not authorized to access this information!');

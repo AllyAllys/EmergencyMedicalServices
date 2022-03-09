@@ -58,20 +58,22 @@ exports.incidentdashboard_create = (req,res,next)=>
     });
     tracking
     .save()
-    .then(result =>{
-        console.log(result);
-    })
-    .catch(err =>console.log(err));
-   res.status(200).json({
-        message:"Incident report is uploaded successfully.",
-        tracking: tracking
-    })
+
+    .then(function(dbuser)
+      {
+
+          res.send(dbuser);
+      })
+      .catch(function(err){
+          res.send('Cannot create form');
+      });
 
 }
 
 exports.incidentUPDATE=function(req,res,next){
   const id = req.params.updateUser;
   incidentDash.updateOne({_id: id},{$set:{
+    UserID:req.body.UserID,
     Subject:req.body.Subject,
     Street:req.body.Street,
     City:req.body.City,

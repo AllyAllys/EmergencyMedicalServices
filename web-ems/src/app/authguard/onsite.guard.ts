@@ -15,7 +15,7 @@ export class OnsiteGuard implements CanActivate {
 
       if (this.loginservice.IsLogged()) {
         this.currentrole = this.loginservice.GetRolebyToken(this.loginservice.getToken());
-        if (this.currentrole == 'Adminstrator'|| this.currentrole=='First Responder' || this.currentrole=='Emergency Responder' || this.currentrole=='Volunteer') {
+        if (this.currentrole == 'Adminstrator'|| this.currentrole=='First Responder' || this.currentrole=='Emergency Responder' || this.currentrole=='Volunteer',this.currentrole=='Health staff') {
           return true;
         } else {
           alert('you are not authorized to access this menu');

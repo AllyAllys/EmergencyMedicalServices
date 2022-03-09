@@ -15,7 +15,7 @@ export class IncidentGuard implements CanActivate {
 
       if (this.loginservice.IsLogged()) {
         this.currentrole = this.loginservice.GetRolebyToken(this.loginservice.getToken());
-        if (this.currentrole=='Adminstrator' || this.currentrole=='Public'|| this.currentrole=='Volunteer'|| this.currentrole=='Law Enforcement') {
+        if (this.currentrole=='Adminstrator' || this.currentrole=='Public'|| this.currentrole=='Volunteer'|| this.currentrole=='Law Enforcement' || this.currentrole=='Health staff') {
           return true;
         } else {
           alert('You are not authorized to access this information!');

@@ -42,7 +42,7 @@
 
          <mat-form-field appearance="fill">
           <mat-label>Enter your password</mat-label>
-          <input  matInput [type]="hide ? 'password' : 'text'"   matInput type = "Password" placeholder ="Password"  formControlName="Password"  #postalCode maxlength="8" >
+          <input  matInput [type]="hide ? 'password' : 'text'"   matInput type = "Password" placeholder ="Password must be at least 8 characters long"  formControlName="Password"  #postalCode maxlength="8" >
           <button mat-icon-button matSuffix (click) ="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
@@ -59,8 +59,6 @@
           <mat-error *ngIf= "form.get('Email').invalid"> Please enter Email.</mat-error>
 
          </mat-form-field>
-
-
 
 
 

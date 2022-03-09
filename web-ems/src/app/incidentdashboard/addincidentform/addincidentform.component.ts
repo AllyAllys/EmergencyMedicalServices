@@ -29,7 +29,7 @@ export class AddincidentformComponent implements OnInit {
     PhoneNo:new FormControl('',Validators.required),
     Incident_Des:new FormControl('',Validators.required),
     Incident_Date:new FormControl('',Validators.required),
-    productImage: new FormControl(null,Validators.required)
+    productImage: new FormControl(null)
 
 
     });
@@ -83,6 +83,7 @@ export class AddincidentformComponent implements OnInit {
     this.http.post<any>('http://localhost:3000/api/incidentdashboard/create', formData).subscribe((d)=>{
       console.log(d);
 
+      this.form.reset();
 
       this._snackBar.open('Uploaded Successfully','',{
         verticalPosition:'top',

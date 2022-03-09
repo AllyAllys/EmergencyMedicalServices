@@ -9,10 +9,10 @@
   Incident Reports</a>
 
  <a  *ngIf= "patient" mat-list-item routerLink="/victimpatient" routerLinkActive= "list-item-active"><mat-icon>person</mat-icon>
-  Patient/Victim Dashboard</a>
+  Patient/Victim Dashboard On Disaster site</a>
 
  <a *ngIf= "onsite" mat-list-item routerLink="/onsitedashboard" routerLinkActive= "list-item-active"><mat-icon>person</mat-icon>
-  Patient/Victim Onsite</a>
+  Patient/Victim in Hospital</a>
 
  <a *ngIf= "users"  mat-list-item routerLink="/users" routerLinkActive= "list-item-active"><mat-icon>supervisor_account</mat-icon>
   Users</a>
@@ -22,16 +22,16 @@
   </a>
 
   <a *ngIf= "health" mat-list-item routerLink="/healthtrackingdashboard" routerLinkActive= "list-item-active"><mat-icon> local_hospital</mat-icon>
-    Health Tracking Dashboard</a>
+    Hospital Staff Scheduling </a>
 
     <a *ngIf= "order" mat-list-item routerLink="/ordertable" routerLinkActive= "list-item-active"><mat-icon>add_shopping_cart</mat-icon>
 
       Orders
     </a>
 
-  <a *ngIf= "health" mat-list-item routerLink="/map" routerLinkActive= "list-item-active"><mat-icon>gps_fixed</mat-icon> Ambulance Tracking</a>
+  <a *ngIf= "map" mat-list-item routerLink="/map" routerLinkActive= "list-item-active"><mat-icon>gps_fixed</mat-icon> Ambulance Tracking</a>
 
-  <a *ngIf= "health" mat-list-item routerLink="/chartinterface" routerLinkActive= "list-item-active">  <mat-icon> bar_chart</mat-icon>
+  <a *ngIf= "chart" mat-list-item routerLink="/chartinterface" routerLinkActive= "list-item-active">  <mat-icon> bar_chart</mat-icon>
     Statistics</a>
 
 

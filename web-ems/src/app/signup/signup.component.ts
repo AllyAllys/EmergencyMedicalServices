@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
 
   form = new FormGroup({
 
-    Username: new FormControl(" ",[Validators.required],this.signupService.validateUsernameNotTaken.bind(this.signupService)),
+    Username: new FormControl('',Validators.required,this.signupService.validateUsernameNotTaken.bind(this.signupService)),
     Userclass:new FormControl('',Validators.required),
     Firstname:new FormControl('',Validators.required),
     Lastname:new FormControl('',Validators.required),

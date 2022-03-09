@@ -18,6 +18,8 @@ export class SidenavComponent implements OnInit{
   chat=false;
   health=false;
   order=false;
+  map=false;
+  chart=false;
 
   displayuser=false;
   currentrole:any;
@@ -41,15 +43,16 @@ export class SidenavComponent implements OnInit{
     this.currentrole=this.loginservice.GetRolebyToken(this.loginservice.getToken());
     console.log(this.currentrole);
     this.missingperson= this.currentrole=='Adminstrator' || this.currentrole=='Public' || this.currentrole== 'Volunteer' || this.currentrole=='First Responder' ||this.currentrole=='Emergency Responder' ||this.currentrole=='Health staff' || this.currentrole=='Law Enforcement';
-    this.incident = this.currentrole=='Adminstrator' || this.currentrole=='Public'|| this.currentrole=='Volunteer'|| this.currentrole=='Law Enforcement';
+    this.incident = this.currentrole=='Adminstrator' || this.currentrole=='Public'|| this.currentrole=='Volunteer'|| this.currentrole=='Law Enforcement' || this.currentrole=='Health staff';
     this.patient = this.currentrole=='Adminstrator'|| this.currentrole=='First Responder' || this.currentrole=='Emergency Responder' || this.currentrole=='Health staff';
     this.onsite= this.currentrole=='Adminstrator'|| this.currentrole=='First Responder' || this.currentrole=='Emergency Responder' || this.currentrole=='Volunteer';
     this.users=this.currentrole=='Adminstrator';
-    this.chat=this.currentrole=='Adminstrator'|| this.currentrole=='Disaster Manager' || this.currentrole=='First Responder' || this.currentrole=='Emergency Responder';
+    this.chat=this.currentrole=='Adminstrator'|| this.currentrole=='Disaster Manager' || this.currentrole=='First Responder' || this.currentrole=='Emergency Responder' || this.currentrole=='EMS Dispatcher' ||this.currentrole=='Health staff'
+     || this.currentrole=='Volunteer';
     this.health = this.currentrole=='Adminstrator'|| this.currentrole=='First Responder' || this.currentrole=='Emergency Responder';
     this.order = this.currentrole=='Adminstrator' || this.currentrole=='First Responder' || this.currentrole=='Emergency Responder';
+    this.chart= this.currentrole=='Adminstrator' || this.currentrole=='Public' || this.currentrole=='Law Enforcement' || this.currentrole=='Disaster Manager';
+    this.map= this.currentrole=='EMS Dispatcher'|| this.currentrole=='Adminstrator';
   }
-
-
 
 }

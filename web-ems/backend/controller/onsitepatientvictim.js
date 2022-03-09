@@ -89,6 +89,7 @@ exports.onsitepatientvictim_update = function(req,res,next)
       Email:req.body.Email,
       Gender:req.body.Gender,
       DOb:req.body.DOb,
+      InjuryDescription:req.body.InjuryDescription,
       IDNumber:req.body.IDNumber,
       PhoneNo:req.body.PhoneNo,
       Street:req.body.Street,

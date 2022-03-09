@@ -21,6 +21,7 @@ export class AddformComponent implements OnInit {
     Email : new FormControl('',Validators.required),
     Gender: new FormControl('',Validators.required),
     IDNumber: new FormControl('',Validators.required),
+    InjuryDescription: new FormControl('',Validators.required),
     PhoneNo: new FormControl('',Validators.required),
     Street:new FormControl('',Validators.required),
     City:new FormControl('',Validators.required),
