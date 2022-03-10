@@ -125,20 +125,15 @@ exports.missingperson_post_create = (req,res,next)=>{
 });
 tracking
 .save()
-.then(result =>{
-    console.log(result);
-    res.status(201).json({
-    message:"Missing Person form is successfully uploaded.",
+.then(function(dbuser)
+      {
 
+          res.send(dbuser);
+      })
+      .catch(function(err){
+          res.send('Cannot create form');
+      });
 
-    })
-})
-.catch(err =>{
-    console.log(err);
-    res.status(500).json({
-        error:err
-    });
-});
 
 
 }

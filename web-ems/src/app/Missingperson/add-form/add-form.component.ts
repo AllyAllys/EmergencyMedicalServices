@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {MissingService} from './add-form.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {missingperson} from '../missingpersondashboard/missingpersondashboard.model'
 @Component({
   selector: "app-add-form",
@@ -20,7 +20,8 @@ export class AddFormComponent implements OnInit
   constructor(private missingService: MissingService,
               private _snackBar: MatSnackBar,
              // public route: ActivatedRoute,
-              private http:HttpClient ) {}
+              private http:HttpClient ,
+              private router:Router) {}
  form = new FormGroup({
  UserID: new FormControl(''),
  Firstname: new FormControl('',Validators.required),
@@ -84,12 +85,15 @@ export class AddFormComponent implements OnInit
 
       this.form.reset();
 
-
       this._snackBar.open('Uploaded Successfully','',{
         verticalPosition:'top',
        // horizontalPosition:'center',
         panelClass:'edit'
       })
+
+
+      this.router.navigateByUrl(`/view/${d._id}`)
+
     });
 
    }

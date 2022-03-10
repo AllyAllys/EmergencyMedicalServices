@@ -1,0 +1,40 @@
+.home img{
+  width:100%;
+  height: 700px;
+  object-position: center;
+  object-fit: cover;
+
+}
+
+.homecontent{
+  position:absolute;
+  top:45%;
+  left:80%;
+  transform: translate(-50%,-140%);
+
+
+}
+.homecontent h1{
+  color: white;
+  font-size:80px;
+}
+.homecontent button{
+  position:absolute;
+  bottom:80%;
+  left:50%;
+  transform: translate(-50%,900%);
+  width: 50%;
+  height: 40px;
+  font-size:16px;
+
+}
+
+.homecontent button:hover {
+
+  color:#e6e9ff;
+  background-color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition-duration: 0.4s;
+  text-decoration: none;
+
+}

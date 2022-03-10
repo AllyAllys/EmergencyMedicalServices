@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,7 +11,7 @@ import {AddvictimpatientService} from '../add-victimpatient/add-victimpatient.se
 export class AddVictimpatientComponent implements OnInit {
   userId: any;
 
-  constructor(private addvictimpatientService:AddvictimpatientService,private _snackBar: MatSnackBar) { }
+  constructor(private addvictimpatientService:AddvictimpatientService,private _snackBar: MatSnackBar,private router:Router) { }
 
     form = new FormGroup({
     UserID:new FormControl(''),
@@ -42,8 +43,9 @@ export class AddVictimpatientComponent implements OnInit {
     if (this.form.invalid) return;
 
     this.addvictimpatientService.createForm( this.form.value,user)
-    .subscribe( ( result ) => {
+    .subscribe( ( result:any ) => {
       this.form.reset( {} );
+      this.router.navigateByUrl(`/viewpatientform/${result._id}`)
      console.log(result);
      this._snackBar.open('Uploaded Successfully','',{
       verticalPosition:'top',

@@ -84,22 +84,13 @@ exports.users_signup = function(req,res,next)   //Sign up
 
            newUsers
            .save()
-           .then(result =>{
-               console.log(result);
-               res.status(201).json({
-                   message:"New User created"
-               });
+           .then(function(dbuser)
+           {
+
+               res.send(dbuser);
            })
-
-
-
-           .catch(err=>{
-               console.log(err);
-               res.status(500).json({
-                   error:err
-               });
-
-
+           .catch(function(err){
+               res.send('Cannot create form');
            });
         }
     });
@@ -131,7 +122,9 @@ exports.users_login = (req,res,next)=>{
                {
                     Username: user[0].Username,
                     _id:user[0]._id,
-                    Userclass:user[0].Userclass
+                    Userclass:user[0].Userclass,
+                    Firstname:user[0].Firstname,
+                    Lastname:user[0].Lastname
                 },
                 "secret",
                 {

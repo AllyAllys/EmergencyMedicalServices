@@ -27,14 +27,14 @@ exports.health_create = (req,res,next)=>
     });
     tracking
     .save()
-    .then(result =>{
-        console.log(result);
+    .then(function(dbuser)
+    {
+
+        res.send(dbuser);
     })
-    .catch(err =>console.log(err));
-   res.status(200).json({
-        message:"The health staff tracking information is successfully stored.",
-        tracking: tracking
-    })
+    .catch(function(err){
+        res.send('Cannot create form');
+    });
 
 }
 

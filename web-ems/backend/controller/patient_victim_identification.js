@@ -63,19 +63,14 @@ exports.patientvictim_post_create = (req,res,next)=>{
     });
     tracking
     .save()
-    .then(result =>{
-        console.log(result);
-        res.status(201).json({
-        message:"Patient/Victim Form is Successfully Uploaded",
+    .then(function(dbuser)
+      {
 
-        })
-    })
-    .catch(err =>{
-        console.log(err);
-        res.status(500).json({
-            error:err
-        });
-    });
+          res.send(dbuser);
+      })
+      .catch(function(err){
+          res.send('Cannot create form');
+      });
 
 
 }

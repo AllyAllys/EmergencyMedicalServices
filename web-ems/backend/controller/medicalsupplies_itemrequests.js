@@ -99,19 +99,15 @@ exports.itemrequest_post_create = function(req,res,next)
         });
   items
   .save()
-  .then(result =>{
-      console.log(result);
-      res.status(201).json({
-      message:"The order was created successfully.",
+  .then(function(dbuser)
+      {
 
+          res.send(dbuser);
       })
-  })
-  .catch(err =>{
-      console.log(err);
-      res.status(500).json({
-          error:err
+      .catch(function(err){
+          res.send('Cannot create form');
       });
-  });
+
 
 }
 

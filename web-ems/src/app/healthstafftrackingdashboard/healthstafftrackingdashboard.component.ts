@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {healthstaff} from '../healthstaff/healthstaff.model'
@@ -26,7 +27,7 @@ export class HealthstafftrackingdashboardComponent implements OnInit{
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private healthservice:HealthService, private loginservice:LoginService ) { }
+  constructor(private healthservice:HealthService, private loginservice:LoginService , private _snackBar:MatSnackBar) { }
 
 
   ngOnInit(): void {
@@ -54,11 +55,18 @@ export class HealthstafftrackingdashboardComponent implements OnInit{
 
   delete(form_id:any){
 
+    if(confirm("Are you sure you want to permanently delete this form?")==true){
+
     this.healthservice.deleteUser(form_id).subscribe((result)=>{
       //console.log(result);
       this.ngOnInit();
-      alert("Deleted Successfully");
+      this._snackBar.open('Deleted!','',{
+        verticalPosition:'top',
+       // horizontalPosition:'center',
+        panelClass:'edit'
+      })
     })
+  }
 
   }
 

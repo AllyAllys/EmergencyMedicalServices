@@ -1,6 +1,6 @@
 export interface missingperson {
 
-
+ _id:string;
   PublicID?:string;
   LawID?:string;
   UserID:string;

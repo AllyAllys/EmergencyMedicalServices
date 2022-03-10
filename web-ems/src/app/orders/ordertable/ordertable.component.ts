@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { orders } from '../orders.model';
@@ -20,16 +21,23 @@ export class OrdertableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private orderservice:OrderService) {}
+  constructor(private orderservice:OrderService, private _snackBar:MatSnackBar) {}
 
 
   delete(form_id:any){
 
+    if(confirm("Are you sure you want to permanently delete this form?")==true){
+
     this.orderservice.deleteUser(form_id).subscribe((result)=>{
       //console.log(result);
       this.ngOnInit();
-      alert("Deleted Successfully");
+      this._snackBar.open('Deleted Successfully','',{
+        verticalPosition:'top',
+       // horizontalPosition:'center',
+        panelClass:'edit'
+      })
     })
+  }
 
   }
 

@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {missingperson} from './missingpersondashboard.model';
@@ -27,7 +28,7 @@ export class MissingpersondashboardComponent implements OnInit {
 
   currentrole:any;
 
-  constructor(private missingpersonService: MissingpersonService , private loginservice:LoginService) {}
+  constructor(private missingpersonService: MissingpersonService , private loginservice:LoginService, private _snackBar:MatSnackBar) {}
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -66,12 +67,17 @@ export class MissingpersondashboardComponent implements OnInit {
   }
 
   delete(form_id:any){
-
+    if(confirm("Are you sure you want to permanently delete this form?")==true){
     this.missingpersonService.deleteUser(form_id).subscribe((result)=>{
       //console.log(result);
       this.ngOnInit();
-      alert("Deleted Successfully");
+      this._snackBar.open('Deleted!','',{
+        verticalPosition:'top',
+       // horizontalPosition:'center',
+        panelClass:'edit'
+      })
     })
+  }
 
   }
 

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -16,7 +17,7 @@ export class AddincidentformComponent implements OnInit {
   imageData:any;
   picture:any;
 
-  constructor(private addincidentservice:AddincidentService, private _snackBar: MatSnackBar, private users:PieService,private http:HttpClient) { }
+  constructor(private addincidentservice:AddincidentService, private _snackBar: MatSnackBar, private users:PieService,private http:HttpClient,private router:Router) { }
 
   form = new FormGroup({
 
@@ -90,6 +91,9 @@ export class AddincidentformComponent implements OnInit {
        // horizontalPosition:'center',
         panelClass:'edit'
       })
+
+      this.router.navigateByUrl(`/viewincidentform/${d._id}`)
+
     });
 
 

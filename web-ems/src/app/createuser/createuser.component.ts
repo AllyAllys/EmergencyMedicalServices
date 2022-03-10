@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,7 +11,7 @@ import { UsersService } from '../users/users.service';
 })
 export class CreateuserComponent implements OnInit {
 
-  constructor(private usersservice:UsersService, private _snackBar: MatSnackBar) { }
+  constructor(private usersservice:UsersService, private _snackBar: MatSnackBar, private router:Router) { }
 
   form = new FormGroup({
 
@@ -36,10 +37,28 @@ export class CreateuserComponent implements OnInit {
     if (this.form.invalid) return;
 
     this.usersservice.adduserForm( this.form.value)
-    .subscribe( ( result ) => {
+    .subscribe( ( result:any ) => {
       this.form.reset( {} );
+
      console.log(result);
+     this.router.navigateByUrl(`/ViewuserComponent/${result._id}`)
+
      });
+
+
+     this._snackBar.open('Uploaded Successfully','',{
+      verticalPosition:'top',
+     // horizontalPosition:'center',
+      panelClass:'edit'
+    })
   }
+
+
+  // this.router.navigateByUrl(`/viewhealthtrackingform/${result._id}`)
+
+
+
+
+
 
 }

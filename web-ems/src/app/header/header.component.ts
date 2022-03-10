@@ -48,9 +48,10 @@ export class HeaderComponent implements OnInit{
 }
 
   onlogout(){
+
     alert('Your session expired')
     localStorage.clear();
-    this.router.navigate(['/login'])
+    this.router.navigate(['/mainpage'])
   }
 
 }

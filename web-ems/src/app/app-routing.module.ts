@@ -50,6 +50,7 @@ import { MissingpersongenderchartComponent } from './statistics/missingpersongen
 import { TypeofincidentchartComponent } from './statistics/typeofincidentchart/typeofincidentchart.component';
 import { VieworderComponent } from './orders/vieworder/vieworder.component';
 import { UpdateorderComponent } from './orders/updateorder/updateorder.component';
+import { MainpageComponent } from './mainpage/mainpage.component';
 
 const routes: Routes = [
   {path:"login",component: LoginComponent},
@@ -94,7 +95,8 @@ const routes: Routes = [
   {path:"genderchart",component:MissingpersongenderchartComponent },
   {path:"typeofincidentchart",component:TypeofincidentchartComponent},
   {path:"vieworderform/:id",component:VieworderComponent },
-  {path:"updateordersform/:id",component:UpdateorderComponent}
+  {path:"updateordersform/:id",component:UpdateorderComponent},
+  {path:"mainpage",component:MainpageComponent},
 ];
 
 @NgModule({

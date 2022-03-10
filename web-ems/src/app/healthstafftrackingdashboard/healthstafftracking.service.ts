@@ -8,7 +8,7 @@ import {healthstaff} from '../healthstaff/healthstaff.model'
 export class  HealthService {
 
 
-  constructor(private http: HttpClient ){ }
+  constructor(private http: HttpClient, private router:Router ){ }
 
   listIncidents(){
     return this.http.get <healthstaff[]> ("http://localhost:3000/Healthstafftracking/list")
@@ -23,6 +23,7 @@ export class  HealthService {
   addhealthForm(data:any,userId){
 
     console.log(data);
+
     return this.http.post('http://localhost:3000/Healthstafftracking/create',data,userId)
 
 

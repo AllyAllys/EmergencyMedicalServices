@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit,AfterViewInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {users} from './users.model';
@@ -20,7 +21,7 @@ export class UsersComponent implements OnInit, AfterViewInit{
   remove=false;
   currentrole:any;
 
-  constructor(private usersservice:UsersService,private loginservice:LoginService) { }
+  constructor(private usersservice:UsersService,private loginservice:LoginService, private _snackBar:MatSnackBar) { }
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -59,11 +60,18 @@ export class UsersComponent implements OnInit, AfterViewInit{
   }
   delete(form_id:any){
 
+    if(confirm("Are you sure you want to permanently delete this form?")==true){
+
     this.usersservice.deleteUser(form_id).subscribe((result)=>{
       //console.log(result);
       this.ngOnInit();
-      alert("Deleted Successfully");
+      this._snackBar.open('Deleted!','',{
+        verticalPosition:'top',
+       // horizontalPosition:'center',
+        panelClass:'edit'
+      })
     })
+  }
 
   }
 

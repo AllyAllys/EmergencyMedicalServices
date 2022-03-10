@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -25,7 +26,7 @@ export class OrdersComponent implements OnInit {
     });
   userId: any;
 
-  constructor(private orderservice:OrderService, private _snackBar: MatSnackBar) { }
+  constructor(private orderservice:OrderService, private _snackBar: MatSnackBar, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -39,7 +40,7 @@ export class OrdersComponent implements OnInit {
    let user = this.userId
 
     this.orderservice.addorderForm( this.form.value,user)
-    .subscribe( ( result ) => {
+    .subscribe( ( result:any) => {
       this.form.reset( {} );
      console.log(result);
      this._snackBar.open('Uploaded Successfully','',{
@@ -47,6 +48,9 @@ export class OrdersComponent implements OnInit {
      // horizontalPosition:'center',
       panelClass:'edit'
     })
+    this.router.navigateByUrl(`/vieworderform/${result._id}`)
+
+
      });
   }
 

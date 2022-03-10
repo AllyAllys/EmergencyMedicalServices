@@ -13,6 +13,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -84,6 +85,8 @@ import { MissingpersongenderchartComponent } from './statistics/missingpersongen
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { Moment } from 'moment';
 import { TypeofincidentchartComponent } from './statistics/typeofincidentchart/typeofincidentchart.component';
+import { MainpageComponent } from './mainpage/mainpage.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 @NgModule({
@@ -136,8 +139,13 @@ import { TypeofincidentchartComponent } from './statistics/typeofincidentchart/t
     PatientchartComponent,
     OnsitechartComponent,
     MissingpersongenderchartComponent,
-    TypeofincidentchartComponent
+    TypeofincidentchartComponent,
+    MainpageComponent,
+    DialogComponent
 
+  ],
+  entryComponents:[
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -167,6 +175,7 @@ import { TypeofincidentchartComponent } from './statistics/typeofincidentchart/t
     MatDatepickerModule,
     MatNativeDateModule,
     MatMomentDateModule,
+    MatDialogModule,
 
   ],
   providers: [

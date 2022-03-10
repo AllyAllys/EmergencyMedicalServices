@@ -8,7 +8,7 @@ import { Observable } from 'rxjs'
 export class OrderService {
 
   userId:any
-  constructor(private http: HttpClient ){ }
+  constructor(private http: HttpClient ,private router:Router){ }
 
   listIncidents(){
     return this.http.get <orders[]> ("http://localhost:3000/Itemrequests/list")
@@ -18,7 +18,10 @@ export class OrderService {
 
 
     console.log(data);
+
     return this.http.post('http://localhost:3000/Itemrequests/create',data,userId)
+
+
 
 
   }
