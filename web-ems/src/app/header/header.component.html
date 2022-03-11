@@ -1,9 +1,12 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
   <button mat-icon-button (click)= "toggleSidebar()">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Welcome to EMS</span>
+  <span class="header" >Welcome to EMS</span>
   <span class = "spacer"></span>
+  <div class="header"  *ngIf= "IsLogged()">
+    {{userDisplayName}} {{userDisplaySurname}} | {{userDisplayRole}}
+  </div>
   <ul>
     <li  >
       <a *ngIf= "!IsLogged()" mat-button routerLink ="/login" routerLinkActive = "mat-accent">Login</a>
@@ -16,4 +19,7 @@
       <button mat-button  *ngIf= "IsLogged()"(click)= "onlogout()" >Logout</button>
     </li>
   </ul>
+
+
+
 </mat-toolbar>

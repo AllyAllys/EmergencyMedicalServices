@@ -16,3 +16,31 @@ ul{
   flex :1 1 auto;
 }
 
+.header{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 22px;
+  color:rgb(214, 213, 230);
+
+}
+
+mat-toolbar{
+  background-color: rgb(6, 6, 112);
+}
+
+button{
+  color:white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
+
+
+}
+
+button:hover {
+
+  color:#e6e9ff;
+  background-color: rgb(114, 6, 6);
+  cursor: pointer;
+  transition-duration: 0.4s;
+  text-decoration: none;
+
+}

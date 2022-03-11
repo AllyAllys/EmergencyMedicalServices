@@ -10,7 +10,13 @@ import { SignupService } from '../signup/signup.service'
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
+
 export class HeaderComponent implements OnInit{
+
+  userDisplayName='';
+  userDisplaySurname='';
+  userDisplayRole='';
   @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
 
   userIsAuthenticated = false;
@@ -19,9 +25,13 @@ export class HeaderComponent implements OnInit{
   private authListenerSubs: Subscription;
 
   ngOnInit(): void {
-    this.authListenerSubs = this.loginService.getauthStatusListener().subscribe(isAuthenticated=>{
-     this.userIsAuthenticated = isAuthenticated;
-    });
+   // this.authListenerSubs = this.loginService.getauthStatusListener().subscribe(isAuthenticated=>{
+   //  this.userIsAuthenticated = isAuthenticated;
+  //  });
+  this.userDisplayName =localStorage.getItem('Firstname')
+  this.userDisplaySurname= localStorage.getItem('Lastname')
+  this.userDisplayRole=localStorage.getItem('Userclass')
+
 
   }
   toggleSidebar(){
@@ -53,5 +63,9 @@ export class HeaderComponent implements OnInit{
     localStorage.clear();
     this.router.navigate(['/mainpage'])
   }
+
+
+
+
 
 }

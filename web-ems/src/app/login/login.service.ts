@@ -35,7 +35,12 @@ export class  LoginService {
     localStorage.setItem('token',response.token);
 
     this.router.navigate(['/homepage']);
+
+    window.location.assign("/homepage");
+
+
     //this.authStatusListener.next(true);
+    //window.location.reload();
 
   })
  }
@@ -66,8 +71,13 @@ export class  LoginService {
     this.tokenresp=JSON.parse(atob(_token))
     console.log(this.tokenresp);
     let user =this.tokenresp._id
-
+    let name= this.tokenresp.Firstname
+    let last= this.tokenresp.Lastname
+    let role= this.tokenresp.Userclass
     localStorage.setItem('_id',user); //Stores current user token in the local storage
+    localStorage.setItem('Firstname',name);
+    localStorage.setItem('Lastname',last);
+    localStorage.setItem('Userclass',role);
     return this.tokenresp.Userclass;
 
   }
