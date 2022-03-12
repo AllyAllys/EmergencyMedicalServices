@@ -15,7 +15,7 @@ export class HealthtrackingGuard implements CanActivate {
 
       if (this.loginservice.IsLogged()) {
         this.currentrole = this.loginservice.GetRolebyToken(this.loginservice.getToken());
-        if (this.currentrole == 'Adminstrator'|| this.currentrole=='First Responder' || this.currentrole=='Emergency Responder') {
+        if (this.currentrole == 'Adminstrator'|| this.currentrole=='First Responder' || this.currentrole=='Emergency Responder'||this.currentrole=='Disaster Manager') {
           return true;
         } else {
           alert('You are not authorized to access this information!');

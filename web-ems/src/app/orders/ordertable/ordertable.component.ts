@@ -5,6 +5,7 @@ import { orders } from '../orders.model';
 import {OrderService} from '../orders.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import { LoginService } from 'src/app/login/login.service';
 
 @Component({
   selector: 'app-ordertable',
@@ -15,13 +16,16 @@ export class OrdertableComponent implements OnInit {
   displayedColumns: string[] = [ '_id','FirstID' ,'UploadDate','Status','Action'];
   dataSource = new MatTableDataSource<orders>();
   searchKey:string;
-  remove=true;
+  remove=false;
+  currentrole:any;
+
+
 
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private orderservice:OrderService, private _snackBar:MatSnackBar) {}
+  constructor(private orderservice:OrderService, private _snackBar:MatSnackBar,private loginservice:LoginService) {}
 
 
   delete(form_id:any){
@@ -37,6 +41,8 @@ export class OrdertableComponent implements OnInit {
         panelClass:'edit'
       })
     })
+
+
   }
 
   }
@@ -51,6 +57,12 @@ export class OrdertableComponent implements OnInit {
       this.dataSource.sort = this.sort;
 
     })
+    this.loginservice.updatemenu.subscribe(res=>{
+      this.MenuDisplay();
+     });
+     this.MenuDisplay();
+
+
 
   }
   applyFilter(event: Event) {
@@ -59,6 +71,13 @@ export class OrdertableComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  MenuDisplay(){
+    if(this.loginservice.getToken()!='')
+    this.currentrole=this.loginservice.GetRolebyToken(this.loginservice.getToken());
+    this.remove = this.currentrole=='Adminstrator' || this.currentrole=='Disaster Manager'; // allows only admin to access the delete button
+
   }
 
 

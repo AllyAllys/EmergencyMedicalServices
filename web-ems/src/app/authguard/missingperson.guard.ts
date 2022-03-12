@@ -15,7 +15,7 @@ export class MissingpersonGuard implements CanActivate {
 
       if (this.loginservice.IsLogged()) {
         this.currentrole = this.loginservice.GetRolebyToken(this.loginservice.getToken());
-        if (this.currentrole=='Adminstrator' || this.currentrole=='Public' || this.currentrole== 'Volunteer' || this.currentrole=='First Responder' ||this.currentrole=='Emergency Responder' ||this.currentrole=='Health staff' || this.currentrole=='Law Enforcement') {
+        if (this.currentrole=='Adminstrator' || this.currentrole=='Public' || this.currentrole== 'Volunteer' || this.currentrole=='First Responder' ||this.currentrole=='Emergency Responder' ||this.currentrole=='Health staff' || this.currentrole=='Law Enforcement' || this.currentrole=='Disaster Manager') {
           return true;
         } else {
           alert('you are not authorized to access this menu');

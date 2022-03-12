@@ -71,7 +71,7 @@ export class ScheduleComponent implements OnInit {
   MenuDisplay(){
     if(this.loginservice.getToken()!='')
     this.currentrole=this.loginservice.GetRolebyToken(this.loginservice.getToken());
-    this.remove = this.currentrole=='Adminstrator'; // allows only admin to access the delete button
+    this.remove = this.currentrole=='Adminstrator'|| this.currentrole=='Disaster Manager'; // allows only admin to access the delete button
 
   }
 

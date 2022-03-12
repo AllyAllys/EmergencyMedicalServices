@@ -49,7 +49,7 @@
 
           <th mat-header-cell *matHeaderCellDef> Actions </th>
 
-          <td mat-cell *matCellDef= "let element"> <button mat-raised-button  [routerLink] ="['/vieworderform', element._id]"> View </button> | <button mat-raised-button [routerLink] ="['/updateordersform', element._id]"> Edit </button> |   <button *ngIf= "remove" mat-raised-button  (click) = "delete(element._id)"  > Delete </button></td>
+          <td mat-cell *matCellDef= "let element"> <button mat-raised-button  [routerLink] ="['/vieworderform', element._id]"> View </button> | <button *ngIf= "remove" mat-raised-button [routerLink] ="['/updateordersform', element._id]"> Edit </button> |   <button *ngIf= "remove" mat-raised-button  (click) = "delete(element._id)"  > Delete </button></td>
 
         </ng-container>
 
