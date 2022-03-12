@@ -3,40 +3,40 @@
     Statistics Section
   </mat-card-title>
   <div>
-    <button *ngIf ="triage" mat-raised-button  routerLink ="/triagechart" routerLinkActive = "mat-accent" ><mat-icon> pie_chart</mat-icon>
+    <button class="Triage" *ngIf ="triage" mat-raised-button  routerLink ="/triagechart" routerLinkActive = "mat-accent" ><mat-icon> bar_chart</mat-icon>
        Triage Catergories </button>
   </div>
   <div>
-  <button *ngIf= "users" mat-raised-button  routerLink ="/piechart" routerLinkActive = "mat-accent" ><mat-icon> pie_chart</mat-icon>
+  <button class="User"  *ngIf= "users" mat-raised-button  routerLink ="/piechart" routerLinkActive = "mat-accent" ><mat-icon> pie_chart</mat-icon>
     Users and User Roles  </button>
 </div>
 <div>
-  <button *ngIf= "missingperson" mat-raised-button   color="warn" routerLink ="/chart" routerLinkActive = "mat-accent"><mat-icon> bar_chart</mat-icon>
+  <button class="missing"     *ngIf= "missingperson" mat-raised-button   color="warn" routerLink ="/chart" routerLinkActive = "mat-accent"><mat-icon> bar_chart</mat-icon>
     Number of Missing Persons Per Month </button>
 </div>
 <div>
-  <button *ngIf= "incident" mat-raised-button   routerLink ="/incidentchart"   routerLinkActive = "mat-accent" > <mat-icon> bar_chart</mat-icon>
+  <button class="incident" *ngIf= "incident" mat-raised-button   routerLink ="/incidentchart"   routerLinkActive = "mat-accent" > <mat-icon> bar_chart</mat-icon>
     Number of Incidents Per Month </button>
 </div>
 <div>
-  <button *ngIf= "order" mat-raised-button   color="warn" routerLink ="/orderchart"   routerLinkActive = "mat-accent" ><mat-icon> bar_chart</mat-icon>
+  <button class ="order"   *ngIf= "order" mat-raised-button   color="warn" routerLink ="/orderchart"   routerLinkActive = "mat-accent" ><mat-icon> bar_chart</mat-icon>
     Orders Per Month </button>
 </div>
 <div>
-  <button *ngIf= "patient" mat-raised-button  routerLink ="/patientchart"   routerLinkActive = "mat-accent" ><mat-icon> bar_chart</mat-icon>
+  <button  class="patient"   *ngIf= "patient" mat-raised-button  routerLink ="/patientchart"   routerLinkActive = "mat-accent" ><mat-icon> bar_chart</mat-icon>
     Number of Patients Per Month</button>
 </div>
 <div>
-  <button *ngIf= "onsite" mat-raised-button  color="warn" routerLink ="/onsitechart"   routerLinkActive = "mat-accent" > <mat-icon> bar_chart</mat-icon>
+  <button class="onsite"     *ngIf= "onsite" mat-raised-button  color="warn" routerLink ="/onsitechart"   routerLinkActive = "mat-accent" > <mat-icon> bar_chart</mat-icon>
 
     Number of Victims Per Month  </button>
 </div>
 <div>
-  <button *ngIf= "missingperson" mat-raised-button  routerLink ="/genderchart"   routerLinkActive = "mat-accent" ><mat-icon>wc</mat-icon> <mat-icon> pie_chart</mat-icon>
+  <button class="gender"    *ngIf= "missingperson" mat-raised-button  routerLink ="/genderchart"   routerLinkActive = "mat-accent" ><mat-icon>wc</mat-icon> <mat-icon> pie_chart</mat-icon>
     Number of Missing Persons for Each Gender Type  </button>
 </div>
 <div>
-  <button *ngIf ="incident" mat-raised-button  color="warn" routerLink="/typeofincidentchart" routerLinkActive = "mat-accent"><mat-icon> pie_chart</mat-icon>
+  <button class="disaster" *ngIf ="incident" mat-raised-button  color="warn" routerLink="/typeofincidentchart" routerLinkActive = "mat-accent"><mat-icon> pie_chart</mat-icon>
     Type of Disaster/Emergency Statistics
   </button>
 </div>

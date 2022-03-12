@@ -23,33 +23,35 @@
 <br>
 
 
-         <mat-form-field appearance="fill" class = "form-labell" >
-          <mat-label >Subject</mat-label>
-          <mat-select Id="Subject" type="Subject" class="form-control" placeholder="Ex.Fire,Earthquake..." formControlName="Subject" >
-            <mat-option value="Chemical Emergencies">Chemical Emergencies</mat-option>
-            <mat-option value="Drought">Drought</mat-option>
-            <mat-option value="Earthquake">Earthquake</mat-option>
-            <mat-option value="Explosion">Explosion</mat-option>
-            <mat-option value="Fire">Fire</mat-option>
-            <mat-option value="Flood">Flood</mat-option>
-            <mat-option value="Hurricane">Hurricane</mat-option>
-            <mat-option value="Landslides">Landslides</mat-option>
-            <mat-option value="Power Outage">Power Outage</mat-option>
-            <mat-option value="Tsuanmi">Tsuanmi</mat-option>
-            <mat-option value="Tropical Storm">Tropical Storm</mat-option>
-            <mat-option value="Tornando">Tornado</mat-option>
-            <mat-option value="Volcanic Eruption">Volcanic Eruption</mat-option>
-            <mat-option value="Other">Other</mat-option>
-          </mat-select>
-          <mat-error *ngIf= "form.get('Subject').invalid"> Please select a Subject.</mat-error>
-        </mat-form-field>
+  <div align="center" class="othererror">
+          <label > Subject </label>
+          <select Id="Subject" type="Subject" class="form-control"  (change)= "toggleVisibility($event)"  placeholder="Ex.Fire,Earthquake..." formControlName="Subject" >
+            <option value="Chemical Emergencies">Chemical Emergencies</option>
+            <option style="padding: 10px" value="Drought">Drought</option>
+            <option value="Earthquake">Earthquake</option>
+            <option value="Explosion">Explosion</option>
+            <option value="Fire">Fire</option>
+            <option value="Flood">Flood</option>
+            <option value="Hurricane">Hurricane</option>
+            <option value="Landslides">Landslides</option>
+            <option value="Power Outage">Power Outage</option>
+            <option value="Tsuanmi">Tsuanmi</option>
+            <option value="Tropical Storm">Tropical Storm</option>
+            <option value="Tornando">Tornado</option>
+            <option value="Volcanic Eruption">Volcanic Eruption</option>
+            <option value="Other">Other</option>
+          </select>
+          <mat-error class="othererror" *ngIf= "form.get('Subject').invalid"> Please select a Subject.</mat-error>
+        </div>
 
+  <div *ngIf= "showAddress">
         <mat-form-field appearance="fill"  class = "form-labell" >
           <mat-label class="form-label">State Type of Disaster/Emergency If Not Listed Above</mat-label>
           <input matInput type="State Type Emergency or Disaster " class="form-control" placeholder="State type of Emergency/Disaster" formControlName="Other">
          </mat-form-field>
+</div>
 
-
+ <div >
        <mat-form-field class = "form-labell" appearance="fill">
           <mat-label class="form-label">Phone Number</mat-label>
           <span matPrefix>+1(868) &nbsp;</span>
@@ -57,7 +59,7 @@
           <mat-icon matSuffix>phone</mat-icon>
           <mat-error *ngIf= "form.get('PhoneNo').invalid"> Please enter Phone Number.</mat-error>
         </mat-form-field>
-
+</div>
          <p>
           <mat-label>Address</mat-label>
           <mat-form-field class="example-full-width" appearance="fill">

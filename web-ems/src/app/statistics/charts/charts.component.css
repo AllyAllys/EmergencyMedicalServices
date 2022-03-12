@@ -14,6 +14,48 @@ mat-card-title{
 
 }
 
+.Triage{
+
+  background-color: black;
+}
+
+.User{
+  background-color: rgb(95, 33, 153);
+
+}
+
+.missing{
+  background-color:rgb(134, 17, 17)
+
+}
+.incident{
+  background-color:rgb(69, 7, 85)
+
+}
+
+.order{
+  background-color: crimson;
+}
+
+.patient{
+  background-color: darkblue;
+
+}
+
+.onsite{
+   background-color: forestgreen;
+
+}
+
+.gender{
+  background-color: purple;
+
+}
+.disaster{
+  background-color: rgb(143, 10, 94);
+
+}
+
 button{
 
   margin-top: 1px;

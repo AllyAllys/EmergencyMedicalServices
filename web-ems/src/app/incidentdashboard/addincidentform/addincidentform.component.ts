@@ -100,4 +100,19 @@ export class AddincidentformComponent implements OnInit {
 
   }
 
+
+  showAddress = true;
+  showPhone = true;
+
+  toggleVisibility(event) {
+const selectedValue = event.target.value;
+if(selectedValue=="Other"){
+  this.showAddress = true;
+
+}else{
+   this.showAddress = false;
+
+}
+  }
+
 }
