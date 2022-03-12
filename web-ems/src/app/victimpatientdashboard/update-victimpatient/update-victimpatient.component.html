@@ -57,6 +57,26 @@
           <mat-error *ngIf= "form.get('PhoneNo').invalid"> Please enter Phone Number.</mat-error>
         </mat-form-field>
 
+        <h3>1.<mat-icon class="red">brightness_1</mat-icon>Immediate:Victims who require immediate treatment. Refer to resuscitation area.</h3>
+        <h3>2.<mat-icon class="yellow">brightness_1</mat-icon>Urgent:Victims who requires significant intervention as soon as possible.  Refer to resuscitation area.</h3>
+        <h3>3.<mat-icon class ="green">brightness_1</mat-icon>Delayed:Victims who can have a treatment delay of no more than 4 hours. Refer to clinc or hospital for non-urgent assessment. </h3>
+        <h3>4.<mat-icon class="blue">brightness_1</mat-icon>Expectant:Victims whose injuries are severe and are unlikely to survive with the resources on site.</h3>
+        <h3>5.<mat-icon >brightness_1</mat-icon><strong>Dead:</strong>Victims who died on site.</h3>
+
+        <section class="triage">
+          <mat-label class="triage1">Triage Catergory:</mat-label>
+          <mat-radio-group type="Triage" class="form-control" placeholder="Triage" formControlName="Triage">
+            <mat-radio-button class="example-margin" value="Immediate">Immediate <mat-icon class="red">brightness_1</mat-icon></mat-radio-button>
+            <mat-radio-button class="example-margin" value="Urgent">Urgent <mat-icon class="yellow">brightness_1</mat-icon></mat-radio-button>
+            <mat-radio-button class="example-margin" value="Delayed">Delayed <mat-icon class ="green">brightness_1</mat-icon></mat-radio-button>
+            <mat-radio-button class="example-margin" value="Expectant">Expectant <mat-icon class="blue">brightness_1</mat-icon></mat-radio-button>
+            <mat-radio-button class="example-margin" value="Dead">Dead <mat-icon class="black">brightness_1</mat-icon></mat-radio-button>
+
+            <mat-error *ngIf= "form.get('Triage').invalid"> Please Select Triage Catergory.</mat-error>
+
+          </mat-radio-group>
+        </section>
+
 
 
         <mat-form-field appearance="fill">

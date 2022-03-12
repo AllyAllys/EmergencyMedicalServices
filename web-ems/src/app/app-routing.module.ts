@@ -51,6 +51,12 @@ import { TypeofincidentchartComponent } from './statistics/typeofincidentchart/t
 import { VieworderComponent } from './orders/vieworder/vieworder.component';
 import { UpdateorderComponent } from './orders/updateorder/updateorder.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import {AddscheduleComponent} from './schedule/addschedule/addschedule.component'
+import { ScheduletableComponent } from './schedule/scheduletable/scheduletable.component';
+import { UpdatescheduleComponent } from './schedule/updateschedule/updateschedule.component';
+import { TriagechartComponent } from './statistics/triagechart/triagechart.component';
+import { AmbulancechartComponent } from './statistics/ambulancechart/ambulancechart.component';
 
 const routes: Routes = [
   {path:"login",component: LoginComponent},
@@ -97,6 +103,12 @@ const routes: Routes = [
   {path:"vieworderform/:id",component:VieworderComponent },
   {path:"updateordersform/:id",component:UpdateorderComponent},
   {path:"mainpage",component:MainpageComponent},
+  {path:"schedule",component:ScheduleComponent},
+  {path:"addschedule",component:AddscheduleComponent},
+  {path:"viewschedule/:id",component:ScheduletableComponent},
+  {path:"updateschedule/:id",component:UpdatescheduleComponent},
+  {path:"triagechart",component:TriagechartComponent },
+  {path:"ambulancechart",component:AmbulancechartComponent},
 ];
 
 @NgModule({

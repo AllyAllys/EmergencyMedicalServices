@@ -27,7 +27,8 @@ export class UpdateVictimpatientComponent implements OnInit {
     City:new FormControl('',Validators.required),
     ZipCode: new FormControl('',Validators.required),
     MedicalProviders: new FormControl('',Validators.required),
-    Ambulance:new FormControl('',Validators.required)
+    Ambulance:new FormControl('',Validators.required),
+    Triage:new FormControl('',Validators.required)
 
   });
   message:boolean = false;
@@ -50,7 +51,8 @@ export class UpdateVictimpatientComponent implements OnInit {
         City:new FormControl(result['City'],Validators.required),
         ZipCode: new FormControl(result['ZipCode']),
         MedicalProviders: new FormControl(result['MedicalProviders'],Validators.required),
-        Ambulance:new FormControl(result['Ambulance'],Validators.required)
+        Ambulance:new FormControl(result['Ambulance'],Validators.required),
+        Triage:new FormControl(result['Triage'],Validators.required),
 
       });
 

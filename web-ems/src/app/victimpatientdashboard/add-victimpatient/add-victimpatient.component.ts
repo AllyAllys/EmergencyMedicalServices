@@ -29,7 +29,7 @@ export class AddVictimpatientComponent implements OnInit {
     ZipCode:new FormControl('',Validators.required),
     MedicalProviders:new FormControl('',Validators.required),
     Ambulance:new FormControl('',Validators.required),
-
+    Triage: new FormControl('',Validators.required),
 
     });
 

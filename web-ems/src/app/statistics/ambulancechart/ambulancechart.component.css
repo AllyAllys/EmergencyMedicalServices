@@ -1,0 +1,23 @@
+button{
+  color:rgb(3, 61, 109)
+}
+
+
+
+mat-card{
+  width:50%;
+  height: 1000px;
+  background-color: rgb(245, 245, 245) ;
+  margin:auto;
+}
+
+h2 {
+  font-family: " Times, serif";
+  font-size: 30px;
+  font-weight:bold;
+  border-bottom: 2px solid black;
+  padding-bottom:14px;
+
+
+
+}

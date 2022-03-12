@@ -1,0 +1,64 @@
+<mat-card>
+
+  <mat-card-title>
+    Assigned Tasks
+    </mat-card-title>
+    <button class ="add" mat-raised-button  routerLink ="/addschedule" routerLinkActive = "mat-accent" >Add Form</button>
+    <button class ="add2" mat-raised-button  routerLink ="/healthtrackingdashboard" routerLinkActive = "mat-accent" > Go to Hospital Staff Scheduling to record assigned tasks</button>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Search </mat-label>
+        <span matSuffix> <i class="material-icons">search</i> </span>
+        <input matInput (keyup)= "applyFilter($event)" placeholder="Enter Parameter" #input>
+      </mat-form-field>
+     </div>
+    <div>
+      <table mat-table [dataSource] = "dataSource" class=" data-table" matSort>
+
+        <ng-container matColumnDef="FirstID"  >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> UserID </th>
+          <td mat-cell *matCellDef= "let element"> {{element.UserID}}  </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Firstname">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Assigned To: </th>
+          <td mat-cell *matCellDef="let element"> {{element.Firstname}} {{element.Surname}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Task" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Task</th>
+          <td mat-cell *matCellDef="let element"> {{element.Task}}</td>
+        </ng-container>
+        <ng-container matColumnDef="Address">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Location Assigned</th>
+          <td mat-cell *matCellDef="let element"> {{element.Street}},{{element.City}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Assigned</th>
+          <td mat-cell *matCellDef="let element"> {{element.ModifiedDate}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <ng-container matColumnDef="Action">
+
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+
+          <td mat-cell *matCellDef= "let element"> <button mat-raised-button  [routerLink] ="['/viewschedule', element._id]"> View </button> | <button mat-raised-button *ngIf= "remove"  [routerLink] ="['/updateschedule', element._id]"> Edit </button> | <button mat-raised-button *ngIf= "remove"   (click) = "delete(element._id)"  > Delete </button>  </td>
+
+        </ng-container>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]= "[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+    </div>
+    </mat-card>
+

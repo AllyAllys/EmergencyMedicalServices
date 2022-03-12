@@ -57,7 +57,9 @@ const publics= require("./DataModels/Public.model")
 const volunteers= require("./DataModels/Volunteer.model")
 const onsitepatient_victim_identifications = require("./DataModels/Onsitevictimpatient.model")
 const Msg= require('./DataModels/messages.model')
+const schedule = require('./DataModels/schedule.model')
 //Routes
+const Schedule = require ("./Routes/schedule")
 const Chatrooms = require('./Routes/chatroom')
 const Admins= require('./Routes/Admins')
 const Ambulance= require('./Routes/Ambulance_Information')
@@ -102,6 +104,7 @@ app.use('/Orders',Order)
 app.use('/Itemrequests',Items)
 app.use('/Itemdescriptions',Itemdescription)
 app.use('/api/onsitepatientvictiminformation',Onsitevictictimpatient)
+app.use('/sch',Schedule)
 //app.use('/map')
 
 

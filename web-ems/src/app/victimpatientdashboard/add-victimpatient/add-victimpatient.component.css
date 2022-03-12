@@ -1,6 +1,6 @@
 mat-card{
-  width:50%;
-  height:1150px;
+  width:55%;
+  height:1600px;
   background-color: rgb(238, 238, 238) ;
   margin:auto;
 
@@ -97,4 +97,34 @@ mat-card-title{
 .form-labell{
   width: 50%;
 
+}
+.red{
+  color:red;
+}
+.yellow{
+  color:rgb(211, 211, 26);
+}
+.green{
+  color:green;
+}
+.blue{
+  color:blue
+}
+
+.triage1{
+  font-size: 16px;
+  font-weight:bold;
+
+
+}
+.triage{
+  margin-bottom: 20px;
+  margin-top:20px;
+}
+h3{
+  font-family: " Times, serif";
+  font-size: 20px;
+  font-weight: 500;
+  border-bottom: 2px solid black;
+  padding-bottom:14px;
 }

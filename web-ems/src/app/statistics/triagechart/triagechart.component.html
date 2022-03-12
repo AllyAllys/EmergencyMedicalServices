@@ -1,0 +1,13 @@
+<div class="back">
+  <mat-card>
+  <div class="card text-center m-5">
+    <mat-card-title>
+    <h2 align="center">Bar Chart Showing Number of Persons for Each Triage Catergory in 2022 </h2>
+  </mat-card-title>
+  <button mat-raised-button routerLink ="/ambulancechart"  >View Number of persons treated on site or taken to the hospital </button>
+  </div>
+  <div *ngIf= "chart">
+    <canvas  id="canvas">{{ chart }}</canvas>
+  </div>
+  </mat-card>
+  </div>

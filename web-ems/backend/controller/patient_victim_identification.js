@@ -58,7 +58,8 @@ exports.patientvictim_post_create = (req,res,next)=>{
         Contactfirstname:req.body.Contactfirstname,
         Contactsurname:req.body.Contactsurname,
         Relationship:req.body.Relationship,
-        Contact:req.body.Contact
+        Contact:req.body.Contact,
+        Triage:req.body.Triage
 
     });
     tracking
@@ -89,7 +90,8 @@ exports.patientvictim_update = function(req,res,next)
       Street:req.body.Street,City:req.body.City,
       ZipCode:req.body.ZipCode,
       MedicalProviders:req.body.MedicalProviders,
-      Ambulance:req.body.Ambulance
+      Ambulance:req.body.Ambulance,
+      Triage:req.body.Triage
     }})
     .exec()
     .then(function(dbuser)

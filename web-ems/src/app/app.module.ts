@@ -15,6 +15,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -87,6 +88,12 @@ import { Moment } from 'moment';
 import { TypeofincidentchartComponent } from './statistics/typeofincidentchart/typeofincidentchart.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { ScheduletableComponent } from './schedule/scheduletable/scheduletable.component';
+import { AddscheduleComponent } from './schedule/addschedule/addschedule.component';
+import { UpdatescheduleComponent } from './schedule/updateschedule/updateschedule.component';
+import { TriagechartComponent } from './statistics/triagechart/triagechart.component';
+import { AmbulancechartComponent } from './statistics/ambulancechart/ambulancechart.component';
 
 
 @NgModule({
@@ -141,7 +148,13 @@ import { DialogComponent } from './dialog/dialog.component';
     MissingpersongenderchartComponent,
     TypeofincidentchartComponent,
     MainpageComponent,
-    DialogComponent
+    DialogComponent,
+    ScheduleComponent,
+    ScheduletableComponent,
+    AddscheduleComponent,
+    UpdatescheduleComponent,
+    TriagechartComponent,
+    AmbulancechartComponent
 
   ],
   entryComponents:[

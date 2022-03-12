@@ -1,0 +1,12 @@
+<div class="back">
+  <mat-card>
+  <div class="card text-center m-5">
+    <mat-card-title>
+    <h2 align="center">Number of Persons who were treated on Emergency/Disaster site or taken to the Hopsital</h2>
+  </mat-card-title>
+  </div>
+  <div *ngIf= "chart">
+    <canvas  id="canvas">{{ chart }}</canvas>
+  </div>
+  </mat-card>
+  </div>

@@ -21,8 +21,11 @@
     Chat
   </a>
 
+  <a *ngIf= "health" mat-list-item routerLink="/schedule" routerLinkActive= "list-item-active"><mat-icon> list_alt</mat-icon>
+    Assigned Tasks for Medical Responders</a>
+
   <a *ngIf= "health" mat-list-item routerLink="/healthtrackingdashboard" routerLinkActive= "list-item-active"><mat-icon> local_hospital</mat-icon>
-    Hospital Staff Scheduling </a>
+    Medical Responders Scheduling </a>
 
     <a *ngIf= "order" mat-list-item routerLink="/ordertable" routerLinkActive= "list-item-active"><mat-icon>add_shopping_cart</mat-icon>
 

@@ -92,6 +92,12 @@ const PatientVictimIdentificationSchema= new mongoose.Schema({
     Contact:{
       type:String,
       //required:true
+    },
+    Triage:
+    {
+      type:String,
+
+
     }
 
 });
