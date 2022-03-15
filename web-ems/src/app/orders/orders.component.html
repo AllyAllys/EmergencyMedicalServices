@@ -18,8 +18,8 @@
 
         <mat-form-field appearance="fill">
           <mat-label class="form-label">Item Quantity</mat-label>
-          <input matInput type="Item_Quantity" class="form-control" placeholder="1" formControlName="Item_Quantity">
-          <mat-error *ngIf= "form.get('Item_Quantity').invalid"> Please enter Subject.</mat-error>
+          <input matInput type="number" class="form-control" placeholder="1" formControlName="Item_Quantity">
+          <mat-error *ngIf= "form.get('Item_Quantity').invalid"> Please enter a number .</mat-error>
          </mat-form-field>
 
          <mat-form-field appearance="fill">
@@ -36,7 +36,7 @@
        <mat-form-field class = "form-labell" appearance="fill">
           <mat-label class="form-label">Phone Number</mat-label>
           <span matPrefix>+1(868) &nbsp;</span>
-          <input matInput type= "PhoneNo" class="form-control" placeholder="PhoneNo" formControlName="PhoneNo">
+          <input matInput type= "number" class="form-control" placeholder="PhoneNo" formControlName="PhoneNo">
           <mat-icon matSuffix>phone</mat-icon>
           <mat-error *ngIf= "form.get('PhoneNo').invalid"> Please enter Phone Number.</mat-error>
         </mat-form-field>
@@ -63,7 +63,7 @@
 
           <td><mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Postal Code</mat-label>
-            <input  matInput type="ZipCode" class="form-control" placeholder="ZipCode" formControlName="ZipCode" #postalCode maxlength="5"   >
+            <input  matInput type= "number" class="form-control" placeholder="ZipCode" formControlName="ZipCode" #postalCode maxlength="5"   >
             <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
           </mat-form-field></td>
         </tr></table>

@@ -14,7 +14,7 @@ import { LoginService } from '../login/login.service';
 })
 export class UsersComponent implements OnInit, AfterViewInit{
 
-  displayedColumns: string[] = ['_id','Username','Firstname','Userclass','Email','DateJoined','Action'];
+  displayedColumns: string[] = ['_id','Username','Firstname','Requested','Userclass','Email','DateJoined','Action'];
   dataSource = new MatTableDataSource <users>();
   //listMissing : users[] = [];
   Reports:any;

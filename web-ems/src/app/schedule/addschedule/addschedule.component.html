@@ -10,7 +10,7 @@
           <mat-label class="form-label">Task</mat-label>
           <input matInput type= "Task" class="form-control" placeholder="Task" formControlName="Task">
           <textarea matInput ></textarea>
-          <mat-error *ngIf= "form.get('Task').invalid"> Please enter Phone Number.</mat-error>
+          <mat-error *ngIf= "form.get('Task').invalid"> Please assign a task.</mat-error>
         </mat-form-field>
 
         <h2 align="center">Assigned To</h2>
@@ -18,13 +18,13 @@
         <mat-form-field appearance="fill">
           <mat-label class="form-label">Firstname</mat-label>
           <input matInput type="Firstname" class="form-control" placeholder="Firstname" formControlName="Firstname">
-          <mat-error *ngIf= "form.get('Firstname').invalid"> Please enter Subject.</mat-error>
+          <mat-error *ngIf= "form.get('Firstname').invalid"> Please enter firstname.</mat-error>
          </mat-form-field>
 
          <mat-form-field appearance="fill">
           <mat-label class="form-label">Surname</mat-label>
           <input matInput type="Surname" class="form-control" placeholder="Surname" formControlName="Surname">
-          <mat-error *ngIf= "form.get('Surname').invalid"> Please enter Subject.</mat-error>
+          <mat-error *ngIf= "form.get('Surname').invalid"> Please enter surname.</mat-error>
          </mat-form-field>
 
         <h2 align="center">Assigned Location</h2>
@@ -49,7 +49,7 @@
 
           <td><mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Postal Code</mat-label>
-            <input  matInput type="ZipCode" class="form-control" placeholder="ZipCode" formControlName="ZipCode" #postalCode maxlength="5"   >
+            <input  matInput type="number" class="form-control" placeholder="ZipCode" formControlName="ZipCode" #postalCode maxlength="5"   >
             <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
           </mat-form-field></td>
         </tr></table>

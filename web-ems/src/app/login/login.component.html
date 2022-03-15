@@ -3,6 +3,23 @@
     <mat-card-title> Login</mat-card-title>
   <mat-spinner *ngIf= "isLoading"></mat-spinner>
   <form (submit)= "onLogin(loginForm)" #loginForm="ngForm" *ngIf= "!isLoading">
+
+    <mat-form-field appearance="fill">
+      <mat-label >Userclass</mat-label>
+      <mat-select   matInput name ="Userclass" ngModel type ="Userclass" placeholder="Userclass" #userclassInput = "ngModel" required Userclass >
+        <mat-option value="Adminstrator">Adminstrator</mat-option>
+        <mat-option value="Public">Public User</mat-option>
+        <mat-option value="Volunteer">Volunteer User</mat-option>
+        <mat-option value="EMS Dispatcher">EMS Dispatcher User</mat-option>
+        <mat-option value="Emergency Responder">Emergency Responder</mat-option>
+        <mat-option value="First Responder">First Responder</mat-option>
+        <mat-option value="Disaster Manager">Disaster Manager</mat-option>
+        <mat-option value="Law Enforcement">Law Enforcement User</mat-option>
+        <mat-option value="Health staff">Health Staff User</mat-option>
+      </mat-select>
+      <mat-error *ngIf= "userclassInput.invalid" > Please enter correct Userclass.</mat-error>
+    </mat-form-field>
+
     <mat-form-field>
       <input matInput name ="Username" ngModel type ="Username" placeholder="Username" #usernameInput = "ngModel" required Username>
       <mat-error *ngIf= "usernameInput.invalid"> Please enter correct Username.</mat-error>

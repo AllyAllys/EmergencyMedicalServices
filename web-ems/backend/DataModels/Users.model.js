@@ -13,6 +13,10 @@ const usersSchema= new mongoose.Schema({
     },
     Userclass: {
         type: String,
+
+    },
+    Requestedrole:{
+      type:String,
     },
     Firstname: {
         type:String,

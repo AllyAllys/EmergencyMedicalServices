@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
     }
 
-    this.loginService.loginUser(form.value.Username,form.value.Password);
+    this.loginService.loginUser(form.value.Username,form.value.Password,form.value.Userclass);
     this.loginService.updatemenu.next();
 
 

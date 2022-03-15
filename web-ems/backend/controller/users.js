@@ -76,6 +76,7 @@ exports.users_signup = function(req,res,next)   //Sign up
                 Userclass:req.body.Userclass,
                 Firstname:req.body.Firstname,
                 Lastname:req.body.Lastname,
+                Requestedrole:req.body.Requestedrole,
                 Password:hash,
                 Email:req.body.Email,
                 DateJoined:req.body.DateJoined
@@ -100,7 +101,7 @@ exports.users_signup = function(req,res,next)   //Sign up
 }
 
 exports.users_login = (req,res,next)=>{
-    User_model.find({Username: req.body.Username})
+    User_model.find({Username: req.body.Username,Userclass:req.body.Userclass})
 
     .exec()
     .then(user=>{
@@ -154,7 +155,7 @@ exports.users_login = (req,res,next)=>{
 exports.users_put_update = function(req,res,next)
 {
     const id = req.params.updateUser;
-    User_model.updateOne({_id: id},{$set:{Username:req.body.Username,Userclass:req.body.Userclass,Firstname:req.body.Firstname,Lastname:req.body.Lastname,Email:req.body.Email,Password:req.body.Password}})
+    User_model.updateOne({_id: id},{$set:{Username:req.body.Username,Userclass:req.body.Userclass,Firstname:req.body.Firstname,Lastname:req.body.Lastname,Email:req.body.Email,Password:req.body.Password,Requestedrole:req.body.Requestedrole}})
     .exec()
     .then(function(dbuser)
       {

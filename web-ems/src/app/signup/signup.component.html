@@ -11,7 +11,7 @@
                 <mat-error *ngIf= "form.get('Username').hasError('usernameTaken')">Username is taken</mat-error>
           <mat-error *ngIf= "form.get('Username').invalid"> Please enter username.</mat-error>
          </mat-form-field>
-
+<!--
          <mat-form-field appearance="fill">
           <mat-label >Userclass</mat-label>
           <mat-select  class="form-control"  formControlName = "Userclass"  type = " Userclass" >
@@ -26,6 +26,22 @@
             <mat-option value="Health staff">Health Staff User</mat-option>
           </mat-select>
           <mat-error *ngIf= "form.get('Userclass').invalid"> Please enter correct Userclass.</mat-error>
+        </mat-form-field>
+-->
+        <mat-form-field appearance="fill">
+          <mat-label >Requested Role</mat-label>
+          <mat-select  class="form-control"  formControlName = "Requestedrole"  type = "Requestedrole" >
+            <mat-option value="Adminstrator">Adminstrator</mat-option>
+            <mat-option value="Public">Public User</mat-option>
+            <mat-option value="Volunteer">Volunteer User</mat-option>
+            <mat-option value="EMS Dispatcher">EMS Dispatcher User</mat-option>
+            <mat-option value="Emergency Responder">Emergency Responder</mat-option>
+            <mat-option value="First Responder">First Responder</mat-option>
+            <mat-option value="Disaster Manager">Disaster Manager</mat-option>
+            <mat-option value="Law Enforcement">Law Enforcement User</mat-option>
+            <mat-option value="Health staff">Health Staff User</mat-option>
+          </mat-select>
+          <mat-error *ngIf= "form.get('Requestedrole').invalid"> Please enter correct Userclass.</mat-error>
         </mat-form-field>
 
          <mat-form-field appearance="fill">

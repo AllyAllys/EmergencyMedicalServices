@@ -21,6 +21,7 @@ export class UpdateuserComponent implements OnInit {
     Lastname:new FormControl('',Validators.required),
     Email:new FormControl('',Validators.required),
     Password:new FormControl('',Validators.required),
+    Requestedrole: new FormControl('',Validators.required)
 
 
 
@@ -40,7 +41,7 @@ export class UpdateuserComponent implements OnInit {
         Lastname: new FormControl(result['Lastname']),
         Email: new FormControl(result['Email'],Validators.required),
         Password:new FormControl(result['Password'],Validators.required),
-
+        Requestedrole: new FormControl(result['Requestedrole'],Validators.required)
 
       });
 
@@ -61,12 +62,10 @@ export class UpdateuserComponent implements OnInit {
 
     })
 
-
-
-
   }
   removeMessage() {
 
   }
+
 
 }

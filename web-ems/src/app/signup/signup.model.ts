@@ -5,4 +5,5 @@ export interface signUpData {
   Lastname:string;
   Email:string;
   Password:string;
+  Requestedrole:string;
 }

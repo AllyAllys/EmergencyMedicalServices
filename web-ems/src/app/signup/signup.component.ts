@@ -19,14 +19,12 @@ export class SignupComponent implements OnInit {
   form = new FormGroup({
 
     Username: new FormControl('',Validators.required,this.signupService.validateUsernameNotTaken.bind(this.signupService)),
-    Userclass:new FormControl('',Validators.required),
+    //Userclass:new FormControl(''),
     Firstname:new FormControl('',Validators.required),
     Lastname:new FormControl('',Validators.required),
     Email:new FormControl('',Validators.required,this.signupService.validateEmailNotTaken.bind(this.signupService)),
     Password:new FormControl('',[Validators.required, Validators.minLength(8)]),
-
-
-
+    Requestedrole:new FormControl('',[Validators.required]),
   });
 
   SaveData(){
