@@ -3,6 +3,7 @@ import { HttpClient} from "@angular/common/http";
 import {Router} from '@angular/router';
 import {loginData} from "./login.model";
 import { Subject } from "rxjs";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Injectable({ providedIn:"root"})
 
@@ -15,7 +16,7 @@ export class  LoginService {
   private authStatusListener = new Subject<boolean>();
   isAuthenticated: boolean;
   tokenresp:any;
-  constructor(private http: HttpClient, private router:Router  ){ }
+  constructor(private http: HttpClient, private router:Router,private _snackBar:MatSnackBar  ){ }
 
   get updatemenu(){
     return this._updatemenu;
@@ -38,11 +39,18 @@ export class  LoginService {
 
     window.location.assign("/homepage");
 
+    this._snackBar.open('Logged In!','',{
+      verticalPosition:'top',
+     // horizontalPosition:'center',
+      panelClass:'edit'
+    })
+
 
     //this.authStatusListener.next(true);
     //window.location.reload();
 
   })
+
  }
  IsLogged() {
   return localStorage.getItem("token") != '';

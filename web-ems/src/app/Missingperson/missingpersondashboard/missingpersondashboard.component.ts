@@ -69,7 +69,7 @@ export class MissingpersondashboardComponent implements OnInit {
   delete(form_id:any){
     if(confirm("Are you sure you want to permanently delete this form?")==true){
     this.missingpersonService.deleteUser(form_id).subscribe((result)=>{
-      //console.log(result);
+      console.log(result);
       this.ngOnInit();
       this._snackBar.open('Deleted!','',{
         verticalPosition:'top',

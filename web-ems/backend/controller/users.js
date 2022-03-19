@@ -167,6 +167,9 @@ exports.users_put_update = function(req,res,next)
       });
 
 }
+
+
+
 exports.users_delete_one = function(req,res,next)
 {
     User_model.deleteOne({_id:req.params.userId})

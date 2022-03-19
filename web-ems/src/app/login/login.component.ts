@@ -13,21 +13,17 @@ export class LoginComponent implements OnInit {
   constructor( public loginService:LoginService , private _snackBar:MatSnackBar) { }
   isLoading = false;
 
-
-
   onLogin(form:NgForm){
     if(form.invalid){
       alert("Invalid Login!")
       return;
-
     }
 
     this.loginService.loginUser(form.value.Username,form.value.Password,form.value.Userclass);
     this.loginService.updatemenu.next();
 
-
-
-    this._snackBar.open('Logged In','',{
+    //Prompted Error Message
+    this._snackBar.open('Invalid!','',{
       verticalPosition:'top',
      // horizontalPosition:'center',
       panelClass:'edit'

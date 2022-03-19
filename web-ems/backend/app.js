@@ -8,10 +8,6 @@ const bodyParser = require('body-parser');
 var morgan = require('morgan');
 
 
-
-
-
-
 //const io = socketio(server);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -22,8 +18,6 @@ app.use(cors())
 //Body Parser
 //app.use(express.urlencoded({extended: false}));
 //app.use(express.json());
-
-
 
 //Connecting to MongoDB
 mongoose.connect("mongodb://localhost/EMS",()=>{
@@ -110,16 +104,12 @@ app.use('/sch',Schedule)
 
 //app.use('/images', express.static(path.join('images')));
 
-
-
 // setup of the view engine
 app.set('view engine','ejs')
 app.set('views',__dirname + '/views')
 
-
 //Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 app.use(morgan('dev'));
 /* Chat code
@@ -137,9 +127,6 @@ app.use(morgan('dev'));
 
 //Server
  //app.listen(3000)
-
-
-
 
 app.use (express.static('public'))
 /*
@@ -184,5 +171,7 @@ app.use((req,res,next)=>{
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+// Email
 
 module.exports = app;
