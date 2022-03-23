@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-title> Orders Form</mat-card-title>
+  <mat-card-title> Update Order </mat-card-title>
 
 
   <form [formGroup]= "form" (submit) ="UpdateData()" >
@@ -38,7 +38,7 @@
        <mat-form-field class = "form-labell" appearance="fill">
           <mat-label class="form-label">Phone Number</mat-label>
           <span matPrefix>+1(868) &nbsp;</span>
-          <input matInput type= "number" class="form-control" placeholder="PhoneNo" formControlName="PhoneNo">
+          <input matInput  class="form-control" placeholder="PhoneNo" formControlName="PhoneNo">
           <mat-icon matSuffix>phone</mat-icon>
           <mat-error *ngIf= "form.get('PhoneNo').invalid"> Please enter Phone Number.</mat-error>
         </mat-form-field>

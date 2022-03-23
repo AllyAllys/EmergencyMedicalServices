@@ -54,8 +54,6 @@ export class OnsiteUPDATEComponent implements OnInit {
         Relationship: new FormControl(result['Relationship'],Validators.required),
         Contact: new FormControl(result['Contact'],Validators.required),
 
-
-
       });
 
     });
